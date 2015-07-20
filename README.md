@@ -1,5 +1,5 @@
 #### current machine:
-[chromebook pixel 2015](https://github.com/freshdried/dotfiles/blob/master/README.md)
+[chromebook pixel 2015](https://github.com/freshdried/dotfiles/blob/master/chromebook_pixel.md)
 
 #### stuff I use:
 - urxvt

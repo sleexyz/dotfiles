@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# pushes dotfiles to github
+
+DIR=$HOME/code/projects/dotfiles
+
+cd $DIR
+
+git add -A --no-ignore-removal
+git commit -m 'updated dotfiles'
+git push
+
+
+

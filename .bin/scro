@@ -1,0 +1,2 @@
+DIR="/media/removable/sd/my\ shit/visual/screenshots"
+scrot $DIR/%Y-%m-%d-%T-screenshot.png

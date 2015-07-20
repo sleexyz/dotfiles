@@ -21,12 +21,12 @@ myManageHook = ( composeAll
     ) <+> namedScratchpadManageHook myScratchPads
 
 -- then define your scratchpad management separately:
-myScratchPads = [ NS "terminal" spawnTerm (resource =? "urxvt-scratchpad") (customFloating $ W.RationalRect 0 0 1 1)
-                , NS "emacs" spawnEmacs (resource =? "emacs-scratchpad") (customFloating $ W.RationalRect 0 0 1 1)
+myScratchPads = [ NS "terminal" spawnTerm (resource =? "urxvt-scratchpad") (customFloating $ W.RationalRect 0 0 1 0.66)
+                , NS "keep" spawnKeep (resource =? "crx_hmjkmjkepdijhoojdojkdfohbdgmmhki") (customFloating $ W.RationalRect 0 0 1 0.66)
                 ]
     where
         spawnTerm = "urxvt -name urxvt-scratchpad"
-        spawnEmacs = "emacs --name emacs-scratchpad"
+        spawnKeep = "~/.bin/keep"
 
 
 mylayoutHook = simpleCross ||| tiled
@@ -75,7 +75,7 @@ myConfig = defaultConfig
     , ("M-q", sendMessage NextLayout)
     , ("M-S-q", spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
     , ("<F1>", namedScratchpadAction myScratchPads "terminal")
-    , ("<F2>", namedScratchpadAction myScratchPads "emacs")
+    , ("<F2>", namedScratchpadAction myScratchPads "keep")
     , ("M-<Space>", spawn "rofi -show run")
     , ("M-p", spawn "rofi -show run")
     , ("M-<Up>", spawn "transset-df -p --inc 0.03")

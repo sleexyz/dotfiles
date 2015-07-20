@@ -20,6 +20,7 @@
      ess
      syntax-checking
      javascript
+     haskell
      html
      (shell :variables
             shell-default-height 30)

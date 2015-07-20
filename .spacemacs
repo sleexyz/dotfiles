@@ -146,6 +146,7 @@ layers configuration."
   (setq vc-follow-symlinks t)
   (setq browse-url-generic-program "google-chrome")
   (setq browse-url-browser-function 'browse-url-generic)
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

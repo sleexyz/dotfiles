@@ -29,6 +29,7 @@ linkHome .xmobarrc
 linkHome .Xresources
 linkHome .xmonad
 linkHome .config/compton.conf
+linkHome .urxvt
 
 
 # custom scripts

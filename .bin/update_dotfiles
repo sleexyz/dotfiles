@@ -6,9 +6,7 @@ DIR=$HOME/code/projects/dotfiles
 
 cd $DIR
 
-git submodule foreach 'git add -A --no-ignore-removal'
-git submodule foreach 'git commit -m "updated dotfiles"'
-git submodule foreach 'git push'
+git submodule foreach 'git add -A --no-ignore-removal && git commit -m "updated dotfiles" && git push'
 
 git add -A --no-ignore-removal
 git commit -m 'updated dotfiles'

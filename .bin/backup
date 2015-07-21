@@ -11,7 +11,7 @@ fi
 sync () {
     SOURCE_DIR="$1"
     shift
-    rsync --dry-run --delete -avP "$SOURCE_DIR" "$SYNC_DIR"/ "$@"
+    rsync --delete -avP "$SOURCE_DIR" "$SYNC_DIR"/ "$@"
 }
 
 _backup () {

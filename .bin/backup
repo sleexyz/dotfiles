@@ -9,10 +9,25 @@ fi
 
 
 sync () {
-    rsync --delete --exclude "*/node_modules/" -avP "$1" "$SYNC_DIR"/
+    SOURCE_DIR="$1"
+    shift
+    rsync --dry-run --delete -avP "$SOURCE_DIR" "$SYNC_DIR"/ "$@"
 }
 
-sync $HOME/code
-sync $HOME/text
-sync $HOME/visual
-sync $HOME/aural
+_backup () {
+    sync $HOME/code --exclude "*/node_modules/" --exclude "sandbox/" "$@"
+    sync $HOME/text "$@"
+    sync $HOME/visual "$@"
+    sync $HOME/aural "$@"
+}
+
+_backup --dry-run
+ 
+
+echo "Does this look right?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) _backup; break;;
+        No ) exit;;
+    esac
+done

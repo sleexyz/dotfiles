@@ -1,3 +1,3 @@
 [submodule ".zprezto"]
 	path = .zprezto
-	url = git@:github.com:freshdried/prezto
+	url = https://github.com/freshdried/prezto.git

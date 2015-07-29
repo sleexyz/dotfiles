@@ -2,7 +2,9 @@
 macbook air 13 inch
 
 #### stuff I use:
-- ranger
+- ranger.py
+- Terminal.app
+- [super-easy-move-resize](https://github.com/freshdried/super-easy-move-resize.git)
 - *editors*
     - spacemacs
     - vim

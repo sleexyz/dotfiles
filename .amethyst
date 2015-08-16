@@ -157,19 +157,21 @@
         "key": "4"
     },
     "toggle-float": {
-        "mod": "mod1",
+        "mod": "mod2",
         "key": "t"
     },
     "toggle-tiling": {
         "mod": "mod2",
-        "key": "t"
+        "key": "i"
     },
 
     "MISC": "----------------------",
-    "floating": [],
+    "floating": [
+        "com.apple.systempreferences"
+    ],
     "float-small-windows": true,
     "mouse-follows-focus": false,
-    "focus-follows-mouse": false,
+    "focus-follows-mouse": true,
     "enables-layout-hud": false,
     "enables-layout-hud-on-space-change": false
 }

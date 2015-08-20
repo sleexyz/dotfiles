@@ -25,10 +25,10 @@ linkHome .vimrc
 
 # window management
 linkHome .xinitrc
-linkHome .xmobarrc
+# linkHome .xmobarrc
 linkHome .Xresources
-linkHome .xmonad
-linkHome .config/compton.conf
+# linkHome .xmonad
+# linkHome .config/compton.conf
 linkHome .urxvt
 
 

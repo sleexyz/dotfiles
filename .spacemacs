@@ -68,8 +68,8 @@ before layers configuration."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("MonacoBSemi"
-                               :size 24
+   dotspacemacs-default-font '("Terminus"
+                               :size 9
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DEFAULT_DEVICE="bdwrt5677"
+DEFAULT_DEVICE="ROCKCHIPI2S"
 
 help () {
 cat << 'EOF'

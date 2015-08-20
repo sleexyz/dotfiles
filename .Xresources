@@ -1,7 +1,7 @@
 !
 ! Xft
 !
-Xft.dpi: 168
+! Xft.dpi: 168
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
@@ -75,7 +75,7 @@ URxvt.scrollBar: false
 URxvt.internalBorder: 48
 URxvt.depth: 32
 URxvt.background: rgba:1500/1500/1500/f000
-URxvt*font: xft:MonacoBSemi:size=10
+URxvt*font: xft:Terminus:size=9
 URxvt.perl-ext-common: font-size
 
 URxvt.keysym.C-equal: perl:font-size:increase

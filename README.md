@@ -6,14 +6,14 @@ macbook air 13 inch
 - [ranger.py](http://ranger.nongnu.org/), a vi-keys console file manager
 - [Amethyst](https://github.com/ianyh/Amethyst), an OSX "port" of XMonad
 - [BetterTouchTool](http://www.bettertouchtool.net) to fix keyboard shortcut kinks
-- [super-easy-move-resize](https://github.com/freshdried/super-easy-move-resize.git) for XMonad-style floating-window mouse interaction
+- [super-easy-move-resize](https://github.com/sleep/super-easy-move-resize.git) for XMonad-style floating-window mouse interaction
 - *editors*
     - [spacemacs](https://github.com/syl20bnr/spacemacs)
     - vim
 
 ## setup:
 ```
-git clone https://github.com/freshdried/dotfiles
+git clone https://github.com/sleep/dotfiles
 cd dotfiles
 git submodules update --init --recursive
 ./link.sh

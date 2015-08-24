@@ -18,9 +18,9 @@
      jsx
      markdown
      ess
-     supercollider
      syntax-checking
      javascript
+     supercollider
      haskell
      osx
      html

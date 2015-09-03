@@ -7,6 +7,7 @@ macbook air 13 inch
 - [Amethyst](https://github.com/ianyh/Amethyst), an OSX "port" of XMonad
 - [BetterTouchTool](http://www.bettertouchtool.net) to fix keyboard shortcut kinks
 - [super-easy-move-resize](https://github.com/sleep/super-easy-move-resize.git) for XMonad-style floating-window mouse interaction
+- [hyperswitch](https://bahoom.com/hyperswitch)
 - *editors*
     - [spacemacs](https://github.com/syl20bnr/spacemacs)
     - vim

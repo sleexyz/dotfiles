@@ -49,7 +49,7 @@ syntax on
 set backupdir=~/.vim/tmp,.
 set directory=~/.vim/tmp,.
 set autoindent
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set showmatch
 set matchtime=5
 set laststatus=2

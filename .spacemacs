@@ -18,6 +18,8 @@
      jsx
      markdown
      ess
+     git
+     github
      syntax-checking
      javascript
      supercollider
@@ -68,8 +70,8 @@ before layers configuration."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("MonacoBSemi"
-                               :size 24
+   dotspacemacs-default-font '("Source Code Pro"
+                               :size 11
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -148,7 +150,11 @@ layers configuration."
   (setq vc-follow-symlinks t)
   (setq browse-url-generic-program "google-chrome")
   (setq browse-url-browser-function 'browse-url-generic)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-markup-indent-offset 2)
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+  (setq tab-width 2)
+  (setq c-basic-offset 2)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -163,6 +169,7 @@ layers configuration."
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
+ '(js-indent-level 2)
  '(ring-bell-function (quote ignore) t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

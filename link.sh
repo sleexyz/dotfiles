@@ -24,12 +24,13 @@ linkHome .spacemacs
 linkHome .vimrc
 
 # window management
-linkHome .xinitrc
-linkHome .xmobarrc
-linkHome .Xresources
-linkHome .xmonad
-linkHome .config/compton.conf
-linkHome .urxvt
+# linkHome .xinitrc
+# linkHome .xmobarrc
+# linkHome .Xresources
+# linkHome .xmonad
+# linkHome .config/compton.conf
+# linkHome .urxvt
+linkHome .amethyst
 
 
 # custom scripts

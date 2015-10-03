@@ -2,7 +2,7 @@
 macbook air 13 inch
 
 #### stuff I use:
-- Terminal.app
+- [iterm2](https://www.iterm2.com) a Terminal.app replacement
 - [ranger.py](http://ranger.nongnu.org/), a vi-keys console file manager
 - [Amethyst](https://github.com/ianyh/Amethyst), an OSX "port" of XMonad
 - [BetterTouchTool](http://www.bettertouchtool.net) to fix keyboard shortcut kinks
@@ -26,7 +26,3 @@ git clone --recursive https://github.com/syl20bnr/spacemacs ~/.emacs.d
 mkdir -p ~/.vim/bundle
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
-
-
-## todo:
-- make supercollider spacemacs layer

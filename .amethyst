@@ -23,54 +23,6 @@
         "mod": "mod2",
         "key": "`"
     },
-    "DISABLE-select-tall-layout": {
-        "mod": "mod1",
-        "key": "a"
-    },
-    "DISABLE-select-wide-layout": {
-        "mod": "mod1",
-        "key": "s"
-    },
-    "DISABLE-select-fullscreen-layout": {
-        "mod": "mod1",
-        "key": "d"
-    },
-    "DISABLE-select-column-layout": {
-        "mod": "mod1",
-        "key": "f"
-    },
-    "DISABLE-focus-screen-1": {
-        "mod": "mod1",
-        "key": "w"
-    },
-    "DISABLE-focus-screen-2": {
-        "mod": "mod1",
-        "key": "e"
-    },
-    "DISABLE-focus-screen-3": {
-        "mod": "mod1",
-        "key": "r"
-    },
-    "DISABLE-focus-screen-4": {
-        "mod": "mod1",
-        "key": "q"
-    },
-    "DISABLE-throw-screen-1": {
-        "mod": "mod2",
-        "key": "w"
-    },
-    "DISABLE-throw-screen-2": {
-        "mod": "mod2",
-        "key": "e"
-    },
-    "DISABLE-throw-screen-3": {
-        "mod": "mod2",
-        "key": "r"
-    },
-    "DISABLE-throw-screen-4": {
-        "mod": "mod2",
-        "key": "q"
-    },
     "shrink-main": {
         "mod": "mod1",
         "key": "h"
@@ -169,5 +121,61 @@
     "mouse-follows-focus": false,
     "focus-follows-mouse": false,
     "enables-layout-hud": false,
-    "enables-layout-hud-on-space-change": false
+    "enables-layout-hud-on-space-change": false,
+
+
+
+
+
+
+
+
+    "select-tall-layout": {
+        "mod": "mod1",
+        "key": "null"
+    },
+    "select-wide-layout": {
+        "mod": "mod1",
+        "key": "null"
+    },
+    "select-fullscreen-layout": {
+        "mod": "mod1",
+        "key": "null"
+    },
+    "select-column-layout": {
+        "mod": "mod1",
+        "key": "null"
+    },
+    "focus-screen-1": {
+        "mod": "mod1",
+        "key": "null"
+    },
+    "focus-screen-2": {
+        "mod": "mod1",
+        "key": "null"
+    },
+    "focus-screen-3": {
+        "mod": "mod1",
+        "key": "null"
+    },
+    "focus-screen-4": {
+        "mod": "mod1",
+        "key": "null"
+    },
+    "throw-screen-1": {
+        "mod": "mod2",
+        "key": "null"
+    },
+    "throw-screen-2": {
+        "mod": "mod2",
+        "key": "null"
+    },
+    "throw-screen-3": {
+        "mod": "mod2",
+        "key": "null"
+    },
+    "throw-screen-4": {
+        "mod": "mod2",
+        "key": "null"
+    },
 }

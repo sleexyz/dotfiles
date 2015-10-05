@@ -105,11 +105,11 @@
     },
     "toggle-float": {
         "mod": "mod1",
-        "key": "t"
+        "key": "y"
     },
     "toggle-tiling": {
         "mod": "mod2",
-        "key": "t"
+        "key": "y"
     },
     "display-current-layout": {
         "mod": "mod1",
@@ -119,7 +119,7 @@
     "floating": [],
     "float-small-windows": false,
     "mouse-follows-focus": true,
-    "focus-follows-mouse": true,
+    "focus-follows-mouse": false,
     "enables-layout-hud": false,
     "enables-layout-hud-on-space-change": false,
 

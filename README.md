@@ -24,21 +24,11 @@ git clone https://github.com/sleep/dotfiles
 cd dotfiles
 git submodules update --init --recursive
 ./link.sh
+```
 
 
-# setup spacemacs
+## additional setup
+For spacemacs:
+```
 git clone --recursive https://github.com/syl20bnr/spacemacs ~/.emacs.d
-
-
-# setup vim
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-# in vim run
-# :PlugInstall
-
-
-
-# setup z
-touch $HOME/.z
 ```

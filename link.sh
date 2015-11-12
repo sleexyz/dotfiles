@@ -1,37 +1,54 @@
 #!/bin/bash
-
+#
 # A script to link dotfiles in this repo to $HOME
+#
+# This script must be idempotent:
+# aka linking it again while it is already linked is a no-op
+
 
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
-# _link SOURCE DEST
+
 _link() {
+  # WARNING: overrides target
 	rm -f $2
 	ln -s $1 $2
 }
 
-# linkHome SOURCE
 linkHome() {
 	_link $DIR/$1 $HOME/$1
 }
 
-#initialize
-mkdir -p $HOME/.config
 
 
-# shell
+
+
+###### shell
 linkHome .zprezto
 
-# editors
-linkHome .spacemacs
-linkHome .vimrc
-_link .vim ~/.config/vim
-_link .vimrc ~/.config/vim/init.vim
 
-# window management
+##### navigation
+touch $HOME/.z
+
+
+###### editors
+# spacemacs
+linkHome .spacemacs
+
+
+# vim
+curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+linkHome .vimrc
+_link "$DIR/.vimrc" "$HOME/.config/vim/init.vim"
+mkdir -p $HOME/.config/vim
+_link $HOME/.vim $HOME/.config/vim
+
+
+###### window management
 linkHome .amethyst
 
 
-# custom scripts
+###### custom scripts
 linkHome .bin

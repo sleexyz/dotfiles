@@ -1,21 +1,31 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'gmarik/Vundle.vim'
-Plug 'jimmay5469/vim-spacemacs'
+" Spacemacs bindings
+Plug 'sleep/vim-spacemacs'
 Plug 'rking/ag.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-commentary'
+Plug 'dbakker/vim-projectroot'
+Plug 'scrooloose/syntastic'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'kien/ctrlp.vim'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+Plug 'szw/vim-maximizer'
+
+" Language Support
 Plug 'JuliaLang/julia-vim'
 Plug 'tpope/vim-markdown'
 Plug 'othree/html5.vim'
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-commentary'
 Plug 'cespare/vim-toml'
 Plug 'lambdatoast/elm.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'tikhomirov/vim-glsl'
+
+
+Plug 'jiangmiao/auto-pairs'
 Plug 'christoomey/vim-tmux-navigator'
 
-"ctrl-p
-Plug 'kien/ctrlp.vim'
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 
 "snipmate
@@ -43,7 +53,7 @@ let g:limelight_default_coefficient = 0.7
 
 
 "General
-set mouse=
+set mouse=a
 set hidden
 syntax on
 set backupdir=~/.vim/tmp,.
@@ -81,7 +91,6 @@ let mapleader = "\<SPACE>"
 nore ; :
 imap jk <esc>
 imap q: :q
-" command W w !sudo tee % > /dev/null
 
 "Mycorrhizome
 nmap <F3> dd:echo system('str="$(date +"%F %H:%M")";str="$str$(echo '.shellescape(@").')";str=(${str:0:-1});echo $str>> $HOME/text/done')<CR>:echo 'Nice Job!'<CR>

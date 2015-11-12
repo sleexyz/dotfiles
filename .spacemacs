@@ -19,6 +19,7 @@
      markdown
      ess
      rust
+     git
      github
      syntax-checking
      javascript
@@ -55,7 +56,7 @@ before layers configuration."
    ;; directory. A string value must be a path to a .PNG file.
    ;; If the value is nil then no banner is displayed.
    ;; dotspacemacs-startup-banner 'official
-   dotspacemacs-startup-banner `official
+   dotspacemacs-startup-banner `doge
    ;; t if you always want to see the changelog at startup
    dotspacemacs-always-show-changelog nil
    ;; List of items to show in the startup buffer. If nil it is disabled.
@@ -69,8 +70,9 @@ before layers configuration."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 11
+   dotspacemacs-default-font '("Fixed"
+                               :size 13
+                               :antialias nil
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)

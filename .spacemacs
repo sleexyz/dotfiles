@@ -18,18 +18,17 @@
      jsx
      markdown
      ess
-     git
+     rust
      github
      syntax-checking
      javascript
-     supercollider
+     glsl
      haskell
      osx
      html
      (shell :variables
             shell-default-height 30)
      syntax-checking
-     version-control
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()

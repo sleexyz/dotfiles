@@ -21,9 +21,10 @@ Plug 'cespare/vim-toml'
 Plug 'lambdatoast/elm.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'tikhomirov/vim-glsl'
+Plug 'raichoo/purescript-vim'
 
 
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 Plug 'christoomey/vim-tmux-navigator'
 
 
@@ -69,12 +70,13 @@ set smartcase
 set incsearch
 set splitbelow
 set splitright
-set backspace=indent,eol,start
+set backspace=indent,eol,start 
+" au BufEnter,BufNewFile,BufRead * setlocal fo-=c fo-=r fo-=o "disable default autocommenting behavior
 
 
 "Filetypes
 "autocmd FileType conf :set ft=markdown
-autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
+au BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
 au BufNewFile,BufRead *.md set filetype=markdown
 
 "wildmenu
@@ -87,18 +89,21 @@ set wildignore+=*~,*.swp,*.tmp
 
 "Bindings
 let mapleader = "\<SPACE>"
-
-nore ; :
+" nore ; :
 imap jk <esc>
-imap q: :q
+" imap q: :q
+command W w
+command Wq wq
+
+
 
 "Mycorrhizome
 nmap <F3> dd:echo system('str="$(date +"%F %H:%M")";str="$str$(echo '.shellescape(@").')";str=(${str:0:-1});echo $str>> $HOME/text/done')<CR>:echo 'Nice Job!'<CR>
 imap <F6> <esc>:r!echodate<CR>A
 nmap <F7> <esc>:r!t --now <CR>A  -  <esc>0i<backspace><esc>A
-" autocmd BufEnter thoughts.md normal G
-autocmd BufEnter thoughts.md set ft=markdown
-autocmd BufEnter s set ft=markdown
+" auto BufEnter thoughts.md normal G
+au BufEnter thoughts.md set ft=markdown
+au BufEnter s set ft=markdown
 
 
 call plug#end()

@@ -18,16 +18,17 @@
      jsx
      markdown
      ess
-     supercollider
+     rust
+     git
+     github
      syntax-checking
      javascript
+     glsl
      haskell
-     osx
      html
      (shell :variables
             shell-default-height 30)
      syntax-checking
-     version-control
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
@@ -54,7 +55,7 @@ before layers configuration."
    ;; directory. A string value must be a path to a .PNG file.
    ;; If the value is nil then no banner is displayed.
    ;; dotspacemacs-startup-banner 'official
-   dotspacemacs-startup-banner `official
+   dotspacemacs-startup-banner `doge
    ;; t if you always want to see the changelog at startup
    dotspacemacs-always-show-changelog nil
    ;; List of items to show in the startup buffer. If nil it is disabled.
@@ -68,8 +69,9 @@ before layers configuration."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("MonacoBSemi"
-                               :size 24
+   dotspacemacs-default-font '("Fixed"
+                               :size 13
+                               :antialias nil
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -148,7 +150,11 @@ layers configuration."
   (setq vc-follow-symlinks t)
   (setq browse-url-generic-program "google-chrome")
   (setq browse-url-browser-function 'browse-url-generic)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-markup-indent-offset 2)
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+  (setq tab-width 2)
+  (setq c-basic-offset 2)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -163,6 +169,7 @@ layers configuration."
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
+ '(js-indent-level 2)
  '(ring-bell-function (quote ignore) t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

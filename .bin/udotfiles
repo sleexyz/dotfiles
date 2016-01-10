@@ -1,11 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 # pushes changes of dotfiles to github
 
-DIR=$HOME/code/projects/dotfiles
+DIR=$HOME/projects/dotfiles
 
 cd $DIR
 
+
+cat /etc/nixos/configuration.nix > configuration.nix
+cat /etc/nixos/hardware-configuration.nix > hardware-configuration.nix
 git submodule foreach 'git add -A --no-ignore-removal && git commit -m "updated dotfiles" && git push'
 git add -A --no-ignore-removal
 git commit -m 'updated dotfiles'

@@ -47,6 +47,10 @@ linkHome .xmonad
 linkHome .urxvt
 linkHome .dircolors
 
+echo "\n..linking nix things...\n"
+mkdirP ~/.nixpkgs
+linkHome .nixpkgs/config.nix
+
 
 echo "\n...linking ~/.config files...\n"
 

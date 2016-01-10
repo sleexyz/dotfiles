@@ -30,7 +30,6 @@
 
   environment.systemPackages = with pkgs; [
     # utilities
-    awk
     wget
     curl
     powertop

@@ -46,14 +46,30 @@ linkHome .dircolors
 
 echo "\n...linking ~/.config files...\n"
 
-mkdirP ~/.config/nvim
 mkdirP ~/.config/gtk-3.0
 
 linkHome .config/xsession.sh
-linkHome .config/nvim/init.vim
 linkHome .config/compton.conf
 linkHome .config/termite
 linkHome .config/gtk-3.0/gtk.css
+
+
+
+echo "\n...setting up vim...\n"
+mkdirP ~/.config/nvim
+mkdirP ~/.config/nvim/tmp
+linkHome .config/nvim/init.vim
+
+if [ ! -f ~/.config/nvim/autoload/plug.vim ];then
+  echo "installing vim-plug"
+  curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+else
+  echo "already installed vim-plug"
+fi
+
+
+
 
 
 

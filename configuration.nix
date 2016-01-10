@@ -1,5 +1,6 @@
 { config, pkgs, ... }:
 
+
 {
   imports =
     [ 
@@ -38,10 +39,9 @@
     wpa_supplicant_gui
     bashmount
 
-
-
     # programs
     google-chrome
+    rxvt_unicode
 
     # ricing
     haskellPackages.xmobar
@@ -50,7 +50,6 @@
     nitrogen
     xclip
     xorg.xwininfo
-
 
     #development
     gitFull

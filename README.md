@@ -8,13 +8,33 @@ resources:
 - [ajhager/airnix](https://github.com/ajhager/airnix)
 - [https://robots.thoughtbot.com/install-linux-on-a-macbook-air](https://robots.thoughtbot.com/install-linux-on-a-macbook-air)
 
-I found installing NixOS as a desktop linux distro to be extremely streamlined. The payoff comes very early in the installation process; gone are the days of needing to know how every part of your system works, like with Arch or Gentoo. Almost every operation is trivially reversible, which makes normally catastrophic beginner mistakes into just minor bumps along the way.
+For a first-time installation of NixOS on the desktop, I found that the rewards came early, plenty, and quickly:
+
+NixOS is more configurable than arch/gentoo, yet this configurability does not come with a price, i.e. the need to know how every part of your system works. All sort os niche settings will work out of the box!
+
+Also, almost every operation is trivially reversible, which makes normally catastrophic beginner mistakes into just minor bumps along the way.
 
 #### partitioning
-Prior to my NixOS installation I was single booting OSX, and my OSX LVM Volume took up my entire drive. I was using 80gb out of 500gb. Shrinking the LVM volume via Install OSX El Capitan's Disk Utility from 500gb to 130gb took around 8 hours! You can avoid this long shrinking process if you are willing to bork your OSX install: instead of shrinking osx, you can wipe your disk, repartition accordingly, reinstall OSX, and then continue installing NixOS. (Of course, installing OSX will still take non-trivial time)
+Prior to my NixOS installation my OSX LVM volume took up my entire drive. I was only using 80gb out of 500gb, but shrinking the LVM volume via Install OSX El Capitan's Disk Utility from 500gb to 130gb still took around 8 hours...
 
-#### gummiboot
-I followed airnix and used gummiboot over grub.`nixos-generate-config` seems to magically generate a gummiboot config if your (shared with Apple) EFI Partition is mounted during installation at `/mnt/boot`
+You can avoid this long shrinking process if you are willing to bork your OSX install: 
+1. wipe your disk
+2. repartition accordingly
+3. reinstall OSX
+4. continue installing NixOS
+
+Of course, installing OSX will still take non-trivial time, so only do this if your OSX setup is disposable.
+
+#### bootloader
+On UEFI macbooks, use gummiboot over grub:
+
+(TODO: document)
+
+- mount your root partition to `/mnt`
+- mount your (shared with apple) EFI partition (usually `/dev/sda1`) to `/mnt/boot`
+- run `nixos-generate-config --root /mnt`
+
+It will sense your hardware setup and magically generates a gummiboot config in your (shared with Apple) EFI Partition.
 
 
 

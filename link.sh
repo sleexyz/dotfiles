@@ -26,7 +26,8 @@ mkdirP() {
   fi
 }
 
-
+echo "...initalizing submodules..."
+git submodule update --init --recursive
 
 echo "\n...linking dotfiles...\n"
 
@@ -92,3 +93,5 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
     echo "already copied to \$HOME: $OUTPUT"
   fi
 done
+
+

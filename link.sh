@@ -49,8 +49,10 @@ linkHome .bin
 # link zprezto config files
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  output="${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  OUTPUT="${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  echo $OUTPUT
   if [ ! -f $OUTPUT ]; then
+    echo "linked $OUTPUT"
     ln -s "$rcfile" "$OUTPUT"
   fi
 done

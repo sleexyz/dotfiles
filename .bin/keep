@@ -1,5 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
-Exec="/opt/google/chrome-unstable/google-chrome-unstable --user-data-dir=/home/slee2/.config/google-chrome-unstable --profile-directory=Default --app-id=hmjkmjkepdijhoojdojkdfohbdgmmhki"
+CHROME="google-chrome-stable"
+UDD="$HOME/.config/google-chrome/"
+APP_ID="hmjkmjkepdijhoojdojkdfohbdgmmhki"
 
-$Exec
+
+$CHROME --user-data-dir=$UDD \
+  --profile-directory=Default \
+  --app-id=$APP_ID

@@ -11,9 +11,35 @@ import XMonad.ManageHook
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.WorkspaceCompare
 import XMonad.Hooks.ManageHelpers
+import XMonad.Util.SpawnOnce
+
+
+main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
+
+-- xmobar
+myBar = "xmobar"
+
+myPP = xmobarPP { ppOrder = \(ws:l:t:_)   -> [ws]
+            , ppSort = fmap (.namedScratchpadFilterOutWorkspace) getSortByTag
+            , ppHiddenNoWindows = xmobarColor "grey" ""
+            , ppTitle   = xmobarColor "green"  "" . shorten 40
+            , ppVisible = wrap "(" ")"
+            , ppCurrent = xmobarColor "#6FB3D2" "" 
+            , ppSep = "   "
+            , ppWsSep = "    "
+            , ppUrgent  = xmobarColor "red" "yellow"
+            }
+
+
+-- Key binding to toggle the gap for the bar.
+toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 
 
+
+-- myConfig
+
+-- manageHook
 myManageHook = ( composeAll 
     [ className =? "Zenity" --> doCenterFloat
     , className =? "Gimp" --> doCenterFloat
@@ -29,6 +55,7 @@ myScratchPads = [ NS "terminal" spawnTerm (resource =? "urxvt-scratchpad") (cust
         spawnKeep = "~/.bin/keep"
 
 
+-- layoutHook
 mylayoutHook = simpleCross ||| tiled
     where
         tiled = Tall nmaster delta ratio
@@ -36,49 +63,42 @@ mylayoutHook = simpleCross ||| tiled
         ratio = 1/2
         delta = 3/100
 
-main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
 
--- Command to launch the bar.
-myBar = "xmobar"
 
--- -- Custom PP, configure it as you like. It determines what is being written to the bar.
-myPP = xmobarPP { ppOrder = \(ws:l:t:_)   -> [ws]
-            , ppSort = fmap (.namedScratchpadFilterOutWorkspace) getSortByTag
-            , ppHiddenNoWindows = xmobarColor "grey" ""
-            , ppTitle   = xmobarColor "green"  "" . shorten 40
-            , ppVisible = wrap "(" ")"
-            , ppCurrent = xmobarColor "#6FB3D2" "" 
-            , ppSep = "   "
-            , ppWsSep = "    "
-            , ppUrgent  = xmobarColor "red" "yellow"
-            }
 
--- Key binding to toggle the gap for the bar.
-toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
-
+-- Workspaces
 myWorkspaces :: [WorkspaceId]
 myWorkspaces = map show [1 .. 4 :: Int]
 
+-- startupHook
+myStartupHook = do
+  spawnOnce "sh ~/.config/xsession.sh"
+
+-- Key bindings
+myAdditionalKeysP = [
+  ("M-m", spawn "echo 'Hi, mom!' | dzen2 -p 4"),
+  ("M-`", sendMessage NextLayout),
+  ("M-S-q", spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"),
+  ("<F1>", namedScratchpadAction myScratchPads "terminal"),
+  ("<F2>", namedScratchpadAction myScratchPads "keep"),
+  ("M-<Space>", spawn "rofi -show run"),
+  ("M-p", spawn "rofi -show run"),
+  ("M-<Up>", spawn "transset-df -p --inc 0.03"),
+  ("M-<Down>", spawn "transset-df -p --dec 0.03")
+  ]
+
 myConfig = defaultConfig
-    { terminal = "urxvt"
-    , modMask = mod1Mask
-    , handleEventHook = fullscreenEventHook
-    , layoutHook = mylayoutHook
-    , normalBorderColor = "#252726"
-    , focusedBorderColor = "#ffffff"
-    , XMonad.workspaces = myWorkspaces
-    , manageHook = myManageHook
-    , borderWidth = 0
+    { terminal = "urxvt",
+      modMask = mod4Mask,
+      handleEventHook = fullscreenEventHook,
+      layoutHook = mylayoutHook,
+      normalBorderColor = "#252726",
+      focusedBorderColor = "#ffffff",
+      XMonad.workspaces = myWorkspaces,
+      manageHook = myManageHook,
+      startupHook = myStartupHook,
+      borderWidth = 0
     }
     `additionalKeysP`
-    [ ("M-m", spawn "echo 'Hi, mom!' | dzen2 -p 4")
-    , ("M-q", sendMessage NextLayout)
-    , ("M-S-q", spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
-    , ("<F1>", namedScratchpadAction myScratchPads "terminal")
-    , ("<F2>", namedScratchpadAction myScratchPads "keep")
-    , ("M-<Space>", spawn "rofi -show run")
-    , ("M-p", spawn "rofi -show run")
-    , ("M-<Up>", spawn "transset-df -p --inc 0.03")
-    , ("M-<Down>", spawn "transset-df -p --dec 0.03")
-    ]
+    myAdditionalKeysP
 

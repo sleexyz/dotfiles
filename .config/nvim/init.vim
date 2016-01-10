@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " Spacemacs bindings
 Plug 'sleep/vim-spacemacs'
@@ -14,6 +14,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 Plug 'szw/vim-maximizer'
 
 " Language Support
+Plug 'LnL7/vim-nix'
 Plug 'JuliaLang/julia-vim'
 Plug 'tpope/vim-markdown'
 Plug 'othree/html5.vim'
@@ -57,8 +58,8 @@ let g:limelight_default_coefficient = 0.7
 set mouse=a
 set hidden
 syntax on
-set backupdir=~/.vim/tmp,.
-set directory=~/.vim/tmp,.
+set backupdir=~/.config/nvim/tmp,.
+set directory=~/.config/nvim/tmp,.
 set autoindent
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 set showmatch
@@ -94,6 +95,8 @@ imap jk <esc>
 " imap q: :q
 command W w
 command Wq wq
+command Wsudo w !sudo tee % > /dev/null
+
 
 
 

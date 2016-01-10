@@ -1,7 +1,7 @@
 !
 ! Xft
 !
-Xft.dpi: 168
+! Xft.dpi: 168
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
@@ -75,7 +75,8 @@ URxvt.scrollBar: false
 URxvt.internalBorder: 48
 URxvt.depth: 32
 URxvt.background: rgba:1500/1500/1500/f000
-URxvt*font: xft:MonacoBSemi:size=10
+! URxvt*font: -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
+URxvt.font: xft:Terminus:size=8
 URxvt.perl-ext-common: font-size
 
 URxvt.keysym.C-equal: perl:font-size:increase
@@ -89,7 +90,7 @@ rofi.opacity: 90
 rofi.width: 100
 rofi.lines: 1
 rofi.columns: 6
-rofi.font: MonacoBSemi 10
+rofi.font: Terminus 8
 rofi.bw: 0
 rofi.location: 2
 rofi.terminal: urxvt

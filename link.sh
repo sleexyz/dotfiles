@@ -16,20 +16,30 @@ linkHome() {
 }
 
 
-# shell
 linkHome .zprezto
+linkHome .profile
+linkHome .xprofile
 
-# editors
 linkHome .spacemacs
-linkHome .config/nvim/vimrc
+
 
 # window management
 linkHome .xinitrc
 linkHome .xmobarrc
 linkHome .Xresources
 linkHome .xmonad
-linkHome .config/compton.conf
 linkHome .urxvt
+linkHome .dircolors
+
+mkdir -p ~/.config/nvim
+mkdir -p ~/.config/gtk-3.0
+
+linkHome .config/xsession.sh
+linkHome .config/nvim/init.vim
+linkHome .config/compton.conf
+linkHome .config/termite
+linkHome .config/gtk-3.0/gtk.css
+
 
 
 # custom scripts
@@ -39,5 +49,8 @@ linkHome .bin
 # link zprezto config files
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  output="${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  if [ ! -f $OUTPUT ]; then
+    ln -s "$rcfile" "$OUTPUT"
+  fi
 done

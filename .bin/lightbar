@@ -1,2 +1,0 @@
-#!/bin/sh
-sudo ectool --interface=lpc --name=cros_ec lightbar $@

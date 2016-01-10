@@ -1,6 +1,9 @@
 #!/usr/bin/env zsh
 
+# link.sh
 # A script to link dotfiles in this repo to $HOME
+#
+# Invariant: this script's execution must be idempotent
 
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )

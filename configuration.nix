@@ -30,6 +30,7 @@
 
   environment.systemPackages = with pkgs; [
     # utilities
+    awk
     wget
     curl
     powertop
@@ -63,7 +64,6 @@
 
 
   # services
-
   services.acpid.enable = true;
   services.acpid.lidEventCommands = ''
     LID_STATE=/proc/acpi/button/lid/LID0/state
@@ -124,13 +124,12 @@
   fileSystems."/media" = {
     fsType = "hfsplus";
     device = "/dev/sda4";
-    # options = "rw,umask=0111,uid=1000,gid=100";
     options = "auto,user,rw,noexec,uid=501";
   };
 
   users.extraUsers.slee2 = {
     isNormalUser = true;
-    uid = 501;
+    uid = 501; # to match OSX default UID
     extraGroups = ["wheel"];
     createHome = true;
     home = "/home/slee2";

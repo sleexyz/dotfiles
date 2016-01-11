@@ -32,26 +32,23 @@
     # utilities
     wget
     curl
+    which
+
+    # cli programs
     powertop
-    ranger
     htop
-    nix-repl
-    wpa_supplicant_gui
     bashmount
 
-    # programs
+    # x programs
     google-chrome
     rxvt_unicode
+    wpa_supplicant_gui
 
     # ricing
     haskellPackages.xmobar
-    compton-git
-    rofi
-    nitrogen
-    xclip
-    xorg.xwininfo
 
-    #development
+
+    # development
     gitFull
     neovim
 

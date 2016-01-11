@@ -1,6 +1,6 @@
 Config {
     -- appearance
-        font =         "Terminus:size=14:style=normal"
+        font =         "xft:Terminus:size=8:style=normal"
         , bgColor =      "#151515"
         , fgColor =      "#d0d0d0"
         , alpha =        50

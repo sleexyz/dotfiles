@@ -84,7 +84,17 @@ myAdditionalKeysP = [
   ("M-<Space>", spawn "rofi -show run"),
   ("M-p", spawn "rofi -show run"),
   ("M-<Up>", spawn "transset-df -p --inc 0.03"),
-  ("M-<Down>", spawn "transset-df -p --dec 0.03")
+  ("M-<Down>", spawn "transset-df -p --dec 0.03"),
+
+  -- media keys
+  ("<XF86MonBrightnessUp>", spawn "light -A 5"),
+  ("<XF86MonBrightnessDown>", spawn "light -U 5"),
+  ("<XF86KbdBrightnessUp>", spawn "kbdlight up 10"),
+  ("<XF86KbdBrightnessDown>", spawn "kbdlight down 10"),
+
+  ("<XF86AudioMute>", spawn "amixer set Master toggle"),
+  ("<XF86AudioRaiseVolume>", spawn "amixer set Master 2db+ unmute"),
+  ("<XF86AudioLowerVolume>", spawn "amixer set Master 2db- unmute")
   ]
 
 myConfig = defaultConfig

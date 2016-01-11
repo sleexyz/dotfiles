@@ -58,6 +58,8 @@
   programs.zsh.enable = true;
   users.defaultUserShell = "/run/current-system/sw/bin/zsh";
 
+  programs.light.enable = true;
+  programs.kbdlight.enable = true;
 
   # services
   services.acpid.enable = true;
@@ -78,6 +80,7 @@
       desktopManagerHandlesLidAndPower = false;
       slim.enable = true;
       slim.defaultUser = "slee2";
+      slim.autoLogin = true;
     };
 
     desktopManager.default = "none";

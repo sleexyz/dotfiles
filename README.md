@@ -1,26 +1,15 @@
 # My NixOS configuration
 Goal: maximize declarativeness and reproducibility (and therefore robustness) of my development system
 
-## Installation
-[Dual boot NixOS and OSX on a UEFI macbook](INSTALL.md)
+## install:
+[INSTALL.md](INSTALL.md)
 
 
 ## (r)icing on the cake:
 
-- [`/etc/nixos/configuration.nix`](configuration.nix)
-- [`~/.nixpkgs/config.nix`](.nixpkgs/config.nix)
+- System: [`/etc/nixos/configuration.nix`](configuration.nix)
+- User: [`~/.nixpkgs/config.nix`](.nixpkgs/config.nix)
 
-### stuff I use:
-- nixos
-- urxvt
-- ranger
-- spacemacs
-- neovim
-- xmonad
-- xmobar
-- compton
-- rofi
-- prezto
 
 ### setup:
 ```

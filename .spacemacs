@@ -26,8 +26,6 @@
      glsl
      haskell
      html
-     (shell :variables
-            shell-default-height 30)
      syntax-checking
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
@@ -69,7 +67,7 @@ before layers configuration."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Fixed"
+   dotspacemacs-default-font '("Terminus"
                                :size 13
                                :antialias nil
                                :weight normal
@@ -155,6 +153,7 @@ layers configuration."
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
   (setq tab-width 2)
   (setq c-basic-offset 2)
+  (set-mouse-color "white")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

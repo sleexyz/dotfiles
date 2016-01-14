@@ -76,6 +76,9 @@ else
   echo "already installed vim-plug"
 fi
 
+echo "\n...setting up ghci...\n"
+mkdirP ~/.ghc
+linkHome .ghc/ghci.conf
 
 
 

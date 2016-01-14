@@ -87,8 +87,8 @@ myAdditionalKeysP = [
   ("M-<Down>", spawn "transset-df -p --dec 0.03"),
 
   -- media keys
-  ("<XF86MonBrightnessUp>", spawn "light -A 5"),
-  ("<XF86MonBrightnessDown>", spawn "light -U 5"),
+  ("<XF86MonBrightnessUp>", spawn "light -A 10"),
+  ("<XF86MonBrightnessDown>", spawn "light -U 10"),
   ("<XF86KbdBrightnessUp>", spawn "kbdlight up 10"),
   ("<XF86KbdBrightnessDown>", spawn "kbdlight down 10"),
 

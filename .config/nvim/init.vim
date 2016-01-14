@@ -42,6 +42,7 @@ Plug 'itchyny/lightline.vim'
 let g:minimap_highlight='Visual'
 highlight LineNr ctermfg=black
 highlight CursorLineNr ctermfg=black
+set nohlsearch
 set relativenumber
 
 "minimalism

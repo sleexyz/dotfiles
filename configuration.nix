@@ -7,6 +7,8 @@
       ./hardware-configuration.nix
     ];
 
+  boot.kernelPackages = pkgs.linuxPackages_4_3;
+  boot.extraKernelParams = [ "acpi_backlight=vendor" ];
   boot.extraModprobeConfig = ''
     options hid_apple fnmode=2
     options hid_apple iso_layout=0
@@ -29,6 +31,9 @@
   time.timeZone = "America/New_York";
 
   environment.systemPackages = with pkgs; [
+    # system
+    # pmutils
+
     # utilities
     wget
     curl
@@ -58,10 +63,17 @@
   programs.zsh.enable = true;
   users.defaultUserShell = "/run/current-system/sw/bin/zsh";
 
-  programs.light.enable = true;
-  programs.kbdlight.enable = true;
 
   # services
+  programs.light.enable = true;
+  programs.kbdlight.enable = true;
+  powerManagement = {
+    resumeCommands = ''
+      xrandr --output eDP1 --auto
+    '';
+  };
+
+
   services.acpid.enable = true;
   services.acpid.lidEventCommands = ''
     LID_STATE=/proc/acpi/button/lid/LID0/state
@@ -77,7 +89,6 @@
     layout = "us";
     
     displayManager = {
-      desktopManagerHandlesLidAndPower = false;
       slim.enable = true;
       slim.defaultUser = "slee2";
       slim.autoLogin = true;

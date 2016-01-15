@@ -25,6 +25,7 @@
      javascript
      glsl
      haskell
+     '((haskell :variables haskell-enable-hindent-style "johan -tibell"))
      purescript
      html
      syntax-checking
@@ -69,7 +70,7 @@ before layers configuration."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Terminus"
-                               :size 13
+                               :size 8
                                :antialias nil
                                :weight normal
                                :width normal
@@ -151,7 +152,7 @@ layers configuration."
   (setq browse-url-browser-function 'browse-url-generic)
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-markup-indent-offset 2)
-  (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
   (setq tab-width 2)
   (setq c-basic-offset 2)
   (set-mouse-color "white")

@@ -32,7 +32,7 @@
 
   environment.systemPackages = with pkgs; [
     # system
-    # pmutils
+    jack2Full
 
     # utilities
     wget

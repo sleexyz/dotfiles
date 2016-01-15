@@ -44,13 +44,17 @@
           go
           gcc
           gnumake
+          nodejs-5_x
+          supercollider
+          qjackctl
 
-          # haskell things
           (haskellPackages.ghcWithHoogle
             (haskellPackages: with haskellPackages; [
+              halive
               stack
               purescript
               idris
+              ghc-mod
           ]))
         ];
       };

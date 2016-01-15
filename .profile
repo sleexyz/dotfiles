@@ -23,5 +23,5 @@ fi
 
 
 # Set the list of directories that Zsh searches for programs.
-export PATH=$HOME/.bin:$GOPATH/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/.bin:$HOME/.npm/bin:$GOPATH/bin:$HOME/.local/bin:$PATH
 

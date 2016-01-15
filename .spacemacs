@@ -25,6 +25,7 @@
      javascript
      glsl
      haskell
+     purescript
      html
      syntax-checking
      )

@@ -40,13 +40,17 @@
           emacs
           yi
 
+          # audio
+          qjackctl
+          supercollider
+
           # dev things
+          atom
           go
           gcc
           gnumake
           nodejs-5_x
-          supercollider
-          qjackctl
+          electron
 
           (haskellPackages.ghcWithHoogle
             (haskellPackages: with haskellPackages; [

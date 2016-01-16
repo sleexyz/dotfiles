@@ -1,7 +1,6 @@
 import XMonad
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Util.EZConfig
-import MyCross
 import Data.Monoid
 import XMonad.Hooks.DynamicLog
 import System.IO
@@ -13,22 +12,25 @@ import XMonad.Util.WorkspaceCompare
 import XMonad.Hooks.ManageHelpers
 import XMonad.Util.SpawnOnce
 
+import MyCross
+import MyUpdatePointer
+
 
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
 
 -- xmobar
 myBar = "xmobar"
 
-myPP = xmobarPP { ppOrder = \(ws:l:t:_)   -> [ws]
-            , ppSort = fmap (.namedScratchpadFilterOutWorkspace) getSortByTag
-            , ppHiddenNoWindows = xmobarColor "grey" ""
-            , ppTitle   = xmobarColor "green"  "" . shorten 40
-            , ppVisible = wrap "(" ")"
-            , ppCurrent = xmobarColor "#6FB3D2" "" 
-            , ppSep = "   "
-            , ppWsSep = "    "
-            , ppUrgent  = xmobarColor "red" "yellow"
-            }
+myPP = xmobarPP { ppOrder = \(ws:l:t:_)   -> [ws],
+                  ppSort = fmap (.namedScratchpadFilterOutWorkspace) getSortByTag,
+                  ppHiddenNoWindows = xmobarColor "grey" "",
+                  ppTitle   = xmobarColor "green"  "" . shorten 40,
+                  ppVisible = wrap "(" ")",
+                  ppCurrent = xmobarColor "#6FB3D2" "" ,
+                  ppSep = "   ",
+                  ppWsSep = "    ",
+                  ppUrgent  = xmobarColor "red" "yellow"
+                }
 
 
 -- Key binding to toggle the gap for the bar.
@@ -40,19 +42,16 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 -- myConfig
 
 -- manageHook
-myManageHook = ( composeAll 
-    [ className =? "Zenity" --> doCenterFloat
-    , className =? "Gimp" --> doCenterFloat
-    ]
-    ) <+> namedScratchpadManageHook myScratchPads
+myManageHook = composeAll
+  [ className =? "Zenity" --> doCenterFloat,
+    className =? "Gimp" --> doCenterFloat
+  ] <+> namedScratchpadManageHook myScratchPads
 
 -- then define your scratchpad management separately:
-myScratchPads = [ NS "terminal" spawnTerm (resource =? "urxvt-scratchpad") (customFloating $ W.RationalRect 0 0 1 0.66)
-                , NS "keep" spawnKeep (resource =? "crx_hmjkmjkepdijhoojdojkdfohbdgmmhki") (customFloating $ W.RationalRect 0 0 1 0.66)
-                ]
-    where
-        spawnTerm = "urxvt -name urxvt-scratchpad"
-        spawnKeep = "~/.bin/keep"
+myScratchPads = [ term , keep]
+  where
+    term = NS "terminal" "urxvt -name urxvt-scratchpad" (resource =? "urxvt-scratchpad") (customFloating $ W.RationalRect 0 0 1 0.66)
+    keep = NS "keep" "~/.bin/keep" (resource =? "crx_hmjkmjkepdijhoojdojkdfohbdgmmhki") (customFloating $ W.RationalRect 0 0 1 0.66)
 
 
 -- layoutHook
@@ -64,6 +63,7 @@ mylayoutHook = simpleCross ||| tiled
         delta = 3/100
 
 
+myLogHook = updatePointer $ Relative 0.5 0.5
 
 
 -- Workspaces
@@ -71,8 +71,7 @@ myWorkspaces :: [WorkspaceId]
 myWorkspaces = map show [1 .. 4 :: Int]
 
 -- startupHook
-myStartupHook = do
-  spawnOnce "sh ~/.config/xsession.sh"
+myStartupHook = spawnOnce "sh ~/.config/xsession.sh"
 
 -- Key bindings
 myAdditionalKeysP = [
@@ -102,6 +101,7 @@ myConfig = defaultConfig
       modMask = mod4Mask,
       handleEventHook = fullscreenEventHook,
       layoutHook = mylayoutHook,
+      logHook = myLogHook,
       normalBorderColor = "#252726",
       focusedBorderColor = "#ffffff",
       XMonad.workspaces = myWorkspaces,

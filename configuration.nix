@@ -84,6 +84,7 @@
   services.upower.enable = true;
   services.nixosManual.showManual = true;
   
+  services.locate.enable = true;
   services.xserver = {
     enable = true;
     layout = "us";

@@ -50,7 +50,7 @@ myManageHook = composeAll
 -- then define your scratchpad management separately:
 myScratchPads = [ term , keep]
   where
-    term = NS "terminal" "urxvt -name urxvt-scratchpad" (resource =? "urxvt-scratchpad") (customFloating $ W.RationalRect 0 0 1 0.66)
+    term = NS "terminal" "export TERM_TRANS_TO=0.85; urxvt -name urxvt-scratchpad" (resource =? "urxvt-scratchpad") (customFloating $ W.RationalRect 0 0 1 0.66)
     keep = NS "keep" "~/.bin/keep" (resource =? "crx_hmjkmjkepdijhoojdojkdfohbdgmmhki") (customFloating $ W.RationalRect 0 0 1 0.66)
 
 

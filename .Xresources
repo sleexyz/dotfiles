@@ -20,7 +20,8 @@ Xcursor.size: 64
 ! Base16 Chalk
 ! Scheme: Chris Kempson (http://chriskempson.com)
 
-#define base00 #151515
+/* #define base00 #151515 */
+#define base00 #252726
 #define base01 #202020
 #define base02 #303030
 #define base03 #505050
@@ -74,7 +75,7 @@ Xcursor.size: 64
 URxvt.scrollBar: false
 URxvt.internalBorder: 48
 URxvt.depth: 0
-URxvt.background: rgba:1500/1500/1500/f000
+URxvt.background: #000000
 ! URxvt*font: -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
 URxvt.font: xft:Terminus:size=8
 URxvt.perl-ext-common: font-size

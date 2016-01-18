@@ -1,6 +1,12 @@
+{ pkgs }:
 {
   allowUnfree = true;
-  packageOverrides = pkgs_: with pkgs_; {
+
+
+  haskellPackageOverrides = with pkgs.haskell.lib; self: super: {
+  };
+
+  packageOverrides = pkgs_: rec {
 
     # lol clean this up
     ghcEnv = with pkgs; buildEnv {
@@ -28,11 +34,13 @@
         # nix
         nox
         nix-repl
+        nix-prefetch-scripts
 
         # cli programs
         nmap_graphical
         mplayer
         ncdu
+        silver-searcher
 
         # ranger
         # uncomment when my PR gets through

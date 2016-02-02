@@ -41,6 +41,7 @@
         mplayer
         ncdu
         silver-searcher
+        awscli
 
         # ranger
         # uncomment when my PR gets through
@@ -50,6 +51,7 @@
 
         # x programs
         sxiv
+        evince
 
 
         # ricing
@@ -80,6 +82,10 @@
         gnumake
         nodejs-5_x
         electron
+        scala
+        jdk
+        leiningen
+        boot
       ];
     };
   };

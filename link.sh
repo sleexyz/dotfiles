@@ -80,6 +80,9 @@ echo "\n...setting up ghci...\n"
 mkdirP ~/.ghc
 linkHome .ghc/ghci.conf
 
+echo "\n...setting up lein...\n"
+mkdirP ~/.lein
+linkHome .lein/profiles.clj
 
 
 

@@ -1,0 +1,28 @@
+#!/usr/bin/env sh
+
+# pushes changes of dotfiles to github
+
+DIR=$HOME/.dotfiles
+
+cd $DIR
+
+git status
+
+read -p "Are you sure you wanna commit and push? " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+
+  echo "...copying nixos configuration files..."
+  cat /etc/nixos/configuration.nix > configuration.nix
+  cat /etc/nixos/hardware-configuration.nix > hardware-configuration.nix
+
+  echo "...commiting and pushing changes..."
+  git submodule foreach 'git add -A --no-ignore-removal && git commit -m "updated dotfiles" && git push'
+  git add -A --no-ignore-removal
+  git commit -m 'updated dotfiles'
+  git push
+
+fi
+
+

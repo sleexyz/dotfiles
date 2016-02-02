@@ -84,6 +84,11 @@
   services.upower.enable = true;
   services.nixosManual.showManual = true;
   
+  services.redshift = {
+    enable = true;
+    latitude = "40.7127";
+    longitude = "-74.0059";
+  };
   services.locate.enable = true;
   services.xserver = {
     enable = true;

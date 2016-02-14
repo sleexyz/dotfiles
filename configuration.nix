@@ -85,7 +85,7 @@
   services.nixosManual.showManual = true;
   
   services.redshift = {
-    enable = true;
+    enable = false;
     latitude = "40.7127";
     longitude = "-74.0059";
   };
@@ -137,6 +137,14 @@
     ];
   };
 
+  security.pam.loginLimits = 
+  [
+    { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
+    { domain = "@audio"; item = "rtprio"; type = "-"; value = "99"; }
+    { domain = "@audio"; item = "nofile"; type = "soft"; value = "99999"; }
+    { domain = "@audio"; item = "nofile"; type = "hard"; value = "99999"; }
+  ];
+
   fileSystems."/media" = {
     fsType = "hfsplus";
     device = "/dev/sda4";
@@ -146,12 +154,15 @@
   users.extraUsers.slee2 = {
     isNormalUser = true;
     uid = 501; # to match OSX default UID
-    extraGroups = ["wheel"];
+    extraGroups = ["wheel" "audio"];
     createHome = true;
     home = "/home/slee2";
   };
 
   system.stateVersion = "16.03";
+
+  nix.trustedBinaryCaches = [ "https://ryantrinkle.com:5443" ];
+  nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
 
   nixpkgs.config.allowUnfree = true;
 }

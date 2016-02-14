@@ -27,7 +27,7 @@
      clojure
      haskell
      '((haskell :variables haskell-enable-hindent-style "johan-tibell"))
-     '((haskell :variables haskell-process-type 'stack-ghci))
+     ;; '((haskell :variables haskell-process-type 'stack-ghci))
      purescript
      html
      syntax-checking

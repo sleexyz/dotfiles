@@ -4,9 +4,12 @@
 
 
   haskellPackageOverrides = with pkgs.haskell.lib; self: super: {
+    vivid = self.callPackage /home/slee2/sandbox/vivid/vivid.nix {};
   };
 
   packageOverrides = pkgs_: rec {
+    patchage = pkgs.callPackage ./myPkgs/patchage.nix {};
+    spectrojack = pkgs.callPackage ./myPkgs/spectrojack.nix {};
 
     # lol clean this up
     ghcEnv = with pkgs; buildEnv {
@@ -16,14 +19,19 @@
         cabal2nix
 
         (haskellPackages.ghcWithHoogle (haskellPackages: with haskellPackages; [
-          halive
-          stack
           purescript
           idris
+
+          halive
+          stack
           stylish-haskell
           hlint
+          hint
+          # vivid
           hasktags
-          # ghc-mod
+          ghc-mod
+          ghcid
+          pointfree
         ]))
       ];
     };
@@ -32,6 +40,7 @@
       name = "all";
       paths = [
         # nix
+        nixUnstable
         nox
         nix-repl
         nix-prefetch-scripts
@@ -45,9 +54,7 @@
 
         # ranger
         # uncomment when my PR gets through
-        # ranger
-        # w3m
-        # file 
+        ranger
 
         # x programs
         sxiv
@@ -70,10 +77,15 @@
         neovim
         emacs
         yi
+        entr
 
         # audio
+        patchage
+        spectrojack
         qjackctl
+        jack_oscrolloscope
         supercollider
+
 
         # dev things
         atom
@@ -86,6 +98,8 @@
         jdk
         leiningen
         boot
+        rlwrap
+        haskellPackages.Agda
       ];
     };
   };

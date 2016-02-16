@@ -38,7 +38,7 @@
    dotspacemacs-startup-banner `doge
    dotspacemacs-always-show-changelog nil
    dotspacemacs-startup-lists '(recents bookmarks projects)
-   dotspacemacs-themes '(base16-chalk-dark solarized-light base16-bright-dark)
+   dotspacemacs-themes '(base16-chalk-dark solarized-light)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Terminus"
                                :size 8

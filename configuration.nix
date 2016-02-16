@@ -135,6 +135,7 @@
       corefonts
       terminus_font
       inconsolata
+      source-code-pro
       unifont
     ];
   };
@@ -150,8 +151,7 @@
   fileSystems."/media" = {
     fsType = "hfsplus";
     device = "/dev/sda4";
-    # options = "auto,user,rw,noexec,uid=501";
-    options = "force,rw,uid=501";
+    options = ["force" "rw" "uid=501"];
   };
 
   users.extraUsers.slee2 = {

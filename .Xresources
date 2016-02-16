@@ -73,7 +73,7 @@ Xcursor.size: 64
 ! rxvt-unicode
 !
 URxvt.scrollBar: false
-URxvt.internalBorder: 48
+URxvt.internalBorder: 36
 URxvt.depth: 0
 URxvt.background: #000000
 ! URxvt*font: -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*

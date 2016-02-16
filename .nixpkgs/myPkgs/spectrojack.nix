@@ -15,16 +15,16 @@ stdenv.mkDerivation rec {
       --replace "/usr/share" "$out/usr/share"
   '';
   installPhase= ''
-  install -Dm755 spectrojack $out/bin/spectrojack
-  install -Dm644 spectrojack_icon.svg $out/usr/share/spectrojack/icon.svg
-  install -Dm644 -t $out/usr/share/spectrojack/colormaps colormaps/*
+    install -Dm755 spectrojack $out/bin/spectrojack
+    install -Dm644 spectrojack_icon.svg $out/usr/share/spectrojack/icon.svg
+    install -Dm644 -t $out/usr/share/spectrojack/colormaps colormaps/*
   '';
 
   meta = {
     description = "A little spectrogram/audiogram/sonogram/whatever for JACK";
     homepage = http://sed.free.fr/spectrojack;
     license = stdenv.lib.licenses.publicDomain;
-    maintainers = with stdenv.lib.maintainers; [ sleexyz ];
+    # maintainers = with stdenv.lib.maintainers; [ sleexyz ];
     platforms = with stdenv.lib.platforms; linux;
   };
 }

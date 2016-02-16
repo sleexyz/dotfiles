@@ -18,18 +18,15 @@
         cabal-install
         cabal2nix
 
-        (haskellPackages.ghcWithHoogle (haskellPackages: with haskellPackages; [
+        (haskellPackages.ghcWithPackages (haskellPackages: with haskellPackages; [
           purescript
           idris
 
           halive
           stack
-          stylish-haskell
-          hlint
+          stylish-haskell hasktags hlint ghc-mod # required for spacemacs
           hint
           # vivid
-          hasktags
-          ghc-mod
           ghcid
           pointfree
         ]))
@@ -48,6 +45,7 @@
         # cli programs
         nmap_graphical
         mplayer
+        mpg123
         ncdu
         silver-searcher
         awscli
@@ -71,8 +69,11 @@
         xdg_utils
         xorg.xev
         xorg.xbacklight
+        arandr
+        ghostscriptX
 
         # dev tools
+        gitAndTools.git-annex
         gitAndTools.hub
         neovim
         emacs

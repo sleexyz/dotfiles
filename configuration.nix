@@ -33,6 +33,8 @@
   environment.systemPackages = with pkgs; [
     # system
     jack2Full
+    alsaPlugins
+    alsaLib
 
     # utilities
     wget
@@ -148,7 +150,8 @@
   fileSystems."/media" = {
     fsType = "hfsplus";
     device = "/dev/sda4";
-    options = "auto,user,rw,noexec,uid=501";
+    # options = "auto,user,rw,noexec,uid=501";
+    options = "force,rw,uid=501";
   };
 
   users.extraUsers.slee2 = {
@@ -160,6 +163,14 @@
   };
 
   system.stateVersion = "16.03";
+
+  # system.activationScripts.setup-alsa-plugins = 
+  # ''
+  #   ln -sfn ${pkgs.alsaPlugins.override
+  #     { inherit (pkgs) jack2; }
+  #   }/lib/alsa-lib /run/alsa-plugins
+  # '';
+
 
   nix.trustedBinaryCaches = [ "https://ryantrinkle.com:5443" ];
   nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];

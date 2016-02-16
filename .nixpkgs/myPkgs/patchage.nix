@@ -10,12 +10,12 @@ stdenv.mkDerivation rec {
     sha256 = "1ar64l0sg468qzxj7i6ppgfqjpm92awcp5lzskamrf3ln17lrgj7";
   };
 
-    buildInputs = [ alsaLib boost dbus_glib ganv glibmm gtk2
-      gtkmm libjack2 pkgconfig python2 ];
+  buildInputs = [ alsaLib boost dbus_glib ganv glibmm gtk2
+  gtkmm libjack2 pkgconfig python2 ];
 
-    configurePhase = ''python waf configure --prefix=$out'';
-    buildPhase = ''python waf build'';
-    installPhase = ''python waf install'';
+  configurePhase = ''python waf configure --prefix=$out'';
+  buildPhase = ''python waf build'';
+  installPhase = ''python waf install'';
 
   meta = {
     description = "Modular patch bay for Jack and ALSA systems";

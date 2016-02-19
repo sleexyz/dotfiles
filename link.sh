@@ -59,7 +59,6 @@ mkdirP ~/.config/gtk-3.0
 
 linkHome .config/xsession.sh
 linkHome .config/compton.conf
-linkHome .config/termite
 linkHome .config/gtk-3.0/gtk.css
 
 

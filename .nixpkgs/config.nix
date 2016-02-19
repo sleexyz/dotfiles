@@ -57,6 +57,8 @@
         # x programs
         sxiv
         evince
+        # (google-chrome.override { channel = "dev";})
+        ghostscriptX
 
 
         # ricing
@@ -64,13 +66,13 @@
         rofi
         nitrogen
 
+
         # x utilities
         xclip
         xdg_utils
         xorg.xev
         xorg.xbacklight
         arandr
-        ghostscriptX
 
         # dev tools
         gitAndTools.git-annex

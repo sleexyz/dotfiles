@@ -5,25 +5,28 @@
    dotspacemacs-configuration-layer-path '()
    dotspacemacs-configuration-layers
    '(
-     auto-completion
-     better-defaults
+     ;; languages
      nixos
+     rust
      emacs-lisp
      jsx
-     markdown
-     ess
-     rust
-     git
-     github
-     syntax-checking
      javascript
      glsl
-     ;; clojure
+     html
+     agda
+     purescript
      haskell
      '((haskell :variables haskell-enable-hindent-style "johan-tibell")
        (haskell :variables haskell-process-type 'stack-ghci))
-     purescript
-     html
+
+     auto-completion
+     better-defaults
+     markdown
+     ess
+     git
+     github
+     syntax-checking
+     ;; clojure
      syntax-checking
      )
    dotspacemacs-excluded-packages '(
@@ -38,11 +41,11 @@
    dotspacemacs-startup-banner `doge
    dotspacemacs-always-show-changelog nil
    dotspacemacs-startup-lists '(recents bookmarks projects)
-   dotspacemacs-themes '(base16-chalk-dark solarized-light)
+   dotspacemacs-themes '(spacemacs-light base16-chalk-dark)
    dotspacemacs-colorize-cursor-according-to-state t
-   dotspacemacs-default-font '("Terminus"
-                               :size 8
-                               :antialias nil
+   dotspacemacs-default-font '("Source Code Pro"
+                               :size 13
+                               ;; :antialias nil
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -60,8 +63,8 @@
    dotspacemacs-active-transparency 100
    dotspacemacs-inactive-transparency 100
    dotspacemacs-mode-line-unicode-symbols t
-   dotspacemacs-smooth-scrolling t
    dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smooth-scrolling t
    dotspacemacs-persistent-server nil
    dotspacemacs-search-tools '("ag" "pt" "ack" "grep")
    dotspacemacs-default-package-repository nil
@@ -80,26 +83,26 @@
   (setq browse-url-browser-function 'browse-url-generic)
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-markup-indent-offset 2)
+  (setq default-input-method 'TeX)
 
   (when (configuration-layer/layer-usedp 'haskell)
-    (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-    (add-hook 'haskell-interactive-mode-hook 'turn-on-haskell-indentation)
-    (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+    (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
+    ;; (add-hook 'haskell-interactive-mode-hook 'turn-on-haskell-indentation)
+    ;; (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
     (add-hook 'haskell-mode-hook (lambda ()
                                    (spacemacs/set-leader-keys-for-major-mode 'haskell-mode
                                      "ht"  'ghc-show-type
-                                     "hi"  'ghc-show-info)))
-    (add-hook 'haskell-interactive-mode-hook
-              (lambda ()
-                (setq-local evil-move-cursor-back nil)))
-    (when (configuration-layer/layer-usedp 'haskell)
-      (defadvice haskell-interactive-switch (after spacemacs/haskell-interactive-switch-advice activate)
-        (when (eq dotspacemacs-editing-style 'vim)
-          (call-interactively 'evil-insert)))))
+                                     "hi"  'ghc-show-info))))
+    ;; (add-hook 'haskell-interactive-mode-hook
+    ;;           (lambda ()
+    ;;             (setq-local evil-move-cursor-back nil)))
+    ;; (when (configuration-layer/layer-usedp 'haskell)
+    ;;   (defadvice haskell-interactive-switch (after spacemacs/haskell-interactive-switch-advice activate)
+    ;;     (when (eq dotspacemacs-editing-style 'vim)
+    ;;       (call-interactively 'evil-insert)))))
 
   (setq tab-width 2)
-  (setq c-basic-offset 2)
-  (set-mouse-color "white"))
+  (setq c-basic-offset 2))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

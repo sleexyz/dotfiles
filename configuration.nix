@@ -122,7 +122,7 @@
       twoFingerScroll = true;
       horizontalScroll = true;
       minSpeed = "0.6";
-      maxSpeed = "60";
+      maxSpeed = "120";
       accelFactor = "0.02";
       palmDetect = true;
     };

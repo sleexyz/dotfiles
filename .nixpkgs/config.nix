@@ -22,11 +22,12 @@
           purescript
           idris
 
-          halive
+          tidal
+          vivid
+
           stack
           stylish-haskell hasktags hlint ghc-mod # required for spacemacs
           hint
-          # vivid
           ghcid
           pointfree
         ]))
@@ -88,6 +89,7 @@
         qjackctl
         jack_oscrolloscope
         supercollider
+        dirt
 
 
         # dev things
@@ -102,6 +104,7 @@
         leiningen
         boot
         rlwrap
+        # elmPackages.elm
         haskellPackages.Agda
       ];
     };

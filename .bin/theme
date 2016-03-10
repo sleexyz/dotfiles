@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+xrdb -override "/home/slee2/.Xresources.d/$1"
+

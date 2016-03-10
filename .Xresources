@@ -1,3 +1,4 @@
+
 !
 ! Xft
 !
@@ -14,13 +15,7 @@ Xft.rgba: rgb
 ! 
 Xcursor.size: 64
 
-
 !
-! Colors
-! Base16 Chalk
-! Scheme: Chris Kempson (http://chriskempson.com)
-
-/* #define base00 #151515 */
 #define base00 #252726
 #define base01 #202020
 #define base02 #303030
@@ -60,8 +55,6 @@ Xcursor.size: 64
 *.color14:      base0C
 *.color15:      base07
 
-! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
-! use 'shell' template to set these if necessary
 *.color16:      base09
 *.color17:      base0F
 *.color18:      base01
@@ -69,16 +62,16 @@ Xcursor.size: 64
 *.color20:      base04
 *.color21:      base06
 
+
 !
 ! rxvt-unicode
 !
 URxvt.scrollBar: false
 URxvt.internalBorder: 36
 URxvt.depth: 0
-URxvt.background: #000000
-! URxvt*font: -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
-URxvt.font: xft:Terminus:size=8
+! URxvt.background: #fbf8ef
 URxvt.perl-ext-common: font-size
+
 
 URxvt.keysym.C-equal: perl:font-size:increase
 URxvt.keysym.C-minus: perl:font-size:decrease
@@ -96,3 +89,6 @@ rofi.bw: 0
 rofi.location: 2
 rofi.terminal: urxvt
 rofi.autoselect: true
+
+#include "/home/slee2/.Xresources.d/small"
+#include "/home/slee2/.Xresources.d/dark"

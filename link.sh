@@ -43,6 +43,7 @@ linkHome .spacemacs
 linkHome .xinitrc
 linkHome .xmobarrc
 linkHome .Xresources
+linkHome .Xresources.d
 linkHome .xmonad
 linkHome .urxvt
 linkHome .dircolors

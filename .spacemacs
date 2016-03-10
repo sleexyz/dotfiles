@@ -86,20 +86,20 @@
   (setq default-input-method 'TeX)
 
   (when (configuration-layer/layer-usedp 'haskell)
-    (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
-    ;; (add-hook 'haskell-interactive-mode-hook 'turn-on-haskell-indentation)
-    ;; (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+    (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+    (add-hook 'haskell-interactive-mode-hook 'turn-on-haskell-indentation)
+    (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
     (add-hook 'haskell-mode-hook (lambda ()
                                    (spacemacs/set-leader-keys-for-major-mode 'haskell-mode
                                      "ht"  'ghc-show-type
-                                     "hi"  'ghc-show-info))))
-    ;; (add-hook 'haskell-interactive-mode-hook
-    ;;           (lambda ()
-    ;;             (setq-local evil-move-cursor-back nil)))
-    ;; (when (configuration-layer/layer-usedp 'haskell)
-    ;;   (defadvice haskell-interactive-switch (after spacemacs/haskell-interactive-switch-advice activate)
-    ;;     (when (eq dotspacemacs-editing-style 'vim)
-    ;;       (call-interactively 'evil-insert)))))
+                                     "hi"  'ghc-show-info)))
+    (add-hook 'haskell-interactive-mode-hook
+              (lambda ()
+                (setq-local evil-move-cursor-back nil)))
+    (when (configuration-layer/layer-usedp 'haskell)
+      (defadvice haskell-interactive-switch (after spacemacs/haskell-interactive-switch-advice activate)
+        (when (eq dotspacemacs-editing-style 'vim)
+          (call-interactively 'evil-insert)))))
 
   (setq tab-width 2)
   (setq c-basic-offset 2))

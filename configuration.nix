@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 
-
 {
   imports =
     [ 
@@ -8,6 +7,7 @@
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_4_3;
+  boot.kernelModules = [ "snd-aloop" ];
   boot.extraKernelParams = [ "acpi_backlight=vendor" ];
   boot.extraModprobeConfig = ''
     options hid_apple fnmode=2
@@ -167,7 +167,7 @@
   # system.activationScripts.setup-alsa-plugins = 
   # ''
   #   ln -sfn ${pkgs.alsaPlugins.override
-  #     { inherit (pkgs) jack2; }
+  #     { inherit (pkgs) jack2Full; }
   #   }/lib/alsa-lib /run/alsa-plugins
   # '';
 

@@ -20,9 +20,8 @@
 
         (haskellPackages.ghcWithPackages (haskellPackages: with haskellPackages; [
           purescript
-          idris
+          # idris
 
-          tidal
           vivid
 
           stack
@@ -60,6 +59,11 @@
         evince
         # (google-chrome.override { channel = "dev";})
         ghostscriptX
+        gnome3.cheese
+        gnome3.gnome-video-effects
+        gimp
+        scrot
+        guvcview
 
 
         # ricing
@@ -87,9 +91,7 @@
         patchage
         spectrojack
         qjackctl
-        jack_oscrolloscope
         supercollider
-        dirt
 
 
         # dev things
@@ -105,7 +107,7 @@
         boot
         rlwrap
         # elmPackages.elm
-        haskellPackages.Agda
+        # haskellPackages.Agda
       ];
     };
   };

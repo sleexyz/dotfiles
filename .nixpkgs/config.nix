@@ -79,6 +79,9 @@
         xorg.xbacklight
         arandr
 
+        libv4l
+        v4l_utils
+
         # dev tools
         gitAndTools.git-annex
         gitAndTools.hub
@@ -92,9 +95,14 @@
         spectrojack
         qjackctl
         supercollider
+        audacity
+        meterbridge
+        baudline
+        timemachine
 
 
         # dev things
+        pkgconfig
         atom
         go
         gcc

@@ -3,12 +3,13 @@
 ! Xft
 !
 ! Xft.dpi: 168
-Xft.autohint: 0
+! Xft.dpi: 132
+Xft.autohint: true
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.rgba: rgb
+Xft.hinting: true
+Xft.antialias: true
+Xft.rgba: subpixel
 
 !
 ! Xcursor

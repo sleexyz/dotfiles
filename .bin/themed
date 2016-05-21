@@ -1,0 +1,4 @@
+theme $1
+args=${@:2}
+(xrdb "$HOME/.Xresources" &)
+exec $args 

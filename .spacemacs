@@ -9,12 +9,14 @@
      nixos
      rust
      emacs-lisp
-     jsx
+     react
      javascript
      glsl
      html
-     agda
+     ;; agda
      purescript
+     coq
+     asdfasd
      haskell
      '((haskell :variables haskell-enable-hindent-style "johan-tibell")
        (haskell :variables haskell-process-type 'stack-ghci))
@@ -36,12 +38,15 @@
 
 (defun dotspacemacs/init ()
   (setq-default
+   dotspacemacs-elpa-https nil
    dotspacemacs-editing-style 'vim
    dotspacemacs-verbose-loading nil
    dotspacemacs-startup-banner `doge
    dotspacemacs-always-show-changelog nil
    dotspacemacs-startup-lists '(recents bookmarks projects)
-   dotspacemacs-themes '(spacemacs-light base16-chalk-dark)
+   ;; dotspacemacs-themes '(spacemacs-light base16-chalk-dark)
+   ;; dotspacemacs-themes '(trans transdark2)
+   dotspacemacs-themes '(transdark2 trans)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Source Code Pro"
                                :size 13
@@ -70,10 +75,18 @@
    dotspacemacs-default-package-repository nil
    )
   ;; User initialization goes here
+
   (setq-default evil-escape-key-sequence "jk")
   )
 
+(defun poopy()
+  (interactive)
+  (hidden-mode-line-mode)
+  (set-face-background 'default "unspecified-bg" (selected-frame))
+  )
+
 (defun dotspacemacs/config ()
+  (evil-ex-define-cmd "W" 'evil-write)
   (global-set-key (kbd "<C-mouse-4>") 'zoom-frm-in)
   (global-set-key (kbd "<C-mouse-5>") 'zoom-frm-out)
   (global-set-key (kbd "C-=") 'zoom-frm-in)
@@ -84,6 +97,14 @@
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-markup-indent-offset 2)
   (setq default-input-method 'TeX)
+
+
+  (defun on-after-init ()
+    (unless (display-graphic-p (selected-frame))
+      (poopy)
+      (add-hook 'after-change-major-mode-hook hidden-mode-line-mode)))
+
+  (add-hook 'window-setup-hook 'on-after-init)
 
   (when (configuration-layer/layer-usedp 'haskell)
     (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
@@ -114,6 +135,16 @@
  '(ahs-idle-interval 0.25)
  '(ahs-idle-timer 0 t)
  '(ahs-inhibit-face-list nil)
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["black" "red3" "ForestGreen" "yellow3" "blue" "magenta3" "DeepSkyBlue" "gray50"])
+ '(ansi-term-color-vector
+   [unspecified "#151515" "#fb9fb1" "#acc267" "#ddb26f" "#6fc2ef" "#e1a3ee" "#6fc2ef" "#d0d0d0"])
+ '(custom-safe-themes
+   (quote
+    ("f21caace402180ab3dc5157d2bb843c4daafbe64aadc362c9f4558ac17ce43a2" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "cd1a1bb051e753a8fd65ed202632e0013705348f6add0ce18fccc91e2978ed24" "d4f50eee86290b221fcddf6455888d7457a367267a06bb2cf40af0370c80618a" "70b9c3d480948a3d007978b29e31d6ab9d7e259105d558c41f8b9532c13219aa" "1a97f5e224ae61f27b2e85613c4024f555cd4dffd607f7d6c999c67028671d4d" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" default)))
+ '(hl-sexp-background-color "#efebe9")
  '(js-indent-level 2)
  '(ring-bell-function (quote ignore) t))
 (custom-set-faces

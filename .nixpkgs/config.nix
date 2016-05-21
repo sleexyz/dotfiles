@@ -5,11 +5,13 @@
 
   haskellPackageOverrides = with pkgs.haskell.lib; self: super: {
     vivid = self.callPackage /home/slee2/sandbox/vivid/vivid.nix {};
+    # hylogen = self.callPackage /home/slee2/projects/hylogen/hylogen.nix {};
   };
 
   packageOverrides = pkgs_: rec {
     patchage = pkgs.callPackage ./myPkgs/patchage.nix {};
     spectrojack = pkgs.callPackage ./myPkgs/spectrojack.nix {};
+    # qlcplus = pkgs.callPackage ./myPkgs/qlcplus.nix {};
 
     # lol clean this up
     ghcEnv = with pkgs; buildEnv {
@@ -18,15 +20,16 @@
         cabal-install
         cabal2nix
 
+        # (haskell.packages.ghc801.ghcWithPackages (haskellPackages: with haskellPackages; [
         (haskellPackages.ghcWithPackages (haskellPackages: with haskellPackages; [
           purescript
           # idris
 
           vivid
+          # hylogen
 
           stack
           stylish-haskell hasktags hlint ghc-mod # required for spacemacs
-          hint
           ghcid
           pointfree
         ]))
@@ -49,6 +52,9 @@
         ncdu
         silver-searcher
         awscli
+        p7zip
+        pandoc
+        gnupg
 
         # ranger
         # uncomment when my PR gets through
@@ -57,6 +63,7 @@
         # x programs
         sxiv
         evince
+        firefox
         # (google-chrome.override { channel = "dev";})
         ghostscriptX
         gnome3.cheese
@@ -81,30 +88,33 @@
 
         libv4l
         v4l_utils
+        xorg.xeyes
 
         # dev tools
         gitAndTools.git-annex
-        gitAndTools.hub
+        gitFull
+        # gitAndTools.hub
         neovim
         emacs
-        yi
         entr
 
         # audio
         patchage
         spectrojack
         qjackctl
-        supercollider
+        # supercollider
         audacity
         meterbridge
         baudline
         timemachine
+        espeak
 
 
         # dev things
         pkgconfig
         atom
         go
+        # python
         gcc
         gnumake
         nodejs-5_x
@@ -114,6 +124,9 @@
         leiningen
         boot
         rlwrap
+        coq_8_5
+        emacs24Packages.proofgeneral
+        ncurses
         # elmPackages.elm
         # haskellPackages.Agda
       ];

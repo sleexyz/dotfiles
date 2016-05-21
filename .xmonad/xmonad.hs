@@ -48,9 +48,10 @@ myManageHook = composeAll
   ] <+> namedScratchpadManageHook myScratchPads
 
 -- then define your scratchpad management separately:
-myScratchPads = [ term , keep]
+myScratchPads = [ term1, term2, keep]
   where
-    term = NS "terminal" "export TERM_TRANS_TO=0.85; urxvt -name urxvt-scratchpad" (resource =? "urxvt-scratchpad") (customFloating $ W.RationalRect 0 0 1 0.66)
+    term1 = NS "term1" "urxvt -name urxvt-scratchpad1" (resource =? "urxvt-scratchpad1") (customFloating $ W.RationalRect 0 0 1 0.66)
+    term2 = NS "term2" "theme transdark && themed big urxvt -name urxvt-scratchpad2" (resource =? "urxvt-scratchpad2") (customFloating $ W.RationalRect 0 0 1 1)
     keep = NS "keep" "~/.bin/keep" (resource =? "crx_hmjkmjkepdijhoojdojkdfohbdgmmhki") (customFloating $ W.RationalRect 0 0 1 0.66)
 
 
@@ -78,8 +79,9 @@ myAdditionalKeysP = [
   ("M-m", spawn "echo 'Hi, mom!' | dzen2 -p 4"),
   ("M-`", sendMessage NextLayout),
   ("M-S-q", spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi"),
-  ("<F1>", namedScratchpadAction myScratchPads "terminal"),
-  ("<F2>", namedScratchpadAction myScratchPads "keep"),
+  ("<F1>", namedScratchpadAction myScratchPads "term1"),
+  ("<F2>", namedScratchpadAction myScratchPads "term2"),
+  ("<F3>", namedScratchpadAction myScratchPads "keep"),
   ("M-<Space>", spawn "rofi -show run"),
   ("M-p", spawn "rofi -show run"),
   ("M-<Up>", spawn "transset-df -p --inc 0.03"),

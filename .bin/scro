@@ -1,2 +1,2 @@
-DIR="/media/removable/sd/my\ shit/visual/screenshots"
+DIR="$HOME/gdrive/media/screenshots"
 scrot $DIR/%Y-%m-%d-%T-screenshot.png

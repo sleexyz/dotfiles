@@ -69,7 +69,7 @@ Xcursor.size: 64
 !
 URxvt.scrollBar: false
 URxvt.internalBorder: 36
-URxvt.depth: 0
+! URxvt.depth: 0
 ! URxvt.background: #fbf8ef
 URxvt.perl-ext-common: font-size
 
@@ -81,15 +81,15 @@ URxvt.keysym.C-minus: perl:font-size:decrease
 ! rofi
 !
 rofi.modi: run
-rofi.opacity: 90
+rofi.opacity: 80
 rofi.width: 100
 rofi.lines: 1
 rofi.columns: 6
-rofi.font: Terminus 8
+rofi.font: Source Code Pro Bold 10
 rofi.bw: 0
 rofi.location: 2
 rofi.terminal: urxvt
 rofi.autoselect: true
 
-#include "/home/slee2/.Xresources.d/small"
-#include "/home/slee2/.Xresources.d/dark"
+#include "/home/slee2/.Xresources.d/smallish"
+#include "/home/slee2/.Xresources.d/lightish"

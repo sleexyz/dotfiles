@@ -7,16 +7,16 @@
    '(
      ;; languages
      nixos
-     ;;rust
+     rust
      emacs-lisp
      react
      javascript
      glsl
      html
-     ;; agda
+     agda
      purescript
+     sml
      ;;coq
-     ;;asdfasd
      intero
      ;; haskell
      ;; '((haskell :variables haskell-enable-hindent-style "johan-tibell")
@@ -29,7 +29,7 @@
      git
      github
      clojure
-     ;; syntax-checking
+     syntax-checking
      )
    dotspacemacs-excluded-packages '(
                                     ;; exec-path-from-shell

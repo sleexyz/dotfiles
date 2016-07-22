@@ -1,9 +1,9 @@
 Config {
     -- appearance
-        font =         "xft:Terminus:size=8:style=normal"
-        , bgColor =      "#151515"
-        , fgColor =      "#d0d0d0"
-        , alpha =        50
+        font =         "xft:Source Code Pro:style=Bold:size=10:antialias=true"
+        , bgColor =      "#fbf8ef"
+        , fgColor =      "#655370"
+        , alpha =        0
         , position =     Bottom
         , border =       NoBorder
         , borderColor =  "#151515"

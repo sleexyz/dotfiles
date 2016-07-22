@@ -7,7 +7,7 @@
    '(
      ;; languages
      nixos
-     rust
+     ;;rust
      emacs-lisp
      react
      javascript
@@ -15,11 +15,12 @@
      html
      ;; agda
      purescript
-     coq
-     asdfasd
-     haskell
-     '((haskell :variables haskell-enable-hindent-style "johan-tibell")
-       (haskell :variables haskell-process-type 'stack-ghci))
+     ;;coq
+     ;;asdfasd
+     intero
+     ;; haskell
+     ;; '((haskell :variables haskell-enable-hindent-style "johan-tibell")
+     ;;   (haskell :variables haskell-process-type 'stack-ghci))
 
      auto-completion
      better-defaults
@@ -27,9 +28,8 @@
      ess
      git
      github
-     syntax-checking
-     ;; clojure
-     syntax-checking
+     clojure
+     ;; syntax-checking
      )
    dotspacemacs-excluded-packages '(
                                     ;; exec-path-from-shell
@@ -39,6 +39,7 @@
 (defun dotspacemacs/init ()
   (setq-default
    dotspacemacs-elpa-https nil
+   dotspacemacs-check-for-update nil
    dotspacemacs-editing-style 'vim
    dotspacemacs-verbose-loading nil
    dotspacemacs-startup-banner `doge
@@ -46,7 +47,7 @@
    dotspacemacs-startup-lists '(recents bookmarks projects)
    ;; dotspacemacs-themes '(spacemacs-light base16-chalk-dark)
    ;; dotspacemacs-themes '(trans transdark2)
-   dotspacemacs-themes '(transdark2 trans)
+   dotspacemacs-themes '(trans transdark2)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Source Code Pro"
                                :size 13
@@ -97,6 +98,8 @@
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-markup-indent-offset 2)
   (setq default-input-method 'TeX)
+  (setq tramp-ssh-controlmaster-options
+      "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
 
 
   (defun on-after-init ()

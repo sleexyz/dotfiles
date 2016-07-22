@@ -1,0 +1,3 @@
+poop="$HOME/.emacs.d/.cache/recentf"
+cat $poop
+rm $poop

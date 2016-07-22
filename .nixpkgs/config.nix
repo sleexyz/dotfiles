@@ -5,7 +5,8 @@
 
   haskellPackageOverrides = with pkgs.haskell.lib; self: super: {
     vivid = self.callPackage /home/slee2/sandbox/vivid/vivid.nix {};
-    # hylogen = self.callPackage /home/slee2/projects/hylogen/hylogen.nix {};
+    hylogen = self.callPackage /home/slee2/projects/hylogen/hylogen.nix {};
+    # purescript = self.callPackage /home/slee2/projects/purescript/purescript.nix {};
   };
 
   packageOverrides = pkgs_: rec {
@@ -20,18 +21,23 @@
         cabal-install
         cabal2nix
 
-        # (haskell.packages.ghc801.ghcWithPackages (haskellPackages: with haskellPackages; [
-        (haskellPackages.ghcWithPackages (haskellPackages: with haskellPackages; [
-          purescript
+        (haskell.packages.ghc801.ghcWithPackages (haskellPackages: with haskellPackages; [
+        # (haskellPackages.ghcWithPackages (haskellPackages: with haskellPackages; [
           # idris
+          purescript
+          # agda
 
-          vivid
+          # vivid
+          alex
+          happy
+          # hakyll
           # hylogen
 
           stack
-          stylish-haskell hasktags hlint ghc-mod # required for spacemacs
-          ghcid
-          pointfree
+          # stylish-haskell hasktags hlint ghc-mod # required for spacemacs
+
+          # ghcid
+          # pointfree
         ]))
       ];
     };
@@ -53,7 +59,6 @@
         silver-searcher
         awscli
         p7zip
-        pandoc
         gnupg
 
         # ranger
@@ -65,12 +70,15 @@
         evince
         firefox
         # (google-chrome.override { channel = "dev";})
-        ghostscriptX
+        ghostscript
         gnome3.cheese
         gnome3.gnome-video-effects
         gimp
         scrot
         guvcview
+        poppler_utils
+        simplescreenrecorder
+
 
 
         # ricing
@@ -91,23 +99,21 @@
         xorg.xeyes
 
         # dev tools
-        gitAndTools.git-annex
-        gitFull
-        # gitAndTools.hub
+        # gitFull
+        gitAndTools.hub
         neovim
-        emacs
+        emacs25pre
         entr
 
         # audio
         patchage
         spectrojack
         qjackctl
-        # supercollider
+        supercollider
         audacity
         meterbridge
         baudline
         timemachine
-        espeak
 
 
         # dev things
@@ -124,11 +130,18 @@
         leiningen
         boot
         rlwrap
-        coq_8_5
-        emacs24Packages.proofgeneral
+        # coq_8_5
+        # emacs24Packages.proofgeneral
         ncurses
+        xdotool
+        smlnj
+        debootstrap
+        ocaml_4_02
+        opam
+        m4
+        ocamlPackages.findlib
         # elmPackages.elm
-        # haskellPackages.Agda
+        haskellPackages.Agda
       ];
     };
   };

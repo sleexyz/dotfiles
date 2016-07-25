@@ -5,7 +5,8 @@ URxvt.foreground:   #655370
 ! URxvt.background:   #fdf6e3
 ! URxvt.background:   #fbf8ef
 URxvt.depth: 32
-URxvt.background:  rgba:fb00/f800/ef00/f000
+! URxvt.background:  rgba:fb00/f800/ef00/f000
+URxvt.background:  rgba:ff00/ff00/ff00/ff00
 URxvt.cursorColor:  #586e75
 
 ! black

@@ -3,7 +3,8 @@
 ! special
 URxvt.foreground:   #655370
 ! URxvt.background:   #fdf6e3
-URxvt.background:   #fbf8ef
+! URxvt.background:   #fbf8ef
+URxvt.background:   #ffffff
 URxvt.cursorColor:  #586e75
 
 ! black

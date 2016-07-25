@@ -4,7 +4,7 @@
 
 
   haskellPackageOverrides = with pkgs.haskell.lib; self: super: {
-    vivid = self.callPackage /home/slee2/sandbox/vivid/vivid.nix {};
+    # vivid = self.callPackage /home/slee2/sandbox/vivid/vivid.nix {};
     hylogen = self.callPackage /home/slee2/projects/hylogen/hylogen.nix {};
     # purescript = self.callPackage /home/slee2/projects/purescript/purescript.nix {};
   };
@@ -12,6 +12,7 @@
   packageOverrides = pkgs_: rec {
     patchage = pkgs.callPackage ./myPkgs/patchage.nix {};
     spectrojack = pkgs.callPackage ./myPkgs/spectrojack.nix {};
+
     # qlcplus = pkgs.callPackage ./myPkgs/qlcplus.nix {};
 
     # lol clean this up
@@ -109,11 +110,12 @@
         patchage
         spectrojack
         qjackctl
-        supercollider
+        # supercollider
         audacity
         meterbridge
         baudline
         timemachine
+        renoise
 
 
         # dev things
@@ -138,10 +140,12 @@
         debootstrap
         ocaml_4_02
         opam
+        subversion
         m4
         ocamlPackages.findlib
         # elmPackages.elm
         haskellPackages.Agda
+        ruby
       ];
     };
   };

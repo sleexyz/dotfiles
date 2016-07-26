@@ -1,0 +1,14 @@
+#!/bin/bash
+
+file=$HOME/.tiling_mode
+kwmc=/usr/local/bin/kwmc
+
+if [ `cat $file` -eq "1" ]; then
+  $kwmc press cmd+shift-m
+  echo "0" > $file
+  echo "set to 0"
+else
+  $kwmc press cmd+shift-b
+  echo "1" > $file
+  echo "set to 1"
+fi

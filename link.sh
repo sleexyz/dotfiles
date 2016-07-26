@@ -41,13 +41,13 @@ linkHome .spacemacs
 curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 linkHome .vimrc
-_link "$DIR/.vimrc" "$HOME/.config/vim/init.vim"
-mkdir -p $HOME/.config/vim
-_link $HOME/.vim $HOME/.config/vim
+# mkdir -p $HOME/.config/vim
+# _link "$DIR/.vimrc" "$HOME/.config/vim/init.vim"
+# _link $HOME/.vim $HOME/.config/vim
 
 
 ###### window management
-linkHome .amethyst
+linkHome .kwm
 
 
 ###### custom scripts

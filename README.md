@@ -1,5 +1,4 @@
-#### current development machine:
-macbook air 13 inch
+macbook pro 15 inch
 
 #### stuff I use:
 - **terminal**
@@ -9,14 +8,12 @@ macbook air 13 inch
   - [prezto](https://github.com/sorin-ionescu/prezto) zsh config framework
 
 - *window management*
-  - [Amethyst](https://github.com/ianyh/Amethyst) OSX port of XMonad
+  - [kwm](https://github.com/koekeishiya/kwm) Tiling window manager for OSX
   - [super-easy-move-resize](https://github.com/sleep/super-easy-move-resize.git) XMonad-style floating-window mouse interaction
-  - [hyperswitch](https://bahoom.com/hyperswitch)
 
 - *editors*
   - [spacemacs](https://github.com/syl20bnr/spacemacs) if emacs and vim had a baby
-  - [neovim](https://github.com/neovim/neovim)
-   - [spacemacs bindings for vim](https://github.com/jimmay5469/vim-spacemacs)
+  - [spacemacs bindings for vim](https://github.com/jimmay5469/vim-spacemacs)
 
 ## setup:
 ```
@@ -31,4 +28,3 @@ git submodules update --init --recursive
 For spacemacs:
 ```
 git clone --recursive https://github.com/syl20bnr/spacemacs ~/.emacs.d
-```

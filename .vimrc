@@ -22,6 +22,8 @@ Plug 'lambdatoast/elm.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'tikhomirov/vim-glsl'
 Plug 'raichoo/purescript-vim'
+Plug 'tpope/vim-jdaddy'
+Plug 'pangloss/vim-javascript'
 
 
 " Plug 'jiangmiao/auto-pairs'

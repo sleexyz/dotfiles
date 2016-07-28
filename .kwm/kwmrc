@@ -1,4 +1,6 @@
 //   kwmc rule owner="Steam" properties={float="true"}
+kwmc rule owner="iTerm2" properties={role="AXDialog"}
+kwmc rule owner="Emacs" properties={role="AXStandardWindow"}
 
 kwmc config padding 60 40 40 40
 kwmc config gap 15 15
@@ -19,7 +21,6 @@ kwmc config cycle-focus on
 kwmc config split-ratio 0.5
 kwmc config spawn right
 
-kwmc rule owner="iTerm2" properties={role="AXDialog"}
 
 
 // Enable border for focused window
@@ -54,6 +55,9 @@ kwmc bindsym cmd-` exec sh -c /Users/slee2/.bin/rotate-tiling
 // Set Space Tiling Mode To Floating
 kwmc bindsym cmd+shift-f space -t float
 
+// Toggle Tiling
+kwm bindsym cmd-y window -t float
+
 // Modify Container
 kwmc bindsym cmd+shift-, window -c reduce 0.05
 kwmc bindsym cmd+shift-. window -c expand 0.05
@@ -63,6 +67,13 @@ kwmc bindsym cmd-h window -f west
 kwmc bindsym cmd-l window -f east
 kwmc bindsym cmd-j window -f south
 kwmc bindsym cmd-k window -f north
+
+// scratchpad
+kwmc bindsym cmd+ctrl+alt+shift-a scratchpad add
+kwmc bindsym cmd+ctrl+alt+shift-r scratchpad remove
+
+kwmc bindsym -f1 scratchpad toggle 0
+kwmc bindsym -f2 scratchpad toggle 1
 
 // Swap Focused Window
 kwmc bindsym cmd+shift-h window -s west

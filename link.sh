@@ -27,6 +27,16 @@ linkHome() {
 ###### shell
 linkHome .zprezto
 
+linkRunCom () {
+  _link ".zprezto/runcoms/$1" "$HOME/.$1"
+}
+linkRunCom zlogin
+linkRunCom zlogout
+linkRunCom zpreztorc
+linkRunCom zprofile
+linkRunCom zshenv
+linkRunCom zshrc
+
 
 ##### navigation
 touch $HOME/.z

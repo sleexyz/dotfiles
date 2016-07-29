@@ -115,7 +115,7 @@
         meterbridge
         baudline
         timemachine
-        renoise
+        # renoise # doesn't work automatically...
 
 
         # dev things
@@ -146,6 +146,8 @@
         # elmPackages.elm
         haskellPackages.Agda
         ruby
+        scala
+        sbt
       ];
     };
   };

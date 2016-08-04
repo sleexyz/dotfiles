@@ -1,4 +1,4 @@
-//   kwmc rule owner="Steam" properties={float="true"}
+kwmc rule owner="Finder" properties={float="true"}
 kwmc rule owner="iTerm2" properties={role="AXDialog"}
 kwmc rule owner="Emacs" properties={role="AXStandardWindow"}
 
@@ -31,8 +31,6 @@ kwmc config border focused radius 6
 
 // Enable border for marked window
 kwmc config border marked on
-kwmc config border marked size 2
-kwmc config border marked color 0xFFCC5577
 kwmc config border marked radius 6
 
 // Enable the prefix mode
@@ -73,7 +71,7 @@ kwmc bindsym cmd+ctrl+alt+shift-a scratchpad add
 kwmc bindsym cmd+ctrl+alt+shift-r scratchpad remove
 
 kwmc bindsym -f1 scratchpad toggle 0
-kwmc bindsym -f2 scratchpad toggle 1
+// kwmc bindsym -f2 scratchpad toggle 1
 
 // Swap Focused Window
 kwmc bindsym cmd+shift-h window -s west

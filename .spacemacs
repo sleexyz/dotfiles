@@ -145,6 +145,7 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
+  (evil-ex-define-cmd "W" 'evil-write)
   (global-set-key (kbd "<C-mouse-4>") 'zoom-frm-in)
   (global-set-key (kbd "<C-mouse-5>") 'zoom-frm-out)
   (global-set-key (kbd "C-=") 'zoom-frm-in)
@@ -154,9 +155,13 @@ layers configuration."
   (setq browse-url-browser-function 'browse-url-generic)
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq indent-tabs-mode nil)
+  (setq-default indent-tabs-mode nil)
   (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
   (setq tab-width 2)
   (setq c-basic-offset 2)
+  (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

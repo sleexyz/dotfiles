@@ -105,6 +105,8 @@
         neovim
         emacs25pre
         entr
+        fantasque-sans-mono
+        hack-font
 
         # audio
         patchage
@@ -125,15 +127,15 @@
         # python
         gcc
         gnumake
-        nodejs-5_x
+        nodejs-6_x
         electron
         scala
         jdk
         leiningen
         boot
         rlwrap
-        # coq_8_5
-        # emacs24Packages.proofgeneral
+        coq_8_5
+        emacs24Packages.proofgeneral
         ncurses
         xdotool
         smlnj

@@ -85,7 +85,7 @@ rofi.opacity: 80
 rofi.width: 100
 rofi.lines: 1
 rofi.columns: 6
-rofi.font: Source Code Pro Bold 10
+rofi.font: Hack 10
 rofi.bw: 0
 rofi.location: 2
 rofi.terminal: urxvt

@@ -6,17 +6,17 @@
       ./hardware-configuration.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_4_3;
+  boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelModules = [ "snd-aloop" ];
-  boot.extraKernelParams = [ "acpi_backlight=vendor" ];
+  boot.kernelParams = [ "acpi_backlight=vendor" ];
   boot.extraModprobeConfig = ''
     options hid_apple fnmode=2
     options hid_apple iso_layout=0
 
     options snd_hda_intel enable=0,1
   '';
-  boot.loader.gummiboot.enable = true;
-  boot.loader.gummiboot.timeout = 0;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.timeout = 0;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos";
@@ -35,11 +35,14 @@
     jack2Full
     alsaPlugins
     alsaLib
+    exfat-utils
+    fuse_exfat
 
     # utilities
     wget
     curl
     which
+    binutils
 
     # cli programs
     powertop
@@ -104,6 +107,8 @@
 
     desktopManager.default = "none";
     desktopManager.xterm.enable = false;
+    
+
 
     windowManager.default = "xmonad";
     windowManager.xmonad = {
@@ -139,6 +144,8 @@
       unifont
     ];
   };
+  hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
+  hardware.facetimehd.enable = true;
 
   security.pam.loginLimits = 
   [
@@ -157,7 +164,7 @@
   users.extraUsers.slee2 = {
     isNormalUser = true;
     uid = 501; # to match OSX default UID
-    extraGroups = ["wheel" "audio"];
+    extraGroups = ["wheel" "audio" "dialout"];
     createHome = true;
     home = "/home/slee2";
   };
@@ -171,9 +178,6 @@
   #   }/lib/alsa-lib /run/alsa-plugins
   # '';
 
-
-  nix.trustedBinaryCaches = [ "https://ryantrinkle.com:5443" ];
-  nix.binaryCachePublicKeys = [ "ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI=" ];
 
   nixpkgs.config.allowUnfree = true;
 }

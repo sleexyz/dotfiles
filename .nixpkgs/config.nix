@@ -98,6 +98,7 @@
         libv4l
         v4l_utils
         xorg.xeyes
+        wmctrl
 
         # dev tools
         # gitFull
@@ -145,6 +146,7 @@
         subversion
         m4
         ocamlPackages.findlib
+        ocamlPackages.utop
         # elmPackages.elm
         haskellPackages.Agda
         ruby

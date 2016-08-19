@@ -34,6 +34,8 @@
           # hakyll
           # hylogen
 
+          tidal
+          tidal-midi
           stack
           # stylish-haskell hasktags hlint ghc-mod # required for spacemacs
 
@@ -104,10 +106,11 @@
         # gitFull
         gitAndTools.hub
         neovim
-        emacs25pre
+        emacs
         entr
         fantasque-sans-mono
         hack-font
+        sox
 
         # audio
         patchage
@@ -147,7 +150,7 @@
         m4
         ocamlPackages.findlib
         ocamlPackages.utop
-        # elmPackages.elm
+        git-cola
         haskellPackages.Agda
         ruby
         scala

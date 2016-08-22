@@ -25,7 +25,7 @@
         # (haskell.packages.ghc801.ghcWithPackages (haskellPackages: with haskellPackages; [
         (haskell.packages.ghc7103.ghcWithPackages (haskellPackages: with haskellPackages; [
           # idris
-          purescript
+          # purescript
           # agda
 
           # vivid
@@ -34,8 +34,8 @@
           # hakyll
           # hylogen
 
-          tidal
-          tidal-midi
+          # tidal
+          # tidal-midi
           stack
           # stylish-haskell hasktags hlint ghc-mod # required for spacemacs
 
@@ -81,6 +81,7 @@
         guvcview
         poppler_utils
         simplescreenrecorder
+        # slack
         # zoom-us
 
 

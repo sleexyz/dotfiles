@@ -15,6 +15,7 @@ import XMonad.Util.WorkspaceCompare
 import XMonad.Hooks.ManageHelpers
 import XMonad.Util.SpawnOnce
 import XMonad.Actions.DeManage
+import XMonad.Layout.Spacing
 
 import MyCross
 import MyUpdatePointer
@@ -38,7 +39,7 @@ main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
 
 
 
-myConfig :: XConfig (Choose Cross Tall)
+-- myConfig :: XConfig (Choose Cross Tall)
 myConfig =
   def { terminal = "urxvt",
                   modMask = mod4Mask,
@@ -71,10 +72,10 @@ myConfig =
                               , namedScratchpadManageHook myScratchPads
                               ]
 
-    mylayoutHook :: Choose Cross Tall a
+    -- mylayoutHook :: Choose Cross Tall a
     mylayoutHook = simpleCross ||| tiled
         where
-            tiled = Tall nmaster delta ratio
+            tiled = smartSpacing 40 $ Tall nmaster delta ratio
             nmaster = 1
             ratio = 1/2
             delta = 3/100

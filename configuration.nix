@@ -1,20 +1,33 @@
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+
 { config, pkgs, ... }:
 
 {
   imports =
-    [ 
+    [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages;
-  boot.kernelModules = [ "snd-aloop" ];
-  boot.kernelParams = [ "acpi_backlight=vendor" ];
-  boot.extraModprobeConfig = ''
-    options hid_apple fnmode=2
-    options hid_apple iso_layout=0
+  boot.kernelPackages = pkgs.linuxPackages_4_7;
+  boot.initrd.kernelModules = [
+    "hid_apple"
+  ];
+  boot.kernelModules = [ 
+    "snd-aloop"
+  ];
+  boot.kernelParams = [
+    "acpi_backlight=vendor"
+  ];
+  boot.blacklistedKernelModules = [ "i915" "intel" "nouveau" ];
 
-    options snd_hda_intel enable=0,1
-  '';
+  # boot.extraModprobeConfig = ''
+  #   options hid_apple fnmode=2
+  #   options hid_apple iso_layout=0
+
+  #   options snd_hda_intel enable=0,1
+  # '';
   boot.loader.systemd-boot.enable = true;
   boot.loader.timeout = 0;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -35,8 +48,6 @@
     jack2Full
     alsaPlugins
     alsaLib
-    exfat-utils
-    fuse_exfat
 
     # utilities
     wget
@@ -61,7 +72,6 @@
     # development
     gitFull
     neovim
-
   ];
 
   # zsh
@@ -69,36 +79,40 @@
   users.defaultUserShell = "/run/current-system/sw/bin/zsh";
 
 
-  # services
-  programs.light.enable = true;
-  programs.kbdlight.enable = true;
-  powerManagement = {
-    resumeCommands = ''
-      xrandr --output eDP1 --auto
-    '';
-  };
+  # # services
+  # programs.light.enable = true;
+  # programs.kbdlight.enable = true;
+  # powerManagement = {
+  #   resumeCommands = ''
+  #     xrandr --output eDP1 --auto
+  #   '';
+  # };
 
 
-  services.acpid.enable = true;
-  services.acpid.lidEventCommands = ''
-    LID_STATE=/proc/acpi/button/lid/LID0/state
-    if [ $(/run/current-system/sw/bin/awk '{print $2}' $LID_STATE) = 'closed' ]; then
-      systemctl suspend
-    fi
-  '';
-  services.upower.enable = true;
-  services.nixosManual.showManual = true;
-  
-  services.redshift = {
-    enable = false;
-    latitude = "40.7127";
-    longitude = "-74.0059";
-  };
-  services.locate.enable = true;
+  # services.acpid.enable = true;
+  # services.acpid.lidEventCommands = ''
+  #   LID_STATE=/proc/acpi/button/lid/LID0/state
+  #   if [ $(/run/current-system/sw/bin/awk '{print $2}' $LID_STATE) = 'closed' ]; then
+  #     systemctl suspend
+  #   fi
+  # '';
+  # services.upower.enable = true;
+  # services.nixosManual.showManual = true;
+  # 
+  # services.redshift = {
+  #   enable = false;
+  #   latitude = "40.7127";
+  #   longitude = "-74.0059";
+  # };
+
+  # services.locate.enable = true;
   services.xserver = {
     enable = true;
     layout = "us";
-    
+    videoDrivers = [
+      "nvidiaBeta"
+    ];
+
     displayManager = {
       slim.enable = true;
       slim.defaultUser = "slee2";
@@ -107,8 +121,6 @@
 
     desktopManager.default = "none";
     desktopManager.xterm.enable = false;
-    
-
 
     windowManager.default = "xmonad";
     windowManager.xmonad = {
@@ -131,21 +143,24 @@
       accelFactor = "0.02";
       palmDetect = true;
     };
-  };
+  
 
-  fonts = {
-    enableFontDir = true;
-    enableGhostscriptFonts = true;
-    fonts = with pkgs; [
-      corefonts
-      terminus_font
-      inconsolata
-      source-code-pro
-      unifont
-    ];
   };
-  hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
-  hardware.facetimehd.enable = true;
+    # fonts = {
+    #   enablefontdir = true;
+    #   enableghostscriptfonts = true;
+    #   fonts = with pkgs; [
+    #     corefonts
+    #     terminus_font
+    #     inconsolata
+    #     source-code-pro
+    #     unifont
+    #   ];
+    # };
+
+  # hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
+  hardware.enableAllFirmware = true;
+  # hardware.facetimehd.enable = true;
 
   security.pam.loginLimits = 
   [
@@ -155,11 +170,6 @@
     { domain = "@audio"; item = "nofile"; type = "hard"; value = "99999"; }
   ];
 
-  fileSystems."/media" = {
-    fsType = "hfsplus";
-    device = "/dev/sda4";
-    options = ["force" "rw" "uid=501"];
-  };
 
   users.extraUsers.slee2 = {
     isNormalUser = true;
@@ -169,7 +179,7 @@
     home = "/home/slee2";
   };
 
-  system.stateVersion = "16.03";
+  system.stateVersion = "16.09";
 
   # system.activationScripts.setup-alsa-plugins = 
   # ''

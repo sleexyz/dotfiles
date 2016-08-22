@@ -5,7 +5,7 @@
 
   haskellPackageOverrides = with pkgs.haskell.lib; self: super: {
     # vivid = self.callPackage /home/slee2/sandbox/vivid/vivid.nix {};
-    hylogen = self.callPackage /home/slee2/projects/hylogen/hylogen.nix {};
+    # hylogen = self.callPackage /home/slee2/projects/hylogen/hylogen.nix {};
     # purescript = self.callPackage /home/slee2/projects/purescript/purescript.nix {};
   };
 
@@ -128,7 +128,7 @@
         pkgconfig
         atom
         go
-        # python
+        python
         gcc
         gnumake
         nodejs-6_x

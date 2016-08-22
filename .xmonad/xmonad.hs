@@ -40,7 +40,7 @@ main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
 
 myConfig :: XConfig (Choose Cross Tall)
 myConfig =
-  defaultConfig { terminal = "urxvt",
+  def { terminal = "urxvt",
                   modMask = mod4Mask,
                   handleEventHook = fullscreenEventHook,
                   layoutHook = mylayoutHook,

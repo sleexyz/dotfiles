@@ -22,8 +22,8 @@
         cabal-install
         cabal2nix
 
-        (haskell.packages.ghc801.ghcWithPackages (haskellPackages: with haskellPackages; [
-        # (haskellPackages.ghcWithPackages (haskellPackages: with haskellPackages; [
+        # (haskell.packages.ghc801.ghcWithPackages (haskellPackages: with haskellPackages; [
+        (haskell.packages.ghc7103.ghcWithPackages (haskellPackages: with haskellPackages; [
           # idris
           purescript
           # agda
@@ -81,6 +81,7 @@
         guvcview
         poppler_utils
         simplescreenrecorder
+        # zoom-us
 
 
 
@@ -141,6 +142,7 @@
         coq_8_5
         emacs24Packages.proofgeneral
         ncurses
+        postgresql
         xdotool
         smlnj
         debootstrap

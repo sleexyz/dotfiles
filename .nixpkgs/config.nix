@@ -73,6 +73,7 @@
         evince
         firefox
         # (google-chrome.override { channel = "dev";})
+        google-chrome
         ghostscript
         gnome3.cheese
         gnome3.gnome-video-effects

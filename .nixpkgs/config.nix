@@ -19,24 +19,26 @@
     ghcEnv = with pkgs; buildEnv {
       name = "ghcEnv";
       paths = [
-        cabal-install
         cabal2nix
+
+        cabal-install
+        # stack
 
         # (haskell.packages.ghc801.ghcWithPackages (haskellPackages: with haskellPackages; [
         (haskell.packages.ghc7103.ghcWithPackages (haskellPackages: with haskellPackages; [
+          zlib digest
           # idris
           # purescript
           # agda
 
           # vivid
-          alex
-          happy
+          # alex
+          # happy
           # hakyll
           # hylogen
 
           # tidal
           # tidal-midi
-          stack
           # stylish-haskell hasktags hlint ghc-mod # required for spacemacs
 
           # ghcid
@@ -83,6 +85,7 @@
         simplescreenrecorder
         # slack
         # zoom-us
+        zeal
 
 
 
@@ -158,6 +161,7 @@
         ruby
         scala
         sbt
+        snappy
       ];
     };
   };

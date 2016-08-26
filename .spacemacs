@@ -18,10 +18,10 @@
      purescript
      sml
      coq
-     intero
-     ;; haskell
-     ;; '((haskell :variables haskell-enable-hindent-style "johan-tibell")
-     ;;   (haskell :variables haskell-process-type 'stack-ghci))
+     ;; intero
+     (haskell :variables haskell-enable-ghc-mod-support nil)
+              ;; haskell-type-face 'cabal-repl
+              ;; haskell-enable-hindent-style "johan-tibell"
 
      auto-completion
      better-defaults
@@ -51,7 +51,7 @@
    ;; dotspacemacs-themes '(trans transdark2)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Hack"
-                               :size 20
+                               :size 14
                                ;; :antialias nil
                                :weight normal
                                :width normal

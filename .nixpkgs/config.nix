@@ -155,6 +155,7 @@
         ruby
         scala
         sbt
+        zeal
       ];
     };
   };

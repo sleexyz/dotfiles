@@ -82,6 +82,7 @@
         guvcview
         poppler_utils
         simplescreenrecorder
+        zeal
 
 
 
@@ -156,7 +157,6 @@
         ruby
         scala
         sbt
-        zeal
       ];
     };
   };

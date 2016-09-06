@@ -59,7 +59,8 @@ myConfig =
     myScratchPads :: [NamedScratchpad]
     myScratchPads =
       [ NS "term1" "urxvt -name urxvt-scratchpad1" (resource =? "urxvt-scratchpad1") (customFloating $ W.RationalRect 0 0 1 0.66)
-      , NS "term2" "theme transdark && themed big urxvt -name urxvt-scratchpad2" (resource =? "urxvt-scratchpad2") (customFloating $ W.RationalRect 0 0 1 1)
+      , NS "zeal" "zeal" (resource =? "zeal") (customFloating $ W.RationalRect 0 0 1 0.66)
+      -- , NS "term2" "theme transdark && themed big urxvt -name urxvt-scratchpad2" (resource =? "urxvt-scratchpad2") (customFloating $ W.RationalRect 0 0 1 1)
       , NS "keep" "~/.bin/keep" (resource =? "crx_hmjkmjkepdijhoojdojkdfohbdgmmhki") (customFloating $ W.RationalRect 0 0 1 0.66)
       ]
 
@@ -84,7 +85,7 @@ myConfig =
     myLogHook = updatePointer $ Relative 0.5 0.5
 
     myWorkspaces :: [WorkspaceId]
-    myWorkspaces = map show [1 .. 4 :: Int]
+    myWorkspaces = map show [1 .. 5 :: Int]
 
     myAdditionalKeysP :: [(String, X ())]
     myAdditionalKeysP =
@@ -94,6 +95,7 @@ myConfig =
       , ("M-S-d", withFocused demanage)
       , ("<F1>", namedScratchpadAction myScratchPads "term1")
       , ("<F2>", namedScratchpadAction myScratchPads "keep")
+      , ("<F3>", namedScratchpadAction myScratchPads "zeal")
       , ("M-<Space>", spawn "rofi -show run")
       , ("M-p", spawn "rofi -show run")
       , ("M-<Up>", spawn "transset-df -p --inc 0.03")

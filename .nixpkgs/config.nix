@@ -106,6 +106,8 @@
         v4l_utils
         xorg.xeyes
         wmctrl
+        maim
+        slop
 
         # dev tools
         # gitFull
@@ -158,10 +160,12 @@
         ocamlPackages.utop
         git-cola
         haskellPackages.Agda
+        haskellPackages.purescript
         ruby
         scala
         sbt
         snappy
+        ngrok
       ];
     };
   };

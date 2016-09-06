@@ -85,6 +85,9 @@ echo "\n...setting up lein...\n"
 mkdirP ~/.lein
 linkHome .lein/profiles.clj
 
+echo "\n...setting up npm...\n"
+linkHome .npmrc
+
 
 
 

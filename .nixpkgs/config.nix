@@ -129,7 +129,7 @@
         pkgconfig
         atom
         go
-        # python
+        python
         gcc
         gnumake
         nodejs-6_x

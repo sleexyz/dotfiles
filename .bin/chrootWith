@@ -1,0 +1,2 @@
+absPath=`readlink -f $1`
+nix-shell $HOME/.nixpkgs/chrootWith.nix --argstr command zsh --argstr packages $absPath

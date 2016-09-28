@@ -18,8 +18,9 @@
      purescript
      sml
      coq
-     ;; intero
-     (haskell :variables haskell-enable-ghc-mod-support nil)
+     intero
+     floobits
+     ;; (haskell :variables haskell-enable-ghc-mod-support nil)
               ;; haskell-type-face 'cabal-repl
               ;; haskell-enable-hindent-style "johan-tibell"
 
@@ -51,7 +52,7 @@
    ;; dotspacemacs-themes '(trans transdark2)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Hack"
-                               :size 14
+                               :size 16
                                ;; :antialias nil
                                :weight normal
                                :width normal

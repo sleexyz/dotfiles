@@ -20,29 +20,11 @@
       name = "ghcEnv";
       paths = [
         cabal2nix
-
         cabal-install
-        # stack
 
         # (haskell.packages.ghc801.ghcWithPackages (haskellPackages: with haskellPackages; [
         (haskell.packages.ghc7103.ghcWithPackages (haskellPackages: with haskellPackages; [
           zlib digest
-          # idris
-          # purescript
-          # agda
-
-          # vivid
-          # alex
-          # happy
-          # hakyll
-          # hylogen
-
-          # tidal
-          # tidal-midi
-          # stylish-haskell hasktags hlint ghc-mod # required for spacemacs
-
-          # ghcid
-          # pointfree
         ]))
       ];
     };
@@ -74,7 +56,6 @@
         sxiv
         evince
         firefox
-        # (google-chrome.override { channel = "dev";})
         ghostscript
         gnome3.cheese
         gnome3.gnome-video-effects
@@ -83,8 +64,6 @@
         guvcview
         poppler_utils
         simplescreenrecorder
-        # slack
-        # zoom-us
         zeal
 
 
@@ -136,6 +115,7 @@
         atom
         go
         python
+        python27Packages.docker_compose
         gcc
         gnumake
         nodejs-6_x
@@ -160,12 +140,14 @@
         ocamlPackages.utop
         git-cola
         haskellPackages.Agda
-        haskellPackages.purescript
         ruby
         scala
         sbt
         snappy
-        ngrok
+        patchelf
+        docker
+        renameutils
+        phantomjs
       ];
     };
   };

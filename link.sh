@@ -49,9 +49,7 @@ linkHome .urxvt
 linkHome .dircolors
 
 echo "\n..linking nix things...\n"
-mkdirP ~/.nixpkgs
-linkHome .nixpkgs/config.nix
-linkHome .nixpkgs/myPkgs
+linkHome .nixpkgs
 
 
 echo "\n...linking ~/.config files...\n"

@@ -19,6 +19,7 @@
      sml
      coq
      intero
+     floobits
      ;; haskell
      ;; '((haskell :variables haskell-enable-hindent-style "johan-tibell")
      ;;   (haskell :variables haskell-process-type 'stack-ghci))

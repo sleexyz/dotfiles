@@ -15,7 +15,6 @@
 
     # qlcplus = pkgs.callPackage ./myPkgs/qlcplus.nix {};
 
-    # lol clean this up
     ghcEnv = with pkgs; buildEnv {
       name = "ghcEnv";
       paths = [
@@ -24,23 +23,13 @@
 
         (haskell.packages.ghc801.ghcWithPackages (haskellPackages: with haskellPackages; [
         # (haskellPackages.ghcWithPackages (haskellPackages: with haskellPackages; [
-          # idris
           purescript
-          # agda
-
-          # vivid
           alex
           happy
-          # hakyll
-          # hylogen
 
           tidal
           tidal-midi
           stack
-          # stylish-haskell hasktags hlint ghc-mod # required for spacemacs
-
-          # ghcid
-          # pointfree
         ]))
       ];
     };
@@ -63,16 +52,12 @@
         awscli
         p7zip
         gnupg
-
-        # ranger
-        # uncomment when my PR gets through
         ranger
 
         # x programs
         sxiv
         evince
         firefox
-        # (google-chrome.override { channel = "dev";})
         google-chrome
         ghostscript
         gnome3.cheese
@@ -105,7 +90,6 @@
         wmctrl
 
         # dev tools
-        # gitFull
         gitAndTools.hub
         neovim
         emacs
@@ -113,17 +97,18 @@
         fantasque-sans-mono
         hack-font
         sox
+        testdisk
+        parted
+        usbutils
 
         # audio
         patchage
         spectrojack
         qjackctl
-        # supercollider
         audacity
         meterbridge
         baudline
         timemachine
-        # renoise # doesn't work automatically...
 
 
         # dev things
@@ -157,6 +142,7 @@
         ruby
         scala
         sbt
+        git-cola
       ];
     };
   };

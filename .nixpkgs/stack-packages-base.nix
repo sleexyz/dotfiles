@@ -1,5 +1,8 @@
 with import <nixpkgs> {};
 with pkgs;
+{ ghcWithPackages 
+}:
+
 [ 
   stack
   icu
@@ -11,10 +14,11 @@ with pkgs;
   postgresql
   gcc
   glibc
-  (haskell.packages.ghc7103.ghcWithPackages (haskellPackages: with haskellPackages; [
+  (ghcWithPackages (haskellPackages: with haskellPackages; [
     zlib
     text-icu
     terminfo
+    purescript
   ]))
   gitAndTools.hub
   emacs 

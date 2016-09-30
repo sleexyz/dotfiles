@@ -2,13 +2,6 @@
 {
   allowUnfree = true;
 
-
-  haskellPackageOverrides = with pkgs.haskell.lib; self: super: {
-    # vivid = self.callPackage /home/slee2/sandbox/vivid/vivid.nix {};
-    hylogen = self.callPackage /home/slee2/projects/hylogen/hylogen.nix {};
-    # purescript = self.callPackage /home/slee2/projects/purescript/purescript.nix {};
-  };
-
   packageOverrides = pkgs_: rec {
     patchage = pkgs.callPackage ./myPkgs/patchage.nix {};
     spectrojack = pkgs.callPackage ./myPkgs/spectrojack.nix {};
@@ -22,7 +15,6 @@
         cabal2nix
 
         (haskell.packages.ghc801.ghcWithPackages (haskellPackages: with haskellPackages; [
-        # (haskellPackages.ghcWithPackages (haskellPackages: with haskellPackages; [
           purescript
           alex
           happy

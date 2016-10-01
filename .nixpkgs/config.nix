@@ -148,6 +148,7 @@
         docker
         renameutils
         phantomjs
+        inotify-tools
       ];
     };
   };

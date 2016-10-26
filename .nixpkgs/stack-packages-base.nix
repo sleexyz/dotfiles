@@ -20,6 +20,7 @@ with pkgs;
     terminfo
   ]))
   haskellPackages.purescript
+  haskellPackages.Agda
   gitAndTools.hub
   emacs 
   neovim

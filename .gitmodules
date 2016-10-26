@@ -1,3 +1,6 @@
 [submodule ".zprezto"]
 	path = .zprezto
 	url = git@github.com:sleexyz/prezto.git
+[submodule ".agda/agda-stdlib"]
+	path = .agda/agda-stdlib
+	url = https://github.com/agda/agda-stdlib

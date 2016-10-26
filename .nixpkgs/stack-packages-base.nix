@@ -18,8 +18,8 @@ with pkgs;
     zlib
     text-icu
     terminfo
-    purescript
   ]))
+  haskellPackages.purescript
   gitAndTools.hub
   emacs 
   neovim

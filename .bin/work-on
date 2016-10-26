@@ -1,3 +1,0 @@
-dir=$HOME/sandbox/reflex-platform
-
-$dir/work-on "$@"

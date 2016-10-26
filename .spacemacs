@@ -49,7 +49,7 @@
    dotspacemacs-startup-lists '(recents bookmarks projects)
    ;; dotspacemacs-themes '(spacemacs-light base16-chalk-dark)
    ;; dotspacemacs-themes '(trans transdark2)
-   dotspacemacs-themes '(trans transdark2)
+   dotspacemacs-themes '(transdark)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Hack"
                                :size 12

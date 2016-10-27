@@ -86,7 +86,8 @@ linkHome .lein/profiles.clj
 echo "\n...setting up npm...\n"
 linkHome .npmrc
 
-
+echo "\n...setting up agda...\n"
+linkHome .agda
 
 
 echo "\n...linking scripts...\n"

@@ -8,4 +8,4 @@ fi
 
 bluetoothctl << EOF
 connect 1C:1A:C0:F2:B7:8F
-EOF && sleep 10 && xinput --set-prop "Alex Horovitz’s Trackpad" "Device Accel Velocity Scaling" 32xinput --set-prop "Alex Horovitz’s Trackpad" "Device Accel Velocity Scaling" 40
+EOF && sleep 10 && xinput --set-prop "Alex Horovitz’s Trackpad" "Device Accel Velocity Scaling" 40

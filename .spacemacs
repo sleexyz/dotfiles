@@ -7,7 +7,7 @@
    '(
      nixos
      rust
-     ;; ocaml
+     ocaml
      emacs-lisp
      react
      scala
@@ -20,10 +20,6 @@
      coq
      intero
      floobits
-     ;; (haskell :variables haskell-enable-ghc-mod-support nil)
-              ;; haskell-type-face 'cabal-repl
-              ;; haskell-enable-hindent-style "johan-tibell"
-
      auto-completion
      better-defaults
      markdown
@@ -47,12 +43,10 @@
    dotspacemacs-startup-banner `doge
    dotspacemacs-always-show-changelog nil
    dotspacemacs-startup-lists '(recents bookmarks projects)
-   dotspacemacs-themes '(spacemacs-light base16-chalk-dark)
-   ;; dotspacemacs-themes '(trans transdark2)
-   ;; dotspacemacs-themes '(trans transdark2)
+   dotspacemacs-themes '(spacemacs-light)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Hack"
-                               :size 16
+                               :size 12
                                ;; :antialias nil
                                :weight normal
                                :width normal
@@ -89,11 +83,9 @@
   )
 
 (defun dotspacemacs/config ()
-  (evil-ex-define-cmd "W" 'evil-write)
-  (global-set-key (kbd "<C-mouse-4>") 'zoom-frm-in)
-  (global-set-key (kbd "<C-mouse-5>") 'zoom-frm-out)
   (global-set-key (kbd "C-=") 'zoom-frm-in)
   (global-set-key (kbd "C--") 'zoom-frm-out)
+  (evil-ex-define-cmd "W" 'evil-write)
   (setq vc-follow-symlinks t)
   (setq browse-url-generic-program "google-chrome-stable")
   (setq browse-url-browser-function 'browse-url-generic)

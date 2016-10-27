@@ -3,12 +3,6 @@
   allowUnfree = true;
 
 
-  haskellPackageOverrides = with pkgs.haskell.lib; self: super: {
-    # vivid = self.callPackage /home/slee2/sandbox/vivid/vivid.nix {};
-    # hylogen = self.callPackage /home/slee2/projects/hylogen/hylogen.nix {};
-    # purescript = self.callPackage /home/slee2/projects/purescript/purescript.nix {};
-  };
-
   packageOverrides = pkgs_: rec {
     patchage = pkgs.callPackage ./myPkgs/patchage.nix {};
     spectrojack = pkgs.callPackage ./myPkgs/spectrojack.nix {};
@@ -32,123 +26,103 @@
     all = with pkgs; buildEnv {
       name = "all";
       paths = [
-        # nix
-        nixUnstable
-        nox
-        nix-repl
-        nix-prefetch-scripts
-
-        # cli programs
-        nmap_graphical
-        mplayer
-        mpg123
-        ncdu
-        silver-searcher
+        arandr
+        atom
+        audacity
         awscli
-        p7zip
-        gnupg
-
-        # ranger
-        # uncomment when my PR gets through
-        ranger
-
-        # x programs
-        sxiv
+        baudline
+        boot
+        compton-git
+        coq_8_5
+        debootstrap
+        docker
+        electron
+        emacs
+        emacs24Packages.proofgeneral
+        entr
+        etherape
         evince
+        exfat
+        fantasque-sans-mono
+        file
         firefox
+        gcc
         ghostscript
+        gimp
+        gitAndTools.hub
+        git-cola
         gnome3.cheese
         gnome3.gnome-video-effects
-        gimp
-        scrot
-        guvcview
-        poppler_utils
-        simplescreenrecorder
-        zeal
-
-
-
-        # ricing
-        compton-git
-        rofi
-        nitrogen
-
-
-        # x utilities
-        xclip
-        xdg_utils
-        xorg.xev
-        xorg.xbacklight
-        arandr
-
-        libv4l
-        v4l_utils
-        xorg.xeyes
-        wmctrl
-        maim
-        slop
-
-        # dev tools
-        # gitFull
-        gitAndTools.hub
-        neovim
-        emacs
-        entr
-        fantasque-sans-mono
-        hack-font
-        sox
-
-        # audio
-        patchage
-        spectrojack
-        qjackctl
-        # supercollider
-        audacity
-        meterbridge
-        baudline
-        timemachine
-        # renoise # doesn't work automatically...
-
-
-        # dev things
-        pkgconfig
-        atom
-        go
-        python
-        python27Packages.docker_compose
-        gcc
         gnumake
-        nodejs-6_x
-        electron
-        scala
+        gnupg
+        go
+        guvcview
+        hack-font
+        haskellPackages.Agda
+        haskellPackages.purescript
+        inotify-tools
         jdk
         leiningen
-        boot
-        rlwrap
-        coq_8_5
-        emacs24Packages.proofgeneral
-        ncurses
-        postgresql
-        xdotool
-        smlnj
-        debootstrap
-        ocaml_4_02
-        opam
-        subversion
+        libv4l
         m4
+        maim
+        meld
+        meterbridge
+        mpg123
+        mplayer
+        ncdu
+        ncurses
+        neovim
+        nitrogen
+        nix-prefetch-scripts
+        nix-repl
+        nixUnstable
+        nmap_graphical
+        nodejs-6_x
+        nox
+        ocaml_4_02
         ocamlPackages.findlib
         ocamlPackages.utop
-        git-cola
-        haskellPackages.Agda
-        ruby
-        scala
-        sbt
-        snappy
+        opam
+        p7zip
+        patchage
         patchelf
-        docker
-        renameutils
         phantomjs
-        inotify-tools
+        pkgconfig
+        poppler_utils
+        postgresql
+        python
+        python27Packages.docker_compose
+        qjackctl
+        ranger
+        renameutils
+        rlwrap
+        rofi
+        ruby
+        sbt
+        scala
+        scala
+        scrot
+        shellcheck
+        silver-searcher
+        simplescreenrecorder
+        slop
+        smlnj
+        snappy
+        sox
+        spectrojack
+        subversion
+        sxiv
+        timemachine
+        v4l_utils
+        wmctrl
+        xclip
+        xdg_utils
+        xdotool
+        xorg.xbacklight
+        xorg.xev
+        xorg.xeyes
+        zeal
       ];
     };
   };

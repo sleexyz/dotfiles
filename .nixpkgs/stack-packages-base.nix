@@ -8,11 +8,13 @@ with pkgs;
   stack
   icu
   snappy
+  cmake
   git
   cacert
   iana_etc
   ncurses.dev
   postgresql
+  qt4
   gcc
   glibc
   (ghcWithPackages (haskellPackages: with haskellPackages; [
@@ -35,4 +37,6 @@ with pkgs;
   zlib
   gmp
   rxvt_unicode
+  perl
+  shellcheck
 ]

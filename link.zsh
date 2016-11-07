@@ -17,21 +17,24 @@ installVim() {
   mkdir -p ~/.config/nvim/tmp
   linkHome .config/nvim/init.vim
 
-  if [ ! -f ~/.config/nvim/autoload/plug.vim ];then
+  if [ ! -f ~/.config/nvim/autoload/plug.vim ]; then
     curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   fi
 }
 
 installZsh() {
-  linkHome .zprezto
-  setopt EXTENDED_GLOB
-  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-    OUTPUT="${ZDOTDIR:-$HOME}/.${rcfile:t}"
-    if [ ! -f "$OUTPUT" ]; then
-      ln -s "$rcfile" "$OUTPUT"
-    fi
-  done
+  if [ -d ~/.zprezto ]; then
+    (cd ~/.zprezto ; git pull && git submodule update --init --recursive)
+  else
+    git clone --recursive https://github.com/sorin-ionescu/prezto ~/.zprezto
+  fi
+  linkHome .zlogin
+  linkHome .zlogout
+  linkHome .zpreztorc
+  linkHome .zprofile
+  linkHome .zshenv
+  linkHome .zshrc
 }
 
 set -v
@@ -52,7 +55,6 @@ linkHome .xmobarrc
 linkHome .xmonad
 linkHome .xprofile
 linkHome .Xresources
-
 
 mkdir -p ~/.config 
 linkHome .config/xsession.sh 

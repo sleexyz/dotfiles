@@ -40,7 +40,7 @@ main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
 
 myConfig :: XConfig (Choose Cross Tall)
 myConfig =
-  defaultConfig { terminal = "urxvt",
+  defaultConfig { terminal = "termite",
                   modMask = mod4Mask,
                   handleEventHook = fullscreenEventHook,
                   layoutHook = mylayoutHook,
@@ -57,9 +57,8 @@ myConfig =
   where
     myScratchPads :: [NamedScratchpad]
     myScratchPads =
-      [ NS "term1" "urxvt -name urxvt-scratchpad1" (resource =? "urxvt-scratchpad1") (customFloating $ W.RationalRect 0 0 1 0.66)
-      , NS "term2" "theme transdark && themed big urxvt -name urxvt-scratchpad2" (resource =? "urxvt-scratchpad2") (customFloating $ W.RationalRect 0 0 1 1)
-      , NS "keep" "~/.bin/keep" (resource =? "crx_hmjkmjkepdijhoojdojkdfohbdgmmhki") (customFloating $ W.RationalRect 0 0 1 0.66)
+      [ NS "term" "termite --title=scratchpad-term" (title=? "scratchpad-term") (customFloating $ W.RationalRect 0 0 1 0.66)
+      , NS "keep" "~/.bin/keep" (appName =? "crx_hmjkmjkepdijhoojdojkdfohbdgmmhki") (customFloating $ W.RationalRect 0 0 1 0.66)
       ]
 
     myStartupHook :: X ()
@@ -91,7 +90,7 @@ myConfig =
       , ("M-`", sendMessage NextLayout)
       , ("M-S-q", spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
       , ("M-S-d", withFocused demanage)
-      , ("<F1>", namedScratchpadAction myScratchPads "term1")
+      , ("<F1>", namedScratchpadAction myScratchPads "term")
       , ("<F2>", namedScratchpadAction myScratchPads "keep")
       , ("M-<Space>", spawn "rofi -show run")
       , ("M-p", spawn "rofi -show run")

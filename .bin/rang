@@ -1,2 +1,2 @@
 #!/bin/sh
-urxvt -depth 0 -e ranger
+termite --exec=ranger

@@ -31,38 +31,27 @@
   time.timeZone = "America/New_York";
 
   environment.systemPackages = with pkgs; [
-    # system
-    jack2Full
-    alsaPlugins
     alsaLib
+    alsaPlugins
+    bashmount
+    binutils
+    curl
     exfat-utils
     fuse_exfat
-
-    # utilities
-    wget
-    curl
-    which
-    binutils
-
-    # cli programs
-    powertop
-    htop
-    bashmount
-
-    # x programs
-    google-chrome
-    rxvt_unicode
-    wpa_supplicant_gui
-
-    # ricing
-    haskellPackages.xmobar
-
-
-    # development
     gitFull
+    haskellPackages.xmobar
+    htop
+    jack2Full
     neovim
-
+    powertop
+    wget
+    which
+    wpa_supplicant_gui
   ];
+  networking.firewall = {
+    enable = true;
+    allowedUDPPorts = [ 57121 ];
+  };
 
   # zsh
   programs.zsh.enable = true;
@@ -86,6 +75,21 @@
       systemctl suspend
     fi
   '';
+  # services.dnsmasq.enable = true;
+  # services.dnsmasq.extraConfig = ''
+  #   address=/dev/127.0.0.1
+  #   server=/bla.cool/IPHERE
+  # '';
+  # services.dnsmasq.servers = [
+  #   "8.8.4.4"
+  #   "8.8.8.8"
+  # ];
+  services.openvpn.servers.asdf = {
+    autoStart = false; # `sudo systemctrl start openvpn-asdf`
+    config = builtins.readFile ./asdf/asdf_openvpn.ovpn;
+    up = "echo nameserver $nameserver | ${pkgs.openresolv}/sbin/resolvconf -m 0 -a $dev";
+    down = "${pkgs.openresolv}/sbin/resolvconf -d $dev";
+  };
   services.upower.enable = true;
   services.nixosManual.showManual = true;
   
@@ -164,20 +168,14 @@
   users.extraUsers.slee2 = {
     isNormalUser = true;
     uid = 501; # to match OSX default UID
-    extraGroups = ["wheel" "audio" "dialout"];
+    extraGroups = ["wheel" "audio" "dialout" "docker"];
     createHome = true;
     home = "/home/slee2";
   };
 
   system.stateVersion = "16.03";
 
-  # system.activationScripts.setup-alsa-plugins = 
-  # ''
-  #   ln -sfn ${pkgs.alsaPlugins.override
-  #     { inherit (pkgs) jack2Full; }
-  #   }/lib/alsa-lib /run/alsa-plugins
-  # '';
-
+  virtualisation.docker.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 }

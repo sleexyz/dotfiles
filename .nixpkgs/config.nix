@@ -14,15 +14,13 @@
       paths = [
         cabal-install
         cabal2nix
-
+        stack
         (haskell.packages.ghc801.ghcWithPackages (haskellPackages: with haskellPackages; [
           purescript
           alex
           happy
-
           tidal
-          tidal-midi
-          stack
+          zlib
         ]))
       ];
     };
@@ -30,7 +28,6 @@
     all = with pkgs; buildEnv {
       name = "all";
       paths = [
-        haskellPackages.Agda
         arandr
         atom
         audacity
@@ -40,12 +37,14 @@
         boot
         compton-git
         debootstrap
+        docker
         electron
         emacs
         entr
         evince
         fantasque-sans-mono
         firefox
+        flow
         gcc
         ghostscript
         gimp
@@ -60,6 +59,7 @@
         google-chrome
         guvcview
         hack-font
+        haskellPackages.Agda
         jdk
         leiningen
         libv4l
@@ -77,10 +77,11 @@
         nmap_graphical
         nodejs-6_x
         nox
-        ocaml_4_02
-        ocamlPackages.findlib
-        ocamlPackages.utop
-        opam
+        # ocaml_4_02
+        # ocamlPackages.findlib
+        # ocamlPackages.utop
+        # opam
+        openvpn
         p7zip
         parted
         patchage
@@ -102,13 +103,16 @@
         smlnj
         sox
         spectrojack
+        stunnel
         subversion
         supercollider
         sxiv
+        termite
         testdisk
         timemachine
         usbutils
         v4l_utils
+        vscode
         wmctrl
         xclip
         xdg_utils

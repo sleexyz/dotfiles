@@ -1,2 +1,0 @@
-rm -rf ~/.ghc/x86_64-linux-7.10.3
-rm -rf ~/.cabal

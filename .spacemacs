@@ -46,7 +46,7 @@
    dotspacemacs-themes '(spacemacs-light)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Hack"
-                               :size 12
+                               :size 16
                                ;; :antialias nil
                                :weight normal
                                :width normal

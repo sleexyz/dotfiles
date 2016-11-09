@@ -16,13 +16,19 @@
         cabal2nix
         cabal-install
 
-        # (haskell.packages.ghc801.ghcWithPackages (haskellPackages: with haskellPackages; [
-        (haskell.packages.ghc7103.ghcWithPackages (haskellPackages: with haskellPackages; [
-          zlib digest
+        (haskell.packages.ghc801.ghcWithPackages (haskellPackages: with haskellPackages; [
+          zlib digest stack
         ]))
       ];
     };
-
+    pythonEnv = with pkgs; buildEnv {
+      name = "pythonEnv";
+      paths = [
+        python
+      ] ++ (with python27Packages; [
+        docker_compose
+      ]);
+    };
     all = with pkgs; buildEnv {
       name = "all";
       paths = [
@@ -46,6 +52,7 @@
         fantasque-sans-mono
         file
         firefox
+        flow
         gcc
         ghostscript
         gimp
@@ -91,8 +98,6 @@
         pkgconfig
         poppler_utils
         postgresql
-        python
-        python27Packages.docker_compose
         qjackctl
         ranger
         renameutils
@@ -114,8 +119,10 @@
         subversion
         sxiv
         timemachine
+        unzip
         v4l_utils
         wmctrl
+        w3m
         xclip
         xdg_utils
         xdotool
@@ -123,6 +130,7 @@
         xorg.xev
         xorg.xeyes
         zeal
+        zlib
       ];
     };
   };

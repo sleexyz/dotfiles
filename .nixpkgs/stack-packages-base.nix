@@ -39,4 +39,5 @@ with pkgs;
   rxvt_unicode
   perl
   shellcheck
+  libelf
 ]

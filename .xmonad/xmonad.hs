@@ -100,6 +100,7 @@ myConfig =
       , ("M-p", spawn "rofi -show run")
       , ("M-<Up>", spawn "transset-df -p --inc 0.03")
       , ("M-<Down>", spawn "transset-df -p --dec 0.03")
+      , ("M-S-s", spawn "maim -s -c 1,0,0,0.6 ~/screenshots/$(date +%F-%T).png")
 
       -- media keys
       , ("<XF86MonBrightnessUp>", spawn "light -A 10")

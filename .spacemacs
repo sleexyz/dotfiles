@@ -8,6 +8,7 @@
    dotspacemacs-configuration-layer-path '("~/.spacemacs-layers/")
    dotspacemacs-configuration-layers
    '(
+     yaml
      agda
      auto-completion
      better-defaults
@@ -29,7 +30,9 @@
      sml
      syntax-checking
      )
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      (stylus-mode :location (recipe :fetcher github :repo "vladh/stylus-mode"))
+                                      )
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages '()
    dotspacemacs-install-packages 'used-only))
@@ -98,6 +101,9 @@
 (defun dotspacemacs/user-init ()
   (setq-default
    evil-escape-key-sequence "jk"
+   js2-basic-offset 2
+   j2-indent-level 2
+   standard-indent 2
    ))
 
 (defun dotspacemacs/user-config ()
@@ -107,6 +113,7 @@
   (setq browse-url-generic-program "google-chrome-stable")
   (setq tab-width 2)
   (setq vc-follow-symlinks t)
+  (push '("\\.js\\'" . react-mode) auto-mode-alist)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

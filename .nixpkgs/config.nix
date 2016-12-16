@@ -4,8 +4,11 @@
 
 
   packageOverrides = pkgs_: rec {
-    patchage = pkgs.callPackage ./myPkgs/patchage.nix {};
+    # patchage = pkgs.callPackage ./myPkgs/patchage.nix {};
     spectrojack = pkgs.callPackage ./myPkgs/spectrojack.nix {};
+    # termite = pkgs.callPackage ./myPkgs/termite.nix {
+    #   vte = pkgs.gnome3.vte-select-text;
+    # };
 
     # qlcplus = pkgs.callPackage ./myPkgs/qlcplus.nix {};
 
@@ -44,7 +47,7 @@
         docker
         electron
         emacs
-        emacs24Packages.proofgeneral
+        # emacs24Packages.proofgeneral
         entr
         etherape
         evince
@@ -67,6 +70,7 @@
         hack-font
         haskellPackages.Agda
         haskellPackages.purescript
+        heroku
         inotify-tools
         jdk
         leiningen
@@ -119,6 +123,7 @@
         subversion
         sxiv
         timemachine
+        termite
         unzip
         v4l_utils
         wmctrl
@@ -131,6 +136,7 @@
         xorg.xeyes
         zeal
         zlib
+        zoom-us
       ];
     };
   };

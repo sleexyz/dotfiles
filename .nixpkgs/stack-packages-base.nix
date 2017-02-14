@@ -34,7 +34,8 @@ with pkgs;
   python
   gnumake
   phantomjs
-  zlib
+  zlib.dev
+  zlib.out
   gmp
   rxvt_unicode
   perl

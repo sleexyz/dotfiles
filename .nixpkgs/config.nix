@@ -5,6 +5,7 @@
 
   packageOverrides = pkgs_: rec {
     # patchage = pkgs.callPackage ./myPkgs/patchage.nix {};
+    flow = pkgs.callPackage ./myPkgs/flow.nix {};
     spectrojack = pkgs.callPackage ./myPkgs/spectrojack.nix {};
     # termite = pkgs.callPackage ./myPkgs/termite.nix {
     #   vte = pkgs.gnome3.vte-select-text;
@@ -41,6 +42,7 @@
         awscli
         baudline
         boot
+        chromedriver
         compton-git
         coq_8_5
         debootstrap
@@ -68,8 +70,8 @@
         go
         guvcview
         hack-font
-        haskellPackages.Agda
-        haskellPackages.purescript
+        # haskellPackages.Agda
+        # haskellPackages.purescript
         heroku
         inotify-tools
         jdk
@@ -91,9 +93,9 @@
         nmap_graphical
         nodejs-6_x
         nox
-        ocaml_4_02
-        ocamlPackages.findlib
-        ocamlPackages.utop
+        # ocaml_4_02
+        # ocamlPackages.findlib
+        # ocamlPackages.utop
         opam
         p7zip
         patchage
@@ -110,11 +112,11 @@
         ruby
         sbt
         scala
-        scala
         scrot
         shellcheck
         silver-searcher
         simplescreenrecorder
+        slack
         slop
         smlnj
         snappy

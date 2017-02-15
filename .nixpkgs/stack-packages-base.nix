@@ -4,14 +4,17 @@ with pkgs;
 }:
 
 [ 
+  ranger
   stack
   icu
   snappy
+  cmake
   git
   cacert
   iana_etc
   ncurses.dev
   postgresql
+  qt4
   gcc
   glibc
   (ghcWithPackages (haskellPackages: with haskellPackages; [
@@ -20,7 +23,6 @@ with pkgs;
     terminfo
   ]))
   haskellPackages.purescript
-  haskellPackages.Agda
   gitAndTools.hub
   emacs 
   neovim
@@ -32,7 +34,11 @@ with pkgs;
   python
   gnumake
   phantomjs
-  zlib
+  zlib.dev
+  zlib.out
   gmp
   rxvt_unicode
+  perl
+  shellcheck
+  libelf
 ]

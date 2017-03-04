@@ -50,7 +50,6 @@ linkHome .nixpkgs
 linkHome .npmrc
 linkHome .profile
 linkHome .spacemacs && linkHome .spacemacs-layers
-linkHome .xinitrc
 linkHome .xmobarrc
 linkHome .xmonad
 linkHome .xprofile

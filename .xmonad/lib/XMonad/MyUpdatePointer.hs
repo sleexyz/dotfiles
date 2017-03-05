@@ -14,7 +14,7 @@
 --
 -----------------------------------------------------------------------------
 
-module MyUpdatePointer
+module XMonad.MyUpdatePointer
     (
      -- * Usage
      -- $usage

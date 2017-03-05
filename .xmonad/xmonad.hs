@@ -1,59 +1,53 @@
 {-# LANGUAGE ScopedTypeVariables #-}
-
+import Data.Function
 import Data.Monoid
 import System.IO
-import Data.Function
 import XMonad
-import XMonad.Hooks.EwmhDesktops
-import XMonad.Util.EZConfig
+import XMonad.Actions.DeManage
 import XMonad.Hooks.DynamicLog
-
-import XMonad.StackSet as W
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ManageHelpers
 import XMonad.ManageHook
+import XMonad.MyCross
+import XMonad.MyUpdatePointer
+import XMonad.StackSet as W
+import XMonad.Util.EZConfig
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.WorkspaceCompare
-import XMonad.Hooks.ManageHelpers
-import XMonad.Util.SpawnOnce
-import XMonad.Actions.DeManage
-
-import MyCross
-import MyUpdatePointer
-
 
 main :: IO ()
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
   where
     myBar = "xmobar"
-    myPP = xmobarPP { ppOrder = \(ws:l:t:_)   -> [ws],
-                      ppSort = fmap (.namedScratchpadFilterOutWorkspace) getSortByTag,
-                      ppHiddenNoWindows = xmobarColor "grey" "",
-                      ppTitle   = xmobarColor "green"  "" . shorten 40,
-                      ppVisible = wrap "(" ")",
-                      ppCurrent = xmobarColor "#6FB3D2" "" ,
-                      ppSep = "   ",
-                      ppWsSep = "    ",
-                      ppUrgent  = xmobarColor "red" "yellow"
-                    }
+    myPP = xmobarPP { 
+      ppOrder = \(ws:l:t:_)   -> [ws],
+      ppSort = fmap (.namedScratchpadFilterOutWorkspace) getSortByTag,
+      ppHiddenNoWindows = xmobarColor "grey" "",
+      ppTitle   = xmobarColor "green"  "" . shorten 40,
+      ppVisible = wrap "(" ")",
+      ppCurrent = xmobarColor "#6FB3D2" "" ,
+      ppSep = "   ",
+      ppWsSep = "    ",
+      ppUrgent  = xmobarColor "red" "yellow"
+    }
     toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
-
-
 
 myConfig :: XConfig (Choose Cross Tall)
 myConfig =
-  defaultConfig { terminal = "termite",
-                  modMask = mod4Mask,
-                  handleEventHook = fullscreenEventHook,
-                  layoutHook = mylayoutHook,
-                  logHook = myLogHook,
-                  normalBorderColor = "#252726",
-                  focusedBorderColor = "#ffffff",
-                  XMonad.workspaces = myWorkspaces,
-                  manageHook = myManageHook,
-                  startupHook = myStartupHook,
-                  borderWidth = 0
-                }
+  def { 
+    terminal = "termite",
+    modMask = mod4Mask,
+    handleEventHook = fullscreenEventHook,
+    layoutHook = mylayoutHook,
+    logHook = myLogHook,
+    normalBorderColor = "#252726",
+    focusedBorderColor = "#ffffff",
+    XMonad.workspaces = myWorkspaces,
+    manageHook = myManageHook,
+    startupHook = myStartupHook,
+    borderWidth = 0
+  }
   & (\config -> additionalKeysP config myAdditionalKeysP)
-  -- & ewmh
   where
     myScratchPads :: [NamedScratchpad]
     myScratchPads =
@@ -62,7 +56,9 @@ myConfig =
       ]
 
     myStartupHook :: X ()
-    myStartupHook = spawnOnce "sh ~/.config/xsession.sh"
+    myStartupHook = do
+      startupHook def
+      spawn "sh ~/.config/xsession.sh"
 
     myManageHook :: ManageHook
     myManageHook = composeAll [ className =? "Zenity" --> doCenterFloat

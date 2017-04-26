@@ -22,7 +22,7 @@ with pkgs;
     text-icu
     terminfo
   ]))
-  haskellPackages.purescript
+  # haskellPackages.purescript
   gitAndTools.hub
   emacs 
   neovim

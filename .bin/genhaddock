@@ -53,7 +53,7 @@ fi
 builddir=$dir/dist
 
 # Build dependencies haddocks with stack, so we get links
-# stack haddock --only-dependencies
+stack haddock --only-dependencies
 
 # Configure using stack databases
 snapshotpkgdb=$(stack path --snapshot-pkg-db)

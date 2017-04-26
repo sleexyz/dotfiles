@@ -3,11 +3,11 @@
   allowUnfree = true;
 
   packageOverrides = pkgs_: rec {
-    # patchage = pkgs.callPackage ./myPkgs/patchage.nix {};
     spectrojack = pkgs.callPackage ./myPkgs/spectrojack.nix {};
-    supercollider = pkgs.callPackage ./myPkgs/supercollider.nix {};
-
-    # qlcplus = pkgs.callPackage ./myPkgs/qlcplus.nix {};
+    bitwig-studio = pkgs.callPackage ./myPkgs/bitwig-studio.nix {
+      zenity = pkgs.gnome2.zenity;
+    };
+    flow = pkgs.callPackage ./myPkgs/flow.nix {};
 
     ghcEnv = with pkgs; buildEnv {
       name = "ghcEnv";
@@ -28,17 +28,16 @@
     all = with pkgs; buildEnv {
       name = "all";
       paths = [
+        aws
         arandr
-        atom
         audacity
         avahi
         awscli
         baudline
+        bitwig-studio
         boot
         compton-git
-        debootstrap
         docker
-        electron
         emacs
         entr
         evince
@@ -50,7 +49,6 @@
         gimp
         gitAndTools.hub
         git-cola
-        git-cola
         gnome3.cheese
         gnome3.gnome-video-effects
         gnumake
@@ -61,9 +59,11 @@
         hack-font
         haskellPackages.Agda
         jdk
+        jq
         leiningen
         libv4l
         m4
+        minecraft
         meterbridge
         mpg123
         mplayer
@@ -77,10 +77,6 @@
         nmap_graphical
         nodejs-6_x
         nox
-        # ocaml_4_02
-        # ocamlPackages.findlib
-        # ocamlPackages.utop
-        # opam
         openvpn
         p7zip
         parted
@@ -110,6 +106,7 @@
         termite
         testdisk
         timemachine
+        torbrowser
         usbutils
         v4l_utils
         vscode

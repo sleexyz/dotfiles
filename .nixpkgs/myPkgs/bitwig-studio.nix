@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, alsaLib, bzip2, cairo, dpkg, freetype, gdk_pixbuf
+{ stdenv, fetchurl, alsaLib, bzip2, cairo, dpkg, ffmpeg, freetype, gdk_pixbuf
 , glib, gtk2, harfbuzz, jdk, lib, libX11, libXau, libXcursor, libXdmcp
 , libXext, libXfixes, libXrender, libbsd, libjack2, libpng, libxcb
 , libxkbcommon, libxkbfile, makeWrapper, pixman, xcbutil, xcbutilwm
@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
   ];
 
   binPath = lib.makeBinPath [
-    xdg_utils zenity
+    xdg_utils zenity ffmpeg
   ];
 
   installPhase = ''

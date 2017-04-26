@@ -23,6 +23,8 @@ Plug 'lambdatoast/elm.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'tikhomirov/vim-glsl'
 Plug 'raichoo/purescript-vim'
+Plug 'idris-hackers/idris-vim'
+Plug 'kchmck/vim-coffee-script'
 
 
 " Plug 'jiangmiao/auto-pairs'
@@ -91,6 +93,7 @@ set wildignore+=*~,*.swp,*.tmp
 
 "Bindings
 let mapleader = "\<SPACE>"
+let maplocalleader = "\<SPACE>m"
 " nore ; :
 imap jk <esc>
 " imap q: :q

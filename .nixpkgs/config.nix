@@ -43,6 +43,7 @@
         baudline
         boot
         chromedriver
+        colordiff
         compton-git
         coq_8_5
         debootstrap
@@ -62,11 +63,13 @@
         ghostscript
         gimp
         gitAndTools.hub
+        gitAndTools.qgit
         git-cola
         gnome3.cheese
         gnome3.gnome-video-effects
         gnumake
         gnupg
+        gnuplot
         go
         guvcview
         hack-font
@@ -75,6 +78,7 @@
         heroku
         inotify-tools
         jdk
+        jq
         leiningen
         libv4l
         m4
@@ -104,6 +108,7 @@
         pkgconfig
         poppler_utils
         postgresql
+        pv
         qjackctl
         ranger
         renameutils
@@ -124,10 +129,14 @@
         spectrojack
         subversion
         sxiv
+        tcptrack
         timemachine
         termite
+        tmate
+        tmux
         unzip
         v4l_utils
+        wireshark-gtk
         wmctrl
         w3m
         xclip

@@ -76,7 +76,7 @@ myConfig =
     -- mylayoutHook :: Choose Cross Tall a
     mylayoutHook = simpleCross ||| tiled
         where
-            tiled = smartSpacing 50 $ Tall nmaster delta ratio
+            tiled = smartSpacing 5 $ Tall nmaster delta ratio
             nmaster = 1
             ratio = 1/2
             delta = 3/100

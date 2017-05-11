@@ -1,0 +1,26 @@
+
+!! Xft
+Xft.dpi: 128
+Xft.autohint: true
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: true
+Xft.antialias: true
+Xft.rgba: subpixel
+
+URxvt.font: xft:Source Code Pro:style=Bold:size=14:antialias=true
+
+!! Xcursor
+Xcursor.size: 64
+
+!! rofi
+rofi.modi: run
+rofi.opacity: 80
+rofi.width: 100
+rofi.lines: 1
+rofi.columns: 6
+rofi.font: Hack 25
+rofi.bw: 0
+rofi.location: 2
+rofi.terminal: termite
+rofi.autoselect: true

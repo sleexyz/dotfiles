@@ -1,0 +1,11 @@
+absPath=`readlink -f $1`
+
+additionalProfile=$(cat <<EOF
+SHELL=/usr/bin/zsh
+EOF
+)
+
+nix-shell $HOME/.nixpkgs/chrootWith.nix \
+  --argstr command zsh \
+  --argstr additionalProfile $additionalProfile \
+  --argstr packages $absPath

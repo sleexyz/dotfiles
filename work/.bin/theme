@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+xrdb -override "$HOME/.Xresources.d/$1"
+

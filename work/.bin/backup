@@ -1,0 +1,33 @@
+#!/bin/bash
+
+SYNC_DIR='/media/removable/sd/my shit'
+
+if [ ! -d "$SYNC_DIR" ]; then
+    echo "Error! $SYNC_DIR not found!" 1>&2
+    exit 1
+fi
+
+
+sync () {
+    SOURCE_DIR="$1"
+    shift
+    rsync --delete -avP "$SOURCE_DIR" "$SYNC_DIR"/ "$@"
+}
+
+_backup () {
+    sync $HOME/code --exclude "*/node_modules/" --exclude "sandbox/" "$@"
+    sync $HOME/text "$@"
+    sync $HOME/visual "$@"
+    sync $HOME/aural "$@"
+}
+
+_backup --dry-run
+ 
+
+echo "Does this look right?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) _backup; break;;
+        No ) exit;;
+    esac
+done

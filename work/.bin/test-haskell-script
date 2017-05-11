@@ -1,0 +1,14 @@
+#!/bin/sh
+set -x
+
+tmp=$(mktemp)
+rm "$tmp"
+
+ln "$1" "$tmp.hs"
+
+file="$tmp.hs"
+
+ghcid "$file" \
+  --reload "$1" \
+  -T "hspec spec"
+# fixme: delete temp file

@@ -11,7 +11,7 @@
 --
 -- A Cross Layout with the main window in the center.
 --
-module MyCross(
+module XMonad.MyCross(
                           -- * Usage
                           -- $usage
                           simpleCross

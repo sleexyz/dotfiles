@@ -1,71 +1,64 @@
 {-# LANGUAGE ScopedTypeVariables #-}
-
+import Data.Function
 import Data.Monoid
 import System.IO
-import Data.Function
 import XMonad
-import XMonad.Hooks.EwmhDesktops
-import XMonad.Util.EZConfig
+import XMonad.Actions.DeManage
 import XMonad.Hooks.DynamicLog
-
-import XMonad.StackSet as W
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ManageHelpers
+import XMonad.Layout.Spacing
 import XMonad.ManageHook
+import XMonad.MyCross
+import XMonad.MyUpdatePointer
+import XMonad.StackSet as W
+import XMonad.Util.EZConfig
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.WorkspaceCompare
-import XMonad.Hooks.ManageHelpers
-import XMonad.Util.SpawnOnce
-import XMonad.Actions.DeManage
-import XMonad.Layout.Spacing
-
-import MyCross
-import MyUpdatePointer
-
 
 main :: IO ()
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
   where
     myBar = "xmobar"
-    myPP = xmobarPP { ppOrder = \(ws:l:t:_)   -> [ws],
-                      ppSort = fmap (.namedScratchpadFilterOutWorkspace) getSortByTag,
-                      ppHiddenNoWindows = xmobarColor "grey" "",
-                      ppTitle   = xmobarColor "green"  "" . shorten 40,
-                      ppVisible = wrap "(" ")",
-                      ppCurrent = xmobarColor "#6FB3D2" "" ,
-                      ppSep = "   ",
-                      ppWsSep = "    ",
-                      ppUrgent  = xmobarColor "red" "yellow"
-                    }
+    myPP = xmobarPP { 
+      ppOrder = \(ws:l:t:_)   -> [ws],
+      ppSort = fmap (.namedScratchpadFilterOutWorkspace) getSortByTag,
+      ppHiddenNoWindows = xmobarColor "grey" "",
+      ppTitle   = xmobarColor "green"  "" . shorten 40,
+      ppVisible = wrap "(" ")",
+      ppCurrent = xmobarColor "#6FB3D2" "" ,
+      ppSep = "   ",
+      ppWsSep = "    ",
+      ppUrgent  = xmobarColor "red" "yellow"
+    }
     toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
-
-
--- myConfig :: XConfig (Choose Cross Tall)
 myConfig =
-  def { terminal = "urxvt",
-                  modMask = mod4Mask,
-                  handleEventHook = fullscreenEventHook,
-                  layoutHook = mylayoutHook,
-                  logHook = myLogHook,
-                  normalBorderColor = "#252726",
-                  focusedBorderColor = "#ffffff",
-                  XMonad.workspaces = myWorkspaces,
-                  manageHook = myManageHook,
-                  startupHook = myStartupHook,
-                  borderWidth = 0
-                }
+  def { 
+    terminal = "termite",
+    modMask = mod4Mask,
+    handleEventHook = fullscreenEventHook,
+    layoutHook = mylayoutHook,
+    logHook = myLogHook,
+    normalBorderColor = "#252726",
+    focusedBorderColor = "#ffffff",
+    XMonad.workspaces = myWorkspaces,
+    manageHook = myManageHook,
+    startupHook = myStartupHook,
+    borderWidth = 0
+  }
   & (\config -> additionalKeysP config myAdditionalKeysP)
-  -- & ewmh
   where
     myScratchPads :: [NamedScratchpad]
     myScratchPads =
-      [ NS "term1" "urxvt -name urxvt-scratchpad1" (resource =? "urxvt-scratchpad1") (customFloating $ W.RationalRect 0 0 1 0.66)
-      , NS "zeal" "zeal" (resource =? "zeal") (customFloating $ W.RationalRect 0 0 1 0.66)
-      -- , NS "term2" "theme transdark && themed big urxvt -name urxvt-scratchpad2" (resource =? "urxvt-scratchpad2") (customFloating $ W.RationalRect 0 0 1 1)
-      , NS "keep" "~/.bin/keep" (resource =? "crx_hmjkmjkepdijhoojdojkdfohbdgmmhki") (customFloating $ W.RationalRect 0 0 1 0.66)
+      [ NS "term" "termite --title=scratchpad-term" (title=? "scratchpad-term") (customFloating $ W.RationalRect 0 0 1 0.66)
+      , NS "keep" "~/.bin/keep" (appName =? "crx_hmjkmjkepdijhoojdojkdfohbdgmmhki") (customFloating $ W.RationalRect 0 0 1 0.66)
       ]
 
     myStartupHook :: X ()
-    myStartupHook = spawnOnce "sh ~/.config/xsession.sh"
+    myStartupHook = do
+      startupHook def
+      spawn "sh ~/.config/xsession.sh"
 
     myManageHook :: ManageHook
     myManageHook = composeAll [ className =? "Zenity" --> doCenterFloat
@@ -73,7 +66,6 @@ myConfig =
                               , namedScratchpadManageHook myScratchPads
                               ]
 
-    -- mylayoutHook :: Choose Cross Tall a
     mylayoutHook = simpleCross ||| tiled
         where
             tiled = smartSpacing 5 $ Tall nmaster delta ratio
@@ -93,9 +85,8 @@ myConfig =
       , ("M-`", sendMessage NextLayout)
       , ("M-S-q", spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi")
       , ("M-S-d", withFocused demanage)
-      , ("<F1>", namedScratchpadAction myScratchPads "term1")
+      , ("<F1>", namedScratchpadAction myScratchPads "term")
       , ("<F2>", namedScratchpadAction myScratchPads "keep")
-      , ("<F3>", namedScratchpadAction myScratchPads "zeal")
       , ("M-<Space>", spawn "rofi -show run")
       , ("M-p", spawn "rofi -show run")
       , ("M-<Up>", spawn "transset-df -p --inc 0.03")

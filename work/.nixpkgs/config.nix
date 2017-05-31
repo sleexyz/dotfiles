@@ -145,6 +145,7 @@
         xorg.xbacklight
         xorg.xev
         xorg.xeyes
+        xvfb_run
         zeal
         zlib
         zoom-us

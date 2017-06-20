@@ -52,6 +52,7 @@
         emacs
         # emacs24Packages.proofgeneral
         entr
+        espeak
         etherape
         evince
         exfat
@@ -135,6 +136,7 @@
         tmate
         tmux
         unzip
+        unity3d
         v4l_utils
         wireshark-gtk
         wmctrl

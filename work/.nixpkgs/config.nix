@@ -150,7 +150,6 @@
         xvfb_run
         zeal
         zlib
-        zoom-us
       ];
     };
   };

@@ -14,12 +14,6 @@
   boot.kernelParams = [
     "acpi_backlight=vendor"
   ];
-  boot.kernel.sysctl = {
-    "vm.overcommit_memory" = 2;
-    "vm.overcommit_ratio" = 99;
-  } ;
-
-
 
   boot.extraModprobeConfig = ''
   options hid_apple iso_layout=0
@@ -30,7 +24,7 @@
   boot.loader.timeout = 0;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos";
+  networking.hostName = "bigsleezy";
   networking.wireless.enable = true;
 
   i18n = {
@@ -61,9 +55,9 @@
     bashmount
 
     # x programs
-    google-chrome
     rxvt_unicode
     wpa_supplicant_gui
+    google-chrome
 
     # ricing
     haskellPackages.xmobar
@@ -78,84 +72,54 @@
   programs.zsh.enable = true;
   users.defaultUserShell = "/run/current-system/sw/bin/zsh";
 
-
-  # # services
-  # programs.light.enable = true;
-  # programs.kbdlight.enable = true;
-  # powerManagement = {
-  #   resumeCommands = ''
-  #     xrandr --output eDP1 --auto
-  #   '';
-  # };
-
-
-  # services.acpid.enable = true;
-  # services.acpid.lidEventCommands = ''
-  #   LID_STATE=/proc/acpi/button/lid/LID0/state
-  #   if [ $(/run/current-system/sw/bin/awk '{print $2}' $LID_STATE) = 'closed' ]; then
-  #     systemctl suspend
-  #   fi
-  # '';
-  # services.upower.enable = true;
-  # services.nixosManual.showManual = true;
-  # 
-  # services.redshift = {
-  #   enable = false;
-  #   latitude = "40.7127";
-  #   longitude = "-74.0059";
-  # };
-
-  # services.udev.extraRules = ''
-  #   ACTION=="add", KERNEL=="hci0", RUN+="${pkgs.bluez}/bin/hciconfig %k up"
-  # '';
-
   services.openssh = {
     enable = true;
   };
+  services.avahi = {
+    enable = true;
+  };
 
+  services.printing = {
+    enable = true;
+    drivers = [ pkgs.hplip ];
+  };
 
-  services.udev.extraRules = ''
-  ACTION=="add", KERNEL=="hci[0-9]*", RUN+="/run/current-system/sw/bin/hciconfig %k up"
-  '';
-
-  # services.locate.enable = true;
   services.xserver = {
     enable = true;
     layout = "us";
     videoDrivers = [
-      "nvidiaBeta"
+      "nvidia"
+    ];
+    displayManager = {
+     slim.enable = true;
+     slim.defaultUser = "slee2";
+     slim.autoLogin = true;
+    };
+
+    desktopManager.default = "none";
+    desktopManager.xterm.enable = false;
+
+    windowManager.default = "xmonad";
+    windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      extraPackages = haskellPackages: [
+        haskellPackages.xmonad-extras
+        haskellPackages.xmonad-contrib
       ];
+    };
 
-      displayManager = {
-        slim.enable = true;
-        slim.defaultUser = "slee2";
-        slim.autoLogin = true;
-      };
-
-      desktopManager.default = "none";
-      desktopManager.xterm.enable = false;
-
-      windowManager.default = "xmonad";
-      windowManager.xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
-        extraPackages = haskellPackages: [
-          haskellPackages.xmonad-extras
-          haskellPackages.xmonad-contrib
-        ];
-      };
-
-      synaptics = {
-        enable = true;
-        tapButtons = false;
-        buttonsMap = [ 1 3 2 ];
-        twoFingerScroll = true;
-        horizontalScroll = true;
-        minSpeed = "0.6";
-        maxSpeed = "120";
-        accelFactor = "0.02";
-        palmDetect = true;
-      };
+    synaptics = {
+      enable = true;
+      tapButtons = false;
+      buttonsMap = [ 1 3 2 ];
+      twoFingerScroll = true;
+      horizontalScroll = true;
+      minSpeed = "0.6";
+      maxSpeed = "120";
+      accelFactor = "0.02";
+      palmDetect = true;
+    };
   };
   fonts = {
     enableFontDir = true;
@@ -180,7 +144,7 @@
     slee2 = {
       isNormalUser = true;
       uid = 501; # to match OSX default UID
-      extraGroups = ["wheel" "audio" "dialout" "pairing"];
+      extraGroups = ["wheel" "audio" "dialout" "pairing" "docker" "lp"];
       createHome = true;
       home = "/home/slee2";
     };
@@ -193,19 +157,10 @@
     };
   };
 
-  system.stateVersion = "16.09";
+  system.stateVersion = "17.03";
 
-  # system.activationScripts.setup-alsa-plugins = 
-  # ''
-  #   ln -sfn ${pkgs.alsaPlugins.override
-  #     { inherit (pkgs) jack2Full; }
-  #   }/lib/alsa-lib /run/alsa-plugins
-  # '';
-
-  # nix.requireSignedBinaryCaches = true;
-  # nix.binaryCaches = [ "http://hydra.nixos.org" ];
-  # nix.binaryCachePublicKeys = [ "hydra.nixos.org-1:CNHJZBh9K4tP3EKF6FkkgeVYsS3ohTl+oS0Qa8bezVs=" ];
   virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 }

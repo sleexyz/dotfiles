@@ -5,7 +5,9 @@
 
   packageOverrides = pkgs_: rec {
     # patchage = pkgs.callPackage ./myPkgs/patchage.nix {};
-    flow = pkgs.callPackage ./myPkgs/flow.nix {};
+    flow = pkgs.callPackage ./myPkgs/flow.nix {
+      inherit (pkgs.ocamlPackages_4_03) ocaml findlib camlp4 sedlex ocamlbuild;
+    };
     spectrojack = pkgs.callPackage ./myPkgs/spectrojack.nix {};
     # termite = pkgs.callPackage ./myPkgs/termite.nix {
     #   vte = pkgs.gnome3.vte-select-text;

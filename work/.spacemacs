@@ -106,6 +106,7 @@
    j2-indent-level 2
    standard-indent 2
    x-select-enable-clipboard t
+   create-lockfiles nil
    ))
 
 (defun dotspacemacs/user-config ()

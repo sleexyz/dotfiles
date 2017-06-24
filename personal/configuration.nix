@@ -6,7 +6,7 @@
       ./hardware-configuration.nix
     ];
   boot.kernelPackages = pkgs.linuxPackages;
-  boot.kernelModules = [ "snd-aloop" ];
+  boot.kernelModules = [ "snd-aloop" "snd-virmidi"];
   boot.kernelParams = [ "acpi_backlight=vendor" ];
   boot.extraModprobeConfig = ''
     options hid_apple fnmode=2
@@ -22,6 +22,7 @@
     consoleFont = "Lat2-Terminus16";
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
+    inputMethod.uim.enable = true;
   };
   time.timeZone = "America/New_York";
   environment.systemPackages = with pkgs; [
@@ -68,7 +69,7 @@
   services.upower.enable = true;
   services.nixosManual.showManual = true;
   services.redshift = {
-    enable = false;
+    enable = true;
     latitude = "40.7127";
     longitude = "-74.0059";
   };

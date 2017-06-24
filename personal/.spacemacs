@@ -8,6 +8,7 @@
    dotspacemacs-configuration-layer-path '("~/.spacemacs-layers/")
    dotspacemacs-configuration-layers
    '(
+     ocaml
      idris
      go
      yaml
@@ -32,7 +33,9 @@
      sml
      syntax-checking
      )
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(
+                                      (stylus-mode :location (recipe :fetcher github :repo "vladh/stylus-mode"))
+                                      )
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages '()
    dotspacemacs-install-packages 'used-only))
@@ -109,6 +112,8 @@
    web-mode-css-indent-offset 2
    css-indent-offset 2
    standard-indent 2
+   x-select-enable-clipboard t
+   create-lockfiles nil
    tab-width 2
    idris-show-help-text nil
    ))

@@ -93,6 +93,7 @@ set wildignore+=*~,*.swp,*.tmp
 
 "Bindings
 let mapleader = "\<SPACE>"
+let maplocalleader = "\<SPACE>m"
 " nore ; :
 imap jk <esc>
 " imap q: :q

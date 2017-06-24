@@ -2,7 +2,7 @@
 [INSTALL.md](INSTALL.md)
 
 
-## ricing on the cake:
+## rice:
 
 - System: [`/etc/nixos/configuration.nix`](configuration.nix)
 - User: [`~/.nixpkgs/config.nix`](.nixpkgs/config.nix)

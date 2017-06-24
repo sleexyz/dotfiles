@@ -8,6 +8,8 @@
    dotspacemacs-configuration-layer-path '("~/.spacemacs-layers/")
    dotspacemacs-configuration-layers
    '(
+     ocaml
+     idris
      go
      yaml
      agda
@@ -102,21 +104,27 @@
 (defun dotspacemacs/user-init ()
   (setq-default
    evil-escape-key-sequence "jk"
+   js-indent-level 2
    js2-basic-offset 2
-   j2-indent-level 2
+   web-mode-code-indent-offset 2
+   web-mode-indent-style 2
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   css-indent-offset 2
    standard-indent 2
    x-select-enable-clipboard t
    create-lockfiles nil
+   tab-width 2
    ))
 
 (defun dotspacemacs/user-config ()
+  (push '("\\.js\\'" . react-mode) auto-mode-alist)
   (evil-ex-define-cmd "W" 'evil-write)
   (global-set-key (kbd "C-=") 'zoom-frm-in)
   (global-set-key (kbd "C--") 'zoom-frm-out)
   (setq browse-url-generic-program "google-chrome-stable")
   (setq tab-width 2)
   (setq vc-follow-symlinks t)
-  (push '("\\.js\\'" . react-mode) auto-mode-alist)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

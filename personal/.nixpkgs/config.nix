@@ -3,73 +3,98 @@
   allowUnfree = true;
 
   packageOverrides = pkgs_: rec {
+    flow = pkgs.callPackage ./myPkgs/flow.nix {
+      inherit (pkgs.ocamlPackages_4_03) ocaml findlib camlp4 sedlex ocamlbuild;
+    };
     spectrojack = pkgs.callPackage ./myPkgs/spectrojack.nix {};
+    supercollider = pkgs.callPackage ./myPkgs/supercollider.nix {};
     bitwig-studio = pkgs.callPackage ./myPkgs/bitwig-studio.nix {
       zenity = pkgs.gnome2.zenity;
     };
-    flow = pkgs.callPackage ./myPkgs/flow.nix {};
-
     ghcEnv = with pkgs; buildEnv {
       name = "ghcEnv";
       paths = [
         cabal-install
         cabal2nix
         stack
-        (haskell.packages.ghc801.ghcWithPackages (haskellPackages: with haskellPackages; [
-          purescript
+        (haskell.packages.ghc802.ghcWithPackages (haskellPackages: with haskellPackages; [
           alex
           happy
+          hspec
           tidal
           zlib
+          alsa-seq
         ]))
       ];
     };
-
+    pythonEnv = with pkgs; buildEnv {
+      name = "pythonEnv";
+      paths = [
+        python
+      ] ++ (with python27Packages; [
+        docker_compose
+      ]);
+    };
     all = with pkgs; buildEnv {
       name = "all";
       paths = [
-        aws
+        a2jmidid
         arandr
         audacity
         avahi
+        aws
         awscli
         baudline
         bitwig-studio
         boot
+        colordiff
         compton-git
         docker
         emacs
         entr
+        espeak
+        etherape
         evince
+        exfat
         fantasque-sans-mono
+        file
         firefox
         flow
+        fluidsynth
         gcc
         ghostscript
+        ghcEnv
         gimp
         gitAndTools.hub
+        gitAndTools.qgit
         git-cola
         gnome3.cheese
         gnome3.gnome-video-effects
         gnumake
         gnupg
+        gnuplot
         go
         google-chrome
         guvcview
         hack-font
         haskellPackages.Agda
+        ipafont
         jdk
         jq
         leiningen
         libv4l
+        libjack2
         m4
+        maim
         minecraft
+        meld
         meterbridge
         mpg123
         mplayer
         ncdu
         ncurses
         neovim
+        netcat-gnu
         nitrogen
         nix-prefetch-scripts
         nix-repl
@@ -78,11 +103,17 @@
         nodejs-6_x
         nox
         openvpn
+        ocaml
+        ocamlPackages.findlib
+        ocamlPackages.ocpIndent
+        opam
         p7zip
         parted
         patchage
+        patchelf
         pkgconfig
         poppler_utils
+        pv
         python
         qjackctl
         ranger
@@ -92,10 +123,12 @@
         ruby
         sbt
         scala
-        scala
         scrot
+        shellcheck
         silver-searcher
         simplescreenrecorder
+        slack
+        slop
         smlnj
         sox
         spectrojack
@@ -103,20 +136,28 @@
         subversion
         supercollider
         sxiv
+        tcptrack
         termite
         testdisk
         timemachine
+        tmux
         torbrowser
+        transmission_gtk
+        uim
+        unity3d
+        unzip
         usbutils
         v4l_utils
-        vscode
+        wireshark-gtk
         wmctrl
+        w3m
         xclip
         xdg_utils
         xdotool
         xorg.xbacklight
         xorg.xev
         xorg.xeyes
+        xvfb_run
         zeal
       ];
     };

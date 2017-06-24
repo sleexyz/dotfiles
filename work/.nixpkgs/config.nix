@@ -2,20 +2,11 @@
 {
   allowUnfree = true;
 
-
   packageOverrides = pkgs_: rec {
-    # patchage = pkgs.callPackage ./myPkgs/patchage.nix {};
     flow = pkgs.callPackage ./myPkgs/flow.nix {
       inherit (pkgs.ocamlPackages_4_03) ocaml findlib camlp4 sedlex ocamlbuild;
     };
     spectrojack = pkgs.callPackage ./myPkgs/spectrojack.nix {};
-    # termite = pkgs.callPackage ./myPkgs/termite.nix {
-    #   vte = pkgs.gnome3.vte-select-text;
-    # };
-
-    # qlcplus = pkgs.callPackage ./myPkgs/qlcplus.nix {};
-
-    # lol clean this up
     ghcEnv = with pkgs; buildEnv {
       name = "ghcEnv";
       paths = [
@@ -39,20 +30,15 @@
       name = "all";
       paths = [
         arandr
-        atom
         audacity
+        aws
         awscli
         baudline
         boot
-        chromedriver
         colordiff
         compton-git
-        coq_8_5
-        debootstrap
         docker
-        electron
         emacs
-        # emacs24Packages.proofgeneral
         entr
         espeak
         etherape
@@ -74,10 +60,9 @@
         gnupg
         gnuplot
         go
+        google-chrome
         guvcview
         hack-font
-        # haskellPackages.Agda
-        # haskellPackages.purescript
         heroku
         inotify-tools
         jdk
@@ -93,6 +78,7 @@
         ncdu
         ncurses
         neovim
+        netcat-gnu
         nitrogen
         nix-prefetch-scripts
         nix-repl
@@ -100,14 +86,11 @@
         nmap_graphical
         nodejs-6_x
         nox
-        # ocaml_4_02
-        # ocamlPackages.findlib
-        # ocamlPackages.utop
         opam
         p7zip
+        parted
         patchage
         patchelf
-        phantomjs
         pkgconfig
         poppler_utils
         postgresql
@@ -127,18 +110,19 @@
         slack
         slop
         smlnj
-        snappy
         sox
         spectrojack
+        stunnel
         subversion
         sxiv
         tcptrack
-        timemachine
         termite
-        tmate
+        testdisk
+        timemachine
         tmux
-        unzip
         unity3d
+        unzip
+        usbutils
         v4l_utils
         wireshark-gtk
         wmctrl
@@ -151,7 +135,6 @@
         xorg.xeyes
         xvfb_run
         zeal
-        zlib
       ];
     };
   };

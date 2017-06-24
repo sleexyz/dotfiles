@@ -26,5 +26,5 @@ fi
 
 
 # Set the list of directories that Zsh searches for programs.
-export PATH=$HOME/.bin:$HOME/.cabal/bin:$HOME/.npm-global/bin:$GOPATH/bin:$GEM_PATH/bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/.bin:$HOME/.cabal/bin:$HOME/.npm-global/bin:$GOPATH/bin:$GEM_PATH/bin:$HOME/.local/bin:$HOME/.blackbox/bin:$PATH
 

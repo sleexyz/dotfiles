@@ -49,6 +49,7 @@ linkHome .dircolors
 linkHome .nixpkgs
 linkHome .profile
 linkHome .spacemacs && linkHome .spacemacs-layers
+linkHome .tmux.conf
 linkHome .xmobarrc
 linkHome .xmonad
 linkHome .xprofile

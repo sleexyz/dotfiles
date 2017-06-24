@@ -23,8 +23,8 @@ Plug 'lambdatoast/elm.vim'
 Plug 'rust-lang/rust.vim'
 Plug 'tikhomirov/vim-glsl'
 Plug 'raichoo/purescript-vim'
-Plug 'idris-hackers/idris-vim'
 Plug 'kchmck/vim-coffee-script'
+Plug 'idris-hackers/idris-vim'
 
 
 " Plug 'jiangmiao/auto-pairs'

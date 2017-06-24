@@ -8,8 +8,6 @@ Xft.hinting: true
 Xft.antialias: true
 Xft.rgba: subpixel
 
-URxvt.font: xft:Source Code Pro:style=Bold:size=14:antialias=true
-
 !! Xcursor
 Xcursor.size: 64
 

@@ -6,11 +6,11 @@
 
 stdenv.mkDerivation rec {
   name = "bitwig-studio-${version}";
-  version = "2.0";
+  version = "2.1";
 
   src = fetchurl {
     url = "https://downloads.bitwig.com/stable/${version}/bitwig-studio-${version}.deb";
-    sha256 = "1m7wdr0f9xi9s7q8vd66hy7fj1k0j3y5ln2yqbjwr76r9g6gkzas";
+    sha256 = "1qd7lcg758qsx8jp3mml7kz6j6sg9hy44yclhhd8zi46ln808vyn";
   };
 
   nativeBuildInputs = [ dpkg makeWrapper ];

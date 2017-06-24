@@ -1,2 +1,11 @@
 absPath=`readlink -f $1`
-nix-shell $HOME/.nixpkgs/chrootWith.nix --argstr command zsh --argstr packages $absPath
+
+additionalProfile=$(cat <<EOF
+SHELL=/usr/bin/zsh
+EOF
+)
+
+nix-shell $HOME/.nixpkgs/chrootWith.nix \
+  --argstr command zsh \
+  --argstr additionalProfile $additionalProfile \
+  --argstr packages $absPath

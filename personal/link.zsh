@@ -47,6 +47,7 @@ linkHome .agda
 linkHome .bin
 linkHome .dircolors
 linkHome .nixpkgs
+linkHome .npmrc
 linkHome .profile
 linkHome .spacemacs && linkHome .spacemacs-layers
 linkHome .tmux.conf

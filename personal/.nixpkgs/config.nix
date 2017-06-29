@@ -143,6 +143,7 @@
         tmux
         torbrowser
         transmission_gtk
+        tsocks
         uim
         unity3d
         unzip

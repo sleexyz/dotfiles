@@ -132,6 +132,8 @@
   };
 
 
+  security.chromiumSuidSandbox.enable = true; # for unity3d
+
   security.pam.loginLimits = 
   [
     { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }

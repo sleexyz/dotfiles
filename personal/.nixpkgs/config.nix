@@ -65,6 +65,7 @@
         ghostscript
         ghcEnv
         gimp
+        gist
         gitAndTools.hub
         gitAndTools.qgit
         git-cola

@@ -7,7 +7,6 @@
       inherit (pkgs.ocamlPackages_4_03) ocaml findlib camlp4 sedlex ocamlbuild;
     };
     spectrojack = pkgs.callPackage ./myPkgs/spectrojack.nix {};
-    supercollider = pkgs.callPackage ./myPkgs/supercollider.nix {};
     bitwig-studio = pkgs.callPackage ./myPkgs/bitwig-studio.nix {
       zenity = pkgs.gnome2.zenity;
     };
@@ -42,7 +41,6 @@
         arandr
         audacity
         avahi
-        aws
         awscli
         baudline
         bitwig-studio
@@ -101,7 +99,7 @@
         nix-repl
         nixUnstable
         nmap_graphical
-        nodejs-6_x
+        nodejs-8_x
         nox
         openvpn
         ocaml
@@ -116,6 +114,7 @@
         poppler_utils
         pv
         python
+        pythonEnv
         qjackctl
         ranger
         renameutils
@@ -146,7 +145,7 @@
         transmission_gtk
         tsocks
         uim
-        unity3d
+        # unity3d
         unzip
         usbutils
         v4l_utils
@@ -159,6 +158,7 @@
         xorg.xbacklight
         xorg.xev
         xorg.xeyes
+        xxd
         xvfb_run
         zeal
       ];

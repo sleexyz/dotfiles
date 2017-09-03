@@ -53,6 +53,7 @@ myConfig =
     myScratchPads =
       [ NS "term" "termite --title=scratchpad-term" (title=? "scratchpad-term") (customFloating $ W.RationalRect 0 0 1 0.66)
       , NS "keep" "~/.bin/keep" (appName =? "crx_hmjkmjkepdijhoojdojkdfohbdgmmhki") (customFloating $ W.RationalRect 0 0 1 0.66)
+      , NS "term-zen" "termite --config=/home/slee2/.config/termite/config-zen --title=scratchpad-term-zen -e 'conversations-with-myself'" (title=? "scratchpad-term-zen") (customFloating $ W.RationalRect 0 0 1 1)
       , NS "term-trans" "termite --config=/home/slee2/.config/termite/config-trans --title=scratchpad-term-trans" (title=? "scratchpad-term-trans") (customFloating $ W.RationalRect 0 0 1 1)
       ]
 
@@ -89,7 +90,8 @@ myConfig =
       , ("M-S-d", withFocused demanage)
       , ("<F1>", namedScratchpadAction myScratchPads "term")
       , ("<F2>", namedScratchpadAction myScratchPads "keep")
-      , ("<F3>", namedScratchpadAction myScratchPads "term-trans")
+      , ("<F3>", namedScratchpadAction myScratchPads "term-zen")
+      , ("<F4>", namedScratchpadAction myScratchPads "term-trans")
       , ("M-<Space>", spawn "rofi -show run")
       , ("M-p", spawn "rofi -show run")
       , ("M-<Up>", spawn "transset-df -p --inc 0.03")

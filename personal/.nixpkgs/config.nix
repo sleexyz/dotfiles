@@ -130,6 +130,7 @@
         slack
         slop
         smlnj
+        socat
         sox
         spectrojack
         stunnel

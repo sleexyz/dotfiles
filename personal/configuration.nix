@@ -45,7 +45,7 @@
   ];
   networking.firewall = {
     enable = true;
-    allowedUDPPorts = [ 57121 ];
+    allowedUDPPorts = [ 57120 57121 ];
     allowedTCPPorts = [ 25565 ];
   };
   # zsh
@@ -138,8 +138,9 @@
     createHome = true;
     home = "/home/slee2";
   };
-  system.stateVersion = "17.03";
+  system.stateVersion = "unstable";
   virtualisation.docker.enable = true;
   nix.useSandbox = true;
+  nix.nixPath = [ "nixpkgs=/home/slee2/my-nixpkgs/" "nixos-config=/etc/nixos/configuration.nix" ];
   nixpkgs.config.allowUnfree = true;
 }

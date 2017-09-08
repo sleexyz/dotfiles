@@ -86,7 +86,7 @@
         nix-repl
         nixUnstable
         nmap_graphical
-        nodejs
+        nodejs-8_x
         nox
         opam
         p7zip

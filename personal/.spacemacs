@@ -127,8 +127,6 @@
   (setq browse-url-generic-program "google-chrome-stable")
   (setq tab-width 2)
   (setq vc-follow-symlinks t)
-  (add-to-list 'load-path "~/sandbox/Tidal")
-  (require 'tidal)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

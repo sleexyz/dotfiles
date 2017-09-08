@@ -7,6 +7,9 @@
       inherit (pkgs.ocamlPackages_4_03) ocaml findlib camlp4 sedlex ocamlbuild;
     };
     spectrojack = pkgs.callPackage ./myPkgs/spectrojack.nix {};
+    bitwig-studio = pkgs.callPackage ./myPkgs/bitwig-studio.nix {
+      zenity = pkgs.gnome2.zenity;
+    };
     ghcEnv = with pkgs; buildEnv {
       name = "ghcEnv";
       paths = [
@@ -51,6 +54,7 @@
         gcc
         ghostscript
         gimp
+        gist
         gitAndTools.hub
         gitAndTools.qgit
         git-cola

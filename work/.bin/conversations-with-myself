@@ -1,0 +1,5 @@
+#!/bin/sh
+FILE=$(mktemp)
+vim "$FILE" -c "Goyo"
+echo $(date -Iseconds) >> $HOME/thoughts
+cat "$FILE" >> $HOME/thoughts

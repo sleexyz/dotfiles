@@ -24,6 +24,10 @@ if [[ -z "$LANG" ]]; then
 fi
 
 
+#
+# Nix
+#
+export NIX_PATH="nixpkgs=$HOME/my-nixpkgs:nixos-config=/etc/nixos/configuration.nix"
 
 # Set the list of directories that Zsh searches for programs.
 export PATH=$HOME/.bin:$HOME/.cabal/bin:$HOME/.npm-global/bin:$GOPATH/bin:$GEM_PATH/bin:$HOME/.local/bin:$HOME/.blackbox/bin:$PATH

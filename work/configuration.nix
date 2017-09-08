@@ -95,10 +95,8 @@
      slim.defaultUser = "slee2";
      slim.autoLogin = true;
     };
-
     desktopManager.default = "none";
     desktopManager.xterm.enable = false;
-
     windowManager.default = "xmonad";
     windowManager.xmonad = {
       enable = true;
@@ -108,7 +106,6 @@
         haskellPackages.xmonad-contrib
       ];
     };
-
     synaptics = {
       enable = true;
       tapButtons = false;
@@ -127,6 +124,8 @@
     fonts = with pkgs; [
       corefonts
       terminus_font
+      inconsolata
+      source-code-pro
       unifont
     ];
   };
@@ -159,10 +158,10 @@
     };
   };
 
-  system.stateVersion = "17.03";
-
+  system.stateVersion = "unstable";
   virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
-
+  nix.useSandbox = true;
+  nix.nixPath = [ "nixpkgs=/home/slee2/my-nixpkgs/" "nixos-config=/etc/nixos/configuration.nix" ];
   nixpkgs.config.allowUnfree = true;
 }

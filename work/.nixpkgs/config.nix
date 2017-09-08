@@ -34,7 +34,6 @@
       paths = [
         arandr
         audacity
-        aws
         awscli
         baudline
         boot
@@ -55,7 +54,7 @@
         ghostscript
         gimp
         gist
-        gitAndTools.hub
+        # gitAndTools.hub
         gitAndTools.qgit
         git-cola
         gnome3.cheese
@@ -67,7 +66,6 @@
         google-chrome
         guvcview
         hack-font
-        heroku
         inotify-tools
         jdk
         jq
@@ -88,7 +86,7 @@
         nix-repl
         nixUnstable
         nmap_graphical
-        nodejs-6_x
+        nodejs
         nox
         opam
         p7zip
@@ -124,7 +122,6 @@
         testdisk
         timemachine
         tmux
-        unity3d
         unzip
         usbutils
         v4l_utils

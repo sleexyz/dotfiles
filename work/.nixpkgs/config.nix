@@ -15,9 +15,11 @@
       paths = [
         cabal2nix
         cabal-install
-
-        (haskell.packages.ghc801.ghcWithPackages (haskellPackages: with haskellPackages; [
-          zlib digest stack
+        stack
+        (haskell.packages.ghc802.ghcWithPackages (haskellPackages: with haskellPackages; [
+          alsa-seq
+          digest 
+          zlib 
         ]))
       ];
     };
@@ -32,6 +34,7 @@
     all = with pkgs; buildEnv {
       name = "all";
       paths = [
+        alsaLib
         arandr
         audacity
         awscli
@@ -51,6 +54,7 @@
         firefox
         flow
         gcc
+        ghcEnv
         ghostscript
         gimp
         gist
@@ -67,6 +71,7 @@
         guvcview
         hack-font
         inotify-tools
+        inkscape
         jdk
         jq
         leiningen
@@ -97,6 +102,7 @@
         poppler_utils
         postgresql
         pv
+        pythonEnv
         qjackctl
         ranger
         renameutils

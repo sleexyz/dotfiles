@@ -8,10 +8,6 @@
    dotspacemacs-configuration-layer-path '("~/.spacemacs-layers/")
    dotspacemacs-configuration-layers
    '(
-     ocaml
-     idris
-     go
-     yaml
      agda
      auto-completion
      better-defaults
@@ -20,18 +16,24 @@
      git
      git
      github
+     go
      haskell
      helm
      html
+     idris
      javascript
      markdown
      nixos
+     ocaml
      purescript
      react
+     reasonml
      rust
      scala
      sml
      syntax-checking
+     terraform
+     yaml
      )
    dotspacemacs-additional-packages '(
                                       (stylus-mode :location (recipe :fetcher github :repo "vladh/stylus-mode"))
@@ -138,7 +140,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (powerline spinner hydra projectile request seq diminish bind-key packed avy highlight iedit smartparens bind-map f evil undo-tree helm helm-core async s dash stylus-mode idris-mode prop-menu go-guru go-eldoc company-go go-mode hlint-refactor hindent helm-hoogle haskell-snippets flycheck-haskell company-ghci company-ghc ghc company-cabal cmm-mode caml purescript-mode sml-mode skewer-mode simple-httpd json-snatcher json-reformat multiple-cursors js2-mode haskell-mode haml-mode gh marshal logito pcache ht sbt-mode scala-mode web-completion-data dash-functional tern nixos-options company-math math-symbol-lists rust-mode xterm-color shell-pop org multi-term markdown-mode gitignore-mode git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter pos-tip flycheck magit magit-popup git-commit with-editor eshell-z eshell-prompt-extras esh-help diff-hl company yasnippet auto-complete wgrep smex ivy-hydra counsel-projectile counsel swiper ivy yaml-mode ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen utop use-package tuareg toml-mode toc-org tagedit spacemacs-theme spaceline smeargle slim-mode scss-mode sass-mode restart-emacs rainbow-delimiters racer quelpa pug-mode psci psc-ide popwin persp-mode pcre2el paradox orgit org-plus-contrib org-bullets open-junk-file ocp-indent ob-sml noflet nix-mode neotree mwim move-text mmm-mode merlin markdown-toc magit-gitflow magit-gh-pulls macrostep lorem-ipsum livid-mode linum-relative link-hint less-css-mode json-mode js2-refactor js-doc intero info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-nixos-options helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh-md flycheck-rust flycheck-pos-tip flx-ido floobits fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu ess-smart-equals ess-R-object-popup ess-R-data-view ensime emmet-mode elisp-slime-nav dumb-jump define-word company-web company-tern company-statistics company-nixos-options company-coq column-enforce-mode coffee-mode clojure-snippets clj-refactor clean-aindent-mode cider-eval-sexp-fu cargo auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (parent-mode pkg-info epl flx anzu goto-chg eval-sexp-fu popup winum unfill fuzzy terraform-mode hcl-mode powerline spinner hydra projectile request seq diminish bind-key packed avy highlight iedit smartparens bind-map f evil undo-tree helm helm-core async s dash stylus-mode idris-mode prop-menu go-guru go-eldoc company-go go-mode hlint-refactor hindent helm-hoogle haskell-snippets flycheck-haskell company-ghci company-ghc ghc company-cabal cmm-mode caml purescript-mode sml-mode skewer-mode simple-httpd json-snatcher json-reformat multiple-cursors js2-mode haskell-mode haml-mode gh marshal logito pcache ht sbt-mode scala-mode web-completion-data dash-functional tern nixos-options company-math math-symbol-lists rust-mode xterm-color shell-pop org multi-term markdown-mode gitignore-mode git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter pos-tip flycheck magit magit-popup git-commit with-editor eshell-z eshell-prompt-extras esh-help diff-hl company yasnippet auto-complete wgrep smex ivy-hydra counsel-projectile counsel swiper ivy yaml-mode ws-butler window-numbering which-key web-mode web-beautify volatile-highlights vi-tilde-fringe uuidgen utop use-package tuareg toml-mode toc-org tagedit spacemacs-theme spaceline smeargle slim-mode scss-mode sass-mode restart-emacs rainbow-delimiters racer quelpa pug-mode psci psc-ide popwin persp-mode pcre2el paradox orgit org-plus-contrib org-bullets open-junk-file ocp-indent ob-sml noflet nix-mode neotree mwim move-text mmm-mode merlin markdown-toc magit-gitflow magit-gh-pulls macrostep lorem-ipsum livid-mode linum-relative link-hint less-css-mode json-mode js2-refactor js-doc intero info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-nixos-options helm-mode-manager helm-make helm-gitignore helm-flx helm-descbinds helm-css-scss helm-company helm-c-yasnippet helm-ag google-translate golden-ratio github-search github-clone github-browse-file gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gist gh-md flycheck-rust flycheck-pos-tip flx-ido floobits fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu ess-smart-equals ess-R-object-popup ess-R-data-view ensime emmet-mode elisp-slime-nav dumb-jump define-word company-web company-tern company-statistics company-nixos-options company-coq column-enforce-mode coffee-mode clojure-snippets clj-refactor clean-aindent-mode cider-eval-sexp-fu cargo auto-yasnippet auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -3,7 +3,7 @@
   allowUnfree = true;
 
   packageOverrides = pkgs_: rec {
-    flow = pkgs.callPackage ./myPkgs/flow.nix {
+    flow = pkgs.callPackage ./myPkgs/flow-0.55.0.nix {
       inherit (pkgs.ocamlPackages_4_03) ocaml findlib camlp4 sedlex ocamlbuild;
     };
     spectrojack = pkgs.callPackage ./myPkgs/spectrojack.nix {};
@@ -20,7 +20,6 @@
           alex
           happy
           hspec
-          tidal
           zlib
           alsa-seq
         ]))
@@ -39,6 +38,7 @@
       paths = [
         a2jmidid
         arandr
+        ardour
         audacity
         avahi
         awscli
@@ -59,6 +59,7 @@
         firefox
         flow
         fluidsynth
+        fontmatrix
         gcc
         ghostscript
         ghcEnv
@@ -76,7 +77,7 @@
         google-chrome
         guvcview
         hack-font
-        haskellPackages.Agda
+        # haskellPackages.Agda
         ipafont
         jdk
         jq
@@ -85,9 +86,10 @@
         libjack2
         m4
         maim
-        minecraft
         meld
         meterbridge
+        minecraft
+        mixxx
         mpg123
         mplayer
         ncdu
@@ -139,6 +141,7 @@
         sxiv
         tcptrack
         termite
+        terraform
         testdisk
         timemachine
         tmux
@@ -162,6 +165,7 @@
         xxd
         xvfb_run
         zeal
+        zynaddsubfx
       ];
     };
   };

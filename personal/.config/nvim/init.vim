@@ -25,6 +25,8 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'raichoo/purescript-vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'idris-hackers/idris-vim'
+Plug 'reasonml-editor/vim-reason'
+
 
 
 " Plug 'jiangmiao/auto-pairs'

@@ -10,7 +10,7 @@
 
 
   boot.kernelPackages = pkgs.linuxPackages;
-  boot.kernelModules = [ "snd-aloop" ];
+  boot.kernelModules = [ "snd-aloop" "snd-virmidi"];
   boot.kernelParams = [
     "acpi_backlight=vendor"
   ];
@@ -26,6 +26,7 @@
 
   networking.hostName = "bigsleezy";
   networking.wireless.enable = true;
+  networking.firewall.allowedTCPPorts = [ 8081 ];
 
   i18n = {
     consoleFont = "Lat2-Terminus16";
@@ -57,7 +58,6 @@
     # x programs
     rxvt_unicode
     wpa_supplicant_gui
-    google-chrome
 
     # ricing
     haskellPackages.xmobar

@@ -3,7 +3,7 @@
   allowUnfree = true;
 
   packageOverrides = pkgs_: rec {
-    flow = pkgs.callPackage ./myPkgs/flow.nix {
+    flow = pkgs.callPackage ./myPkgs/flow-0.55.0.nix {
       inherit (pkgs.ocamlPackages_4_03) ocaml findlib camlp4 sedlex ocamlbuild;
     };
     spectrojack = pkgs.callPackage ./myPkgs/spectrojack.nix {};
@@ -39,6 +39,7 @@
         audacity
         awscli
         baudline
+        bitwig-studio
         boot
         colordiff
         compton-git
@@ -58,7 +59,7 @@
         ghostscript
         gimp
         gist
-        # gitAndTools.hub
+        gitAndTools.hub
         gitAndTools.qgit
         git-cola
         gnome3.cheese
@@ -125,6 +126,7 @@
         sxiv
         tcptrack
         termite
+        terraform
         testdisk
         timemachine
         tmux

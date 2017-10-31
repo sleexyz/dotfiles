@@ -140,6 +140,7 @@
         supercollider
         sxiv
         tcptrack
+        tcpdump
         termite
         terraform
         testdisk

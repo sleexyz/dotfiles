@@ -54,6 +54,7 @@
   # services
   programs.light.enable = true;
   programs.kbdlight.enable = true;
+  programs.wireshark.enable = true;
   powerManagement = {
     resumeCommands = ''
       xrandr --output eDP1 --auto
@@ -134,12 +135,13 @@
   users.extraUsers.slee2 = {
     isNormalUser = true;
     uid = 501; # to match OSX default UID
-    extraGroups = ["wheel" "audio" "dialout" "docker"];
+    extraGroups = ["wheel" "audio" "dialout" "docker" "wireshark"];
     createHome = true;
     home = "/home/slee2";
   };
   system.stateVersion = "unstable";
   virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = true;
   nix.useSandbox = true;
   nix.nixPath = [ "nixpkgs=/home/slee2/my-nixpkgs/" "nixos-config=/etc/nixos/configuration.nix" ];
   nixpkgs.config.allowUnfree = true;

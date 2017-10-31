@@ -32,7 +32,6 @@ main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
     }
     toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
-myConfig :: XConfig (Choose Cross Tall)
 myConfig =
   def { 
     terminal = "termite",

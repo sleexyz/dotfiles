@@ -19,7 +19,7 @@ main :: IO ()
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
   where
     myBar = "xmobar"
-    myPP = xmobarPP { 
+    myPP = xmobarPP {
       ppOrder = \(ws:l:t:_)   -> [ws],
       ppSort = fmap (.namedScratchpadFilterOutWorkspace) getSortByTag,
       ppHiddenNoWindows = xmobarColor "grey" "",
@@ -33,7 +33,7 @@ main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
     toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 myConfig =
-  def { 
+  def {
     terminal = "termite",
     modMask = mod4Mask,
     handleEventHook = fullscreenEventHook,

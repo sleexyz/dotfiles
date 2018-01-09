@@ -37,10 +37,11 @@
     all = with pkgs; buildEnv {
       name = "all";
       paths = [
-        alsaLib
+        a2jmidid
         ansible
         arandr
         audacity
+        avahi
         awscli
         baudline
         bind
@@ -59,6 +60,8 @@
         file
         firefox
         flow
+        fluidsynth
+        fontmatrix
         gcc
         ghcEnv
         ghostscript
@@ -78,6 +81,7 @@
         hack-font
         inotify-tools
         inkscape
+        ipafont
         jdk
         jq
         leiningen
@@ -100,6 +104,10 @@
         nmap_graphical
         nodejs-8_x
         nox
+        openvpn
+        ocaml
+        ocamlPackages.findlib
+        ocamlPackages.ocpIndent
         opam
         p7zip
         parted
@@ -118,6 +126,7 @@
         ruby
         sbt
         scala
+        screen
         scrot
         shellcheck
         silver-searcher
@@ -125,17 +134,23 @@
         slack
         slop
         smlnj
+        socat
         sox
         spectrojack
         stunnel
         subversion
         sxiv
         tcptrack
+        tcpdump
         termite
         terraform
         testdisk
         timemachine
         tmux
+        torbrowser
+        transmission_gtk
+        tsocks
+        uim
         unzip
         usbutils
         v4l_utils
@@ -149,6 +164,7 @@
         xorg.xbacklight
         xorg.xev
         xorg.xeyes
+        xxd
         xvfb_run
         zeal
         zoom-us

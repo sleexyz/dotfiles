@@ -31,18 +31,22 @@
         python
       ] ++ (with python27Packages; [
         docker_compose
+        pip
+        setuptools
+        virtualenv
       ]);
     };
     all = with pkgs; buildEnv {
       name = "all";
       paths = [
         a2jmidid
+        ansible
         arandr
-        ardour
         audacity
         avahi
         awscli
         baudline
+        bind
         bitwig-studio
         boot
         colordiff
@@ -61,8 +65,8 @@
         fluidsynth
         fontmatrix
         gcc
-        ghostscript
         ghcEnv
+        ghostscript
         gimp
         gist
         gitAndTools.hub
@@ -84,7 +88,6 @@
         jq
         leiningen
         libv4l
-        libjack2
         m4
         maim
         meld
@@ -93,6 +96,7 @@
         mixxx
         mpg123
         mplayer
+        mysql
         ncdu
         ncurses
         neovim
@@ -115,8 +119,8 @@
         patchelf
         pkgconfig
         poppler_utils
+        postgresql
         pv
-        python
         pythonEnv
         qjackctl
         ranger
@@ -152,10 +156,10 @@
         transmission_gtk
         tsocks
         uim
-        # unity3d
         unzip
         usbutils
         v4l_utils
+        vagrant
         wireshark-gtk
         wmctrl
         w3m
@@ -168,7 +172,7 @@
         xxd
         xvfb_run
         zeal
-        zynaddsubfx
+        zoom-us
       ];
     };
   };

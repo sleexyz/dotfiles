@@ -1,6 +1,6 @@
 
 !! Xft
-Xft.dpi: 128
+!! Xft.dpi: 128
 Xft.autohint: true
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull

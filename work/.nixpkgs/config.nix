@@ -29,16 +29,21 @@
         python
       ] ++ (with python27Packages; [
         docker_compose
+        pip
+        setuptools
+        virtualenv
       ]);
     };
     all = with pkgs; buildEnv {
       name = "all";
       paths = [
         alsaLib
+        ansible
         arandr
         audacity
         awscli
         baudline
+        bind
         bitwig-studio
         boot
         colordiff
@@ -83,6 +88,7 @@
         meterbridge
         mpg123
         mplayer
+        mysql
         ncdu
         ncurses
         neovim
@@ -133,6 +139,7 @@
         unzip
         usbutils
         v4l_utils
+        vagrant
         wireshark-gtk
         wmctrl
         w3m
@@ -144,6 +151,7 @@
         xorg.xeyes
         xvfb_run
         zeal
+        zoom-us
       ];
     };
   };

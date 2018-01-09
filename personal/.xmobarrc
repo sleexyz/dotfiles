@@ -2,7 +2,7 @@ Config {
     -- appearance
         font =         "xft:Hack:size=10:antialias=true"
         , bgColor =      "#fbf8ef"
-        , fgColor =      "#655370"
+        , fgColor =      "#656360"
         , alpha =        0
         , position =     Bottom
         , border =       NoBorder
@@ -13,7 +13,7 @@ Config {
         -- layout
         , sepChar =  "%"   -- delineator between plugin names and straight text
         , alignSep = "}{"  -- separator between left-right alignment
-        , template = "  %StdinReader% }{ %battery%    <fc=#FDA331>%date%</fc>  "
+        , template = "  %StdinReader% }{ %battery%    <fc=#656360>%date%</fc>  "
 
         -- general behavior
         , lowerOnStart =     True    -- send to bottom of window stack on start
@@ -41,7 +41,7 @@ Config {
                     , Run BatteryP ["BAT0"]
                                    ["-t", "<left>%"
                                    , "-L", "10", "-H", "80"
-                                   , "-l", "red", "-h", "green"
+                                   , "-l", "red", "-h", "#656360"
                                    , "--", "-O", "Charging", "-o", "<left>%"
                                    ] 10
                     , Run StdinReader

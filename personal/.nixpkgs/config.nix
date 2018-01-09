@@ -78,6 +78,7 @@
         guvcview
         hack-font
         # haskellPackages.Agda
+        inkscape
         ipafont
         jdk
         jq
@@ -125,6 +126,7 @@
         ruby
         sbt
         scala
+        screen
         scrot
         shellcheck
         silver-searcher

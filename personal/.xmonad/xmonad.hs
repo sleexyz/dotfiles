@@ -19,7 +19,7 @@ main :: IO ()
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
   where
     myBar = "xmobar"
-    myPP = xmobarPP { 
+    myPP = xmobarPP {
       ppOrder = \(ws:l:t:_)   -> [ws],
       ppSort = fmap (.namedScratchpadFilterOutWorkspace) getSortByTag,
       ppHiddenNoWindows = xmobarColor "grey" "",
@@ -32,9 +32,8 @@ main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
     }
     toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
-myConfig :: XConfig (Choose Cross Tall)
 myConfig =
-  def { 
+  def {
     terminal = "termite",
     modMask = mod4Mask,
     handleEventHook = fullscreenEventHook,
@@ -52,9 +51,13 @@ myConfig =
     myScratchPads :: [NamedScratchpad]
     myScratchPads =
       [ NS "term" "termite --title=scratchpad-term" (title=? "scratchpad-term") (customFloating $ W.RationalRect 0 0 1 0.66)
+      -- [ NS "term" "termite --title=scratchpad-term --exec 'screen -S scratch'" (title=? "scratchpad-term") (customFloating $ W.RationalRect 0 0 1 0.66)
       , NS "keep" "~/.bin/keep" (appName =? "crx_hmjkmjkepdijhoojdojkdfohbdgmmhki") (customFloating $ W.RationalRect 0 0 1 0.66)
       , NS "term-zen" "termite --config=/home/slee2/.config/termite/config-zen --title=scratchpad-term-zen -e 'conversations-with-myself'" (title=? "scratchpad-term-zen") (customFloating $ W.RationalRect 0 0 1 1)
-      , NS "term-trans" "termite --config=/home/slee2/.config/termite/config-trans --title=scratchpad-term-trans" (title=? "scratchpad-term-trans") (customFloating $ W.RationalRect 0 0 1 1)
+      , NS "term-trans" "termite --config=/home/slee2/.config/termite/config-trans --title=scratchpad-term-trans --exec 'screen -x scratch'" (title=? "scratchpad-term-trans") (customFloating $ W.RationalRect 0 0 1 1)
+      , NS "term-trans-2" "termite --config=/home/slee2/.config/termite/config-trans-2 --title=scratchpad-term-trans-2 --exec 'screen -x scratch'" (title=? "scratchpad-term-trans-2") (customFloating $ W.RationalRect 0 0 1 1)
+      , NS "term-trans-3" "termite --config=/home/slee2/.config/termite/config-trans-3 --title=scratchpad-term-trans-3 --exec 'screen -x scratch'" (title=? "scratchpad-term-trans-3") (customFloating $ W.RationalRect 0 0 1 1)
+      , NS "term-trans-4" "termite --config=/home/slee2/.config/termite/config-trans-4 --title=scratchpad-term-trans-4 --exec 'screen -x scratch'" (title=? "scratchpad-term-trans-4") (customFloating $ W.RationalRect 0 0 1 1)
       ]
 
     myStartupHook :: X ()
@@ -92,6 +95,9 @@ myConfig =
       , ("<F2>", namedScratchpadAction myScratchPads "keep")
       , ("<F3>", namedScratchpadAction myScratchPads "term-zen")
       , ("<F4>", namedScratchpadAction myScratchPads "term-trans")
+      , ("<F5>", namedScratchpadAction myScratchPads "term-trans-2")
+      , ("<F6>", namedScratchpadAction myScratchPads "term-trans-3")
+      , ("<F7>", namedScratchpadAction myScratchPads "term-trans-4")
       , ("M-<Space>", spawn "rofi -show run")
       , ("M-p", spawn "rofi -show run")
       , ("M-<Up>", spawn "transset-df -p --inc 0.03")

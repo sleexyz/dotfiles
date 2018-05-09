@@ -11,13 +11,22 @@
   boot.extraModprobeConfig = ''
     options hid_apple fnmode=2
     options hid_apple iso_layout=0
-    options snd_hda_intel enable=0,1
   '';
+  # options snd_hda_intel enable=0,1
   boot.loader.systemd-boot.enable = true;
   boot.loader.timeout = 0;
   boot.loader.efi.canTouchEfiVariables = true;
   networking.hostName = "nixos";
   networking.wireless.enable = true;
+  networking.extraHosts = ''
+    # 192.168.50.2 local.cis-dev.brown.edu
+    127.0.0.1 local.cis-dev.brown.edu
+  '';
+  networking.nameservers = [
+    # "8.8.8.8"
+    # "8.8.4.4"
+    # "10.1.1.10"
+  ];
   i18n = {
     consoleFont = "Lat2-Terminus16";
     consoleKeyMap = "us";
@@ -25,6 +34,7 @@
     inputMethod.uim.enable = true;
   };
   time.timeZone = "America/New_York";
+  # time.timeZone = "Europe/Berlin";
   environment.systemPackages = with pkgs; [
     alsaLib
     alsaPlugins
@@ -45,8 +55,8 @@
   ];
   networking.firewall = {
     enable = true;
-    allowedUDPPorts = [ 57120 57121 ];
-    allowedTCPPorts = [ 25565 ];
+    allowedUDPPorts = [ 57120 57121 58121 ];
+    allowedTCPPorts = [ 8081 58121 25565 ];
   };
   # zsh
   programs.zsh.enable = true;
@@ -70,10 +80,18 @@
   services.upower.enable = true;
   services.nixosManual.showManual = true;
   services.redshift = {
-    enable = true;
+    enable = false;
     latitude = "40.7127";
     longitude = "-74.0059";
   };
+  # services.hostapd = {
+  #   enable = true;
+  #   interface = "wlp3s0";
+  #   ssid = "poopy";
+  #   wpaPassphrase = "poop1234";
+  #   hwMode = "g";
+  #   channel = 10;
+  # };
   services.locate.enable = true;
   services.xserver = {
     enable = true;
@@ -120,6 +138,7 @@
   };
   hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
   hardware.facetimehd.enable = true;
+  hardware.bluetooth.enable = true;
   security.pam.loginLimits = 
   [
     { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
@@ -127,10 +146,10 @@
     { domain = "@audio"; item = "nofile"; type = "soft"; value = "99999"; }
     { domain = "@audio"; item = "nofile"; type = "hard"; value = "99999"; }
   ];
-  fileSystems."/media" = {
-    fsType = "hfsplus";
+  security.chromiumSuidSandbox.enable = true;
+  fileSystems."/stuff" = {
+    fsType = "ext4";
     device = "/dev/sda4";
-    options = ["force" "rw" "uid=501"];
   };
   users.extraUsers.slee2 = {
     isNormalUser = true;
@@ -142,7 +161,6 @@
   system.stateVersion = "unstable";
   virtualisation.docker.enable = true;
   virtualisation.virtualbox.host.enable = true;
-  nix.useSandbox = true;
   nix.nixPath = [ "nixpkgs=/home/slee2/my-nixpkgs/" "nixos-config=/etc/nixos/configuration.nix" ];
   nixpkgs.config.allowUnfree = true;
 }

@@ -13,7 +13,7 @@ with pkgs;
   emacs 
   neovim
   zsh
-  nodejs-6_x
+  nodejs-8_x
   silver-searcher
   python
   gnumake
@@ -23,5 +23,4 @@ with pkgs;
   perl
   shellcheck
   libelf
-  heroku
 ]

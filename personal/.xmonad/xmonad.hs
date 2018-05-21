@@ -34,7 +34,7 @@ main = xmonad =<< statusBar myBar myPP toggleStrutsKey myConfig
 
 myConfig =
   def {
-    terminal = "termite",
+    terminal = "alacritty",
     modMask = mod4Mask,
     handleEventHook = fullscreenEventHook,
     layoutHook = mylayoutHook,

@@ -25,122 +25,94 @@
         ]))
       ];
     };
-    pythonEnv = with pkgs; buildEnv {
-      name = "pythonEnv";
-      paths = [
-        python
-      ] ++ (with python27Packages; [
-        docker_compose
-        pip
-        setuptools
-        virtualenv
-      ]);
-    };
+    python2Env = with pkgs; python2.withPackages (ps: with ps; [ 
+      j2cli
+    ]);
+    python3Env = with pkgs; python35.withPackages (ps: with ps; [ 
+      pip 
+      virtualenv 
+      setuptools 
+    ]);
     all = with pkgs; buildEnv {
       name = "all";
       paths = [
         a2jmidid
+        # airwave
+        alacritty
         ansible
         arandr
         audacity
-        avahi
         awscli
         baudline
         bind
         bitwig-studio
-        boot
         colordiff
         compton-git
         docker
+        docker_compose
         emacs
         entr
         espeak
-        etherape
-        evince
         exfat
         fantasque-sans-mono
         file
         firefox
         flow
-        fluidsynth
-        fontmatrix
         gcc
-        ghcEnv
-        ghostscript
         gimp
         gist
         gitAndTools.hub
         gitAndTools.qgit
         git-cola
-        gnome3.cheese
-        gnome3.gnome-video-effects
+        gksu
         gnumake
         gnupg
-        gnuplot
         go
         google-chrome
+        gparted
         guvcview
         hack-font
-        # haskellPackages.Agda
+        # houdini
+        imagemagick
         inkscape
         ipafont
-        jdk
+        jmtpfs
         jq
-        leiningen
-        libv4l
-        m4
         maim
         meld
         meterbridge
         minecraft
         mixxx
+        monodevelop
         mpg123
         mplayer
         mysql
         ncdu
-        ncurses
         neovim
-        netcat-gnu
         nitrogen
-        nix-prefetch-scripts
-        nix-repl
-        nixUnstable
-        nmap_graphical
         nodejs-8_x
-        nox
-        openvpn
         ocaml
         ocamlPackages.findlib
         ocamlPackages.ocpIndent
         opam
         p7zip
-        parted
         patchage
-        patchelf
-        pkgconfig
-        poppler_utils
-        postgresql
+        proxychains
         pv
-        pythonEnv
+        # python2Env
+        # python3Env
         qjackctl
+        qlcplus
         ranger
         renameutils
         rlwrap
         rofi
-        ruby
-        sbt
-        scala
         screen
         scrot
         shellcheck
         silver-searcher
         simplescreenrecorder
         slack
-        slop
-        smlnj
-        socat
-        sox
-        spectrojack
         stunnel
         subversion
         supercollider
@@ -150,28 +122,26 @@
         termite
         terraform
         testdisk
-        timemachine
+        tigervnc
+        tldr
         tmux
         torbrowser
         transmission_gtk
         tsocks
-        uim
         unzip
-        usbutils
-        v4l_utils
+        unity3d
         vagrant
+        vlc
+        vscode
         wireshark-gtk
-        wmctrl
         w3m
+        x2vnc
         xclip
         xdg_utils
         xdotool
         xorg.xbacklight
         xorg.xev
-        xorg.xeyes
         xxd
-        xvfb_run
-        zeal
         zoom-us
       ];
     };

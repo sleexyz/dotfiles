@@ -38,6 +38,8 @@
       name = "all";
       paths = [
         a2jmidid
+        # airwave
+        alacritty
         ansible
         arandr
         audacity
@@ -46,7 +48,6 @@
         baudline
         bind
         bitwig-studio
-        boot
         colordiff
         compton-git
         docker
@@ -154,12 +155,14 @@
         tsocks
         uim
         unzip
-        usbutils
-        v4l_utils
+        unity3d
         vagrant
+        vlc
+        vscode
         wireshark-gtk
         wmctrl
         w3m
+        x2vnc
         xclip
         xdg_utils
         xdotool

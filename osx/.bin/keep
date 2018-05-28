@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+CHROME="google-chrome-stable"
+UDD="$HOME/.config/google-chrome/"
+APP_ID="hmjkmjkepdijhoojdojkdfohbdgmmhki"
+
+
+$CHROME --user-data-dir=$UDD \
+  --profile-directory=Default \
+  --app-id=$APP_ID

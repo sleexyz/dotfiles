@@ -3,8 +3,8 @@
   allowUnfree = true;
 
   packageOverrides = pkgs_: rec {
-    flow = pkgs.callPackage ./myPkgs/flow-0.55.0.nix {
-      inherit (pkgs.ocamlPackages_4_03) ocaml findlib camlp4 sedlex ocamlbuild;
+    flow = pkgs.callPackage ./myPkgs/flow-0.61.0.nix {
+      inherit (pkgs.ocamlPackages_4_03) ocaml findlib camlp4 sedlex ocamlbuild ocaml_lwt;
     };
     spectrojack = pkgs.callPackage ./myPkgs/spectrojack.nix {};
     bitwig-studio = pkgs.callPackage ./myPkgs/bitwig-studio.nix {
@@ -38,6 +38,8 @@
       name = "all";
       paths = [
         a2jmidid
+        # airwave
+        alacritty
         ansible
         arandr
         audacity
@@ -46,7 +48,6 @@
         baudline
         bind
         bitwig-studio
-        boot
         colordiff
         compton-git
         docker
@@ -139,12 +140,14 @@
         spectrojack
         stunnel
         subversion
+        supercollider
         sxiv
         tcptrack
         tcpdump
         termite
         terraform
         testdisk
+        tigervnc
         timemachine
         tmux
         torbrowser
@@ -152,12 +155,14 @@
         tsocks
         uim
         unzip
-        usbutils
-        v4l_utils
+        unity3d
         vagrant
+        vlc
+        vscode
         wireshark-gtk
         wmctrl
         w3m
+        x2vnc
         xclip
         xdg_utils
         xdotool

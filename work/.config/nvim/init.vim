@@ -102,15 +102,27 @@ command Wq wq
 command Wsudo w !sudo tee % > /dev/null
 
 
+"Goyo
+function! s:goyo_enter()
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+endfunction
 
+function! s:goyo_leave()
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+endfunction
 
-"Mycorrhizome
-nmap <F3> dd:echo system('str="$(date +"%F %H:%M")";str="$str$(echo '.shellescape(@").')";str=(${str:0:-1});echo $str>> $HOME/text/done')<CR>:echo 'Nice Job!'<CR>
-imap <F6> <esc>:r!echodate<CR>A
-nmap <F7> <esc>:r!t --now <CR>A  -  <esc>0i<backspace><esc>A
-" auto BufEnter thoughts.md normal G
-au BufEnter thoughts.md set ft=markdown
-au BufEnter s set ft=markdown
+autocmd! User GoyoEnter call <SID>goyo_enter()
+autocmd! User GoyoLeave call <SID>goyo_leave()
 
 
 call plug#end()

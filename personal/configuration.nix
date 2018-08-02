@@ -27,6 +27,17 @@
     # "8.8.4.4"
     # "10.1.1.10"
   ];
+  # services.redsocks = {
+  #   enable = true;
+  #   redsocks = [
+  #     {
+  #       doNotRedirect = [ "-d 192.168.129.0/24" ];
+  #       redirectCondition = true;
+  #       proxy = "127.0.0.1:9050";
+  #       type = "socks5";
+  #     }
+  #   ];
+  # };
   i18n = {
     consoleFont = "Lat2-Terminus16";
     consoleKeyMap = "us";
@@ -104,6 +115,7 @@
     };
     desktopManager.default = "none";
     desktopManager.xterm.enable = false;
+    # windowManager.openbox.enable = true;
     windowManager.default = "xmonad";
     windowManager.xmonad = {
       enable = true;
@@ -158,9 +170,12 @@
     createHome = true;
     home = "/home/slee2";
   };
+  sound.enable = true;
   system.stateVersion = "unstable";
   virtualisation.docker.enable = true;
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation.docker.liveRestore = false;
+  # virtualisation.virtualbox.host.enable = true;
   nix.nixPath = [ "nixpkgs=/home/slee2/my-nixpkgs/" "nixos-config=/etc/nixos/configuration.nix" ];
+  nix.useSandbox = true;
   nixpkgs.config.allowUnfree = true;
 }

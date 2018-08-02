@@ -39,6 +39,7 @@
         a2jmidid
         # airwave
         alacritty
+        android-studio
         ansible
         arandr
         audacity
@@ -59,16 +60,19 @@
         firefox
         flow
         gcc
+        ghc
         gimp
         gist
         gitAndTools.hub
         gitAndTools.qgit
         git-cola
+        git-lfs
         gksu
         gnumake
         gnupg
         go
         google-chrome
+        google-chrome-beta
         gparted
         guvcview
         hack-font
@@ -96,11 +100,14 @@
         ocamlPackages.ocpIndent
         opam
         p7zip
+        pass
         patchage
+        pgadmin
+        pgcli
         proxychains
         pv
         # python2Env
-        # python3Env
+        python3Env
         qjackctl
         qlcplus
         ranger
@@ -141,6 +148,7 @@
         xdotool
         xorg.xbacklight
         xorg.xev
+        xorg.xhost
         xxd
         zoom-us
       ];

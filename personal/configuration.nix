@@ -8,6 +8,7 @@
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelModules = [ "snd-aloop" "snd-virmidi"];
   boot.kernelParams = [ "acpi_backlight=vendor" ];
+  # boot.kernelParams = [ "pci=realloc" ];
   boot.extraModprobeConfig = ''
     options hid_apple fnmode=2
     options hid_apple iso_layout=0
@@ -136,6 +137,7 @@
       accelFactor = "0.02";
       palmDetect = true;
     };
+    # videoDrivers = [ "nvidia" ];
   };
   fonts = {
     enableFontDir = true;
@@ -151,6 +153,7 @@
   hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
   hardware.facetimehd.enable = true;
   hardware.bluetooth.enable = true;
+
   security.pam.loginLimits = 
   [
     { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
@@ -161,7 +164,7 @@
   security.chromiumSuidSandbox.enable = true;
   fileSystems."/stuff" = {
     fsType = "ext4";
-    device = "/dev/sda4";
+    device = "/dev/sda3";
   };
   users.extraUsers.slee2 = {
     isNormalUser = true;

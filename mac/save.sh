@@ -13,4 +13,5 @@ copyFromHome () {
 }
 
 copyFromHome "Library/Application Support/Code/User/settings.json"
+copyFromHome ".config/nvim/init.vim"
 

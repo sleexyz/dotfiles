@@ -1,0 +1,13 @@
+{
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "window.zoomLevel": 1,
+    "editor.tabSize": 2,
+    "files.autoSave": "onWindowChange",
+    "explorer.confirmDelete": false,
+    "files.insertFinalNewline": true
+}
